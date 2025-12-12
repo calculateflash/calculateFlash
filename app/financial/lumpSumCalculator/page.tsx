@@ -37,7 +37,7 @@ export default function LumpSumCalculatorPage() {
 
       <CalculatorHeader
         title="Lump Sum Calculator"
-        description="Calculate the future value and interest earned on a one-time investment."
+        description="Estimate the future value of a one-time investment using compound interest. Understand how principal amount, interest rate, and time period influence your returns. Ideal for mutual funds, retirement planning, and long-term wealth growth."
       />
 
       {/* INPUT SECTION */}
@@ -104,11 +104,33 @@ export default function LumpSumCalculatorPage() {
       <CalculatorFAQ
         items={[
           {
-            question: "What is lump sum investment?",
-            answer: "A one-time investment made into a mutual fund or fixed-income scheme."
+            question: "How does a lump sum investment calculator work?",
+            answer:
+              "A lump sum calculator estimates the future value of a one-time investment using the compound interest formula. It considers your principal amount, expected rate of return, and investment duration. This helps you understand how a single investment can grow over time with the power of compounding."
+          },
+          {
+            question: "Is lump sum investment better than SIP?",
+            answer:
+              "A lump sum investment can deliver higher returns when markets are undervalued or trending upward, as the entire amount starts compounding immediately. SIP is better for reducing risk during volatile markets. The choice depends on your risk appetite and market timing."
+          },
+          {
+            question: "What factors influence lump sum investment returns?",
+            answer:
+              "Key factors include the investment duration, annual rate of return, market performance, and compounding frequency. Longer durations and higher returns significantly increase the final value due to exponential growth from compounding."
+          },
+          {
+            question: "Are lump sum mutual fund investments risky?",
+            answer:
+              "Yes, lump sum investments carry market risk, especially in equity funds, because the entire amount is exposed at once. However, long-term investors often benefit from market growth. Conservative investors may prefer debt or hybrid funds for lower risk."
+          },
+          {
+            question: "Can I withdraw or switch my lump sum investment anytime?",
+            answer:
+              "Most mutual funds allow withdrawals or switching between schemes at any time, except in lock-in products like ELSS. However, exit loads and tax implications may apply. Reviewing your investment horizon and goals before withdrawing is recommended."
           }
         ]}
       />
+
 
     </section>
   );

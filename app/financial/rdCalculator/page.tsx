@@ -38,7 +38,7 @@ export default function RDCalculatorPage() {
 
       <CalculatorHeader
         title="RD Calculator"
-        description="Calculate maturity value and interest earned on monthly recurring deposits."
+        description="Find the maturity value of your Recurring Deposit based on monthly contributions. This tool calculates compound interest on each deposit, helping you understand long-term savings growth. Ideal for planning disciplined monthly investments."
       />
 
       {/* INPUT SECTION */}
@@ -110,15 +110,33 @@ export default function RDCalculatorPage() {
       <CalculatorFAQ
         items={[
           {
-            question: "What is the minimum RD duration?",
-            answer: "Most banks allow a minimum duration of 6 months."
+            question: "How is the maturity amount calculated for a Recurring Deposit?",
+            answer:
+              "RD maturity is calculated by applying compound interest on each monthly installment separately. Since every deposit is made at a different time, each one earns interest for a different duration. Banks typically use quarterly compounding, and the calculator helps estimate the total maturity value accurately."
           },
           {
-            question: "Is RD interest taxable?",
-            answer: "Yes. RD interest is taxable similar to FD."
+            question: "Is RD a good investment for long-term savings?",
+            answer:
+              "RDs are a safe and reliable savings option with guaranteed returns, making them great for disciplined monthly saving. They are ideal for individuals seeking low-risk investments. While returns are lower than market-linked products, the security and predictability make RDs attractive for many savers."
+          },
+          {
+            question: "Are RD returns taxable?",
+            answer:
+              "Yes, RD interest is fully taxable according to your income tax slab. Unlike FD, banks do not deduct TDS on RD interest, but you must report it in your income tax return. This is important to consider when planning long-term RD deposits."
+          },
+          {
+            question: "What happens if an RD installment is missed?",
+            answer:
+              "Missing an RD installment may result in a penalty depending on the bank’s rules. Frequent misses may even reduce the maturity amount. Some banks allow delayed payments with penalties, while others extend the tenure. Always check your bank’s RD policy."
+          },
+          {
+            question: "Can I close my RD before maturity?",
+            answer:
+              "Yes, premature closure is allowed but may lead to reduced interest rates and penalties. The final maturity amount is recalculated based on the actual tenure and bank’s penal interest policy. Use an RD calculator to understand the impact before closing."
           }
         ]}
-      />      
+      />
+     
     </section>
   );
 }

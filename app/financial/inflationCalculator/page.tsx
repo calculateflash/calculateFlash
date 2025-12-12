@@ -38,7 +38,7 @@ export default function InflationCalculatorPage() {
 
       <CalculatorHeader
         title="Inflation Calculator"
-        description="Estimate how inflation impacts the value of money over time."
+        description="Measure how inflation reduces the value of money over time. This calculator shows future value, present value, and the amount of value lost due to inflation. Useful for financial planning, budgeting, and long-term investment decisions."
       />
 
       {/* INPUT SECTION */}
@@ -108,16 +108,32 @@ export default function InflationCalculatorPage() {
       <CalculatorFAQ
         items={[
           {
-            question: "What is inflation?",
-            answer: "Inflation is the rise in prices which reduces the value of money."
+            question: "How does an inflation calculator measure the value of money over time?",
+            answer:
+              "An inflation calculator estimates how rising prices reduce the purchasing power of your money. It uses the inflation rate and number of years to show what your current amount will be worth in the future. This helps you understand long-term cost increases and plan financial goals realistically."
           },
           {
-            question: "What is a good inflation estimate?",
-            answer: "India averages around 5–6% inflation yearly."
+            question: "Why is inflation important in financial planning?",
+            answer:
+              "Inflation reduces the real value of savings and investment returns. Without accounting for it, long-term financial goals like retirement, education, and housing may become severely underfunded. A good financial plan always adjusts expected returns for inflation."
+          },
+          {
+            question: "What factors cause inflation to rise or fall?",
+            answer:
+              "Inflation is influenced by factors like demand-supply imbalance, rising production costs, government policies, and global economic trends. When demand rises or supply falls, prices increase. Central banks use monetary policies to control inflation levels."
+          },
+          {
+            question: "How can I protect my savings from inflation?",
+            answer:
+              "To beat inflation, investing in growth-oriented assets such as equity mutual funds, stocks, or inflation-protected bonds is recommended. Keeping money in low-interest savings accounts may cause loss of purchasing power over time."
+          },
+          {
+            question: "Does inflation impact all expenses equally?",
+            answer:
+              "No. Some categories like food, healthcare, and education often experience higher inflation than general CPI levels. Other expenses may rise slower. Understanding category-wise inflation helps plan budgets more accurately."
           }
         ]}
       />
-
 
     </section>
   );

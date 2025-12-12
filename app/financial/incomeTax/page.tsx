@@ -35,7 +35,7 @@ export default function IncomeTaxCalculatorPage() {
 
       <CalculatorHeader
         title="Income Tax Calculator"
-        description="Calculate your tax payable under the latest Indian new tax regime slabs."
+        description="Estimate your tax liability under the latest income tax regime. This calculator breaks down taxes across slabs and shows your effective tax rate. Plan your finances better by understanding taxable income and deductions clearly."
       />
 
       {/* INPUT */}
@@ -89,15 +89,33 @@ export default function IncomeTaxCalculatorPage() {
           "Effective tax rate = (Total Tax ÷ Income) × 100."
         ]}
       />
+      
       <CalculatorFAQ
         items={[
           {
-            question: "Which tax regime is used here?",
-            answer: "The Latest 2023+ New Tax Regime is used unless updated."
+            question: "How is income tax calculated under the latest tax regime?",
+            answer:
+              "Income tax is calculated based on the slab rates defined by the government for the financial year. The calculator applies these slab rates to your taxable income and considers any rebates available. It gives you an estimate of total tax payable and your effective tax rate."
           },
           {
-            question: "Do I get a rebate for income below ₹7,00,000?",
-            answer: "Yes. Under Section 87A, tax becomes zero."
+            question: "What is the difference between old and new tax regimes?",
+            answer:
+              "The old regime offers multiple deductions like HRA, 80C, 80D, and home loan benefits, while the new regime provides lower tax rates but fewer deductions. Depending on your tax-saving investments, one regime may offer lower tax liability than the other."
+          },
+          {
+            question: "Who is eligible for rebate under Section 87A?",
+            answer:
+              "Individuals with taxable income up to ₹7,00,000 under the new tax regime are eligible for a full tax rebate. This means the tax payable becomes zero, although you still need to file an income tax return if your income exceeds the basic exemption limit."
+          },
+          {
+            question: "Does income from all sources need to be included for tax calculation?",
+            answer:
+              "Yes. Salary, business income, rental income, capital gains, and interest income must all be included. The calculator provides an estimate, but the exact tax may vary depending on exemptions, deductions, or additional income sources."
+          },
+          {
+            question: "How can I reduce my income tax legally?",
+            answer:
+              "You can reduce tax liability through investments like ELSS, PPF, NPS, life insurance, and other deductions under Section 80C. Opting for the regime that gives you the lowest tax, based on your deductions, also helps minimize overall tax burden."
           }
         ]}
       />

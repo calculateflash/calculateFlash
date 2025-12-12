@@ -39,7 +39,7 @@ export default function FDCalculatorPage() {
 
       <CalculatorHeader
         title="FD Calculator"
-        description="Calculate the maturity value and interest earned on a fixed deposit."
+        description="Compute the maturity amount and interest earned on a Fixed Deposit. This calculator factors in principal, interest rate, duration, and compounding frequency. Compare FD returns across banks and plan secure, fixed-income investments easily."
       />
 
       {/* INPUT SECTION */}
@@ -122,15 +122,33 @@ export default function FDCalculatorPage() {
       <CalculatorFAQ
         items={[
           {
-            question: "Which compounding frequency gives highest maturity?",
-            answer: "Monthly compounding gives the highest return."
+            question: "How is the maturity amount calculated for a Fixed Deposit?",
+            answer:
+              "FD maturity is calculated using the compound interest formula based on the principal, interest rate, tenure, and compounding frequency. Banks typically compound interest quarterly, which increases the final amount compared to annual compounding. The calculator helps estimate the exact maturity value before investing."
           },
           {
-            question: "Is FD interest taxable?",
-            answer: "Yes. FD interest is fully taxable under income tax laws."
+            question: "Which compounding frequency gives the highest FD returns?",
+            answer:
+              "More frequent compounding—such as monthly or quarterly—gives higher returns because interest is added to the principal more often. Most banks use quarterly compounding, which increases maturity value compared to yearly compounding. Always check your bank’s compounding method before investing."
+          },
+          {
+            question: "Are FD returns taxable in India?",
+            answer:
+              "Yes, FD interest is fully taxable under 'Income from Other Sources' as per your income tax slab. Banks deduct TDS if annual interest exceeds ₹40,000 (₹50,000 for senior citizens). However, tax-saving FDs with a 5-year lock-in offer tax benefits under Section 80C."
+          },
+          {
+            question: "What is the minimum and maximum tenure for FD?",
+            answer:
+              "FDs typically start at a minimum tenure of 7 days and can go up to 10 years depending on the bank. Longer tenures generally provide higher interest rates. The tenure affects both the maturity amount and interest earned, making it an important decision before investing."
+          },
+          {
+            question: "Can I withdraw my FD before maturity?",
+            answer:
+              "Yes, premature withdrawal is allowed but may attract a penalty of 0.5% to 1% on the interest rate. Some banks also revise the applicable interest based on the duration the FD was actually held. Use an FD calculator to understand the impact before withdrawing."
           }
         ]}
       />
+
 
     </section>
   );
