@@ -7,6 +7,8 @@ import { CalculatorHeader } from "@/components/calculators/CalculatorHeader";
 import { InputCard } from "@/components/calculators/InputCard";
 import { ActionsCard } from "@/components/calculators/ActionsCard";
 import { ResultCard } from "@/components/calculators/ResultCard";
+import { CalculatorExplanation } from "@/components/calculators/CalculatorExplanation";
+import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
 import { calculateIncomeTax } from "./lib/incometax";
 
@@ -75,6 +77,31 @@ export default function IncomeTaxCalculatorPage() {
           />
         </div>
       )}
+
+      <CalculatorExplanation
+        title="How Income Tax Is Calculated?"
+        description="Income tax is calculated based on slab rates under the New Tax Regime. The more you earn, the higher the applicable tax rate."
+        formula={`Tax = Σ (Income within slab × slab rate)`}
+        steps={[
+          "Enter your annual taxable income.",
+          "Each slab has a different rate.",
+          "Rebate under Section 87A makes tax zero for income ≤ ₹7,00,000.",
+          "Effective tax rate = (Total Tax ÷ Income) × 100."
+        ]}
+      />
+      <CalculatorFAQ
+        items={[
+          {
+            question: "Which tax regime is used here?",
+            answer: "The Latest 2023+ New Tax Regime is used unless updated."
+          },
+          {
+            question: "Do I get a rebate for income below ₹7,00,000?",
+            answer: "Yes. Under Section 87A, tax becomes zero."
+          }
+        ]}
+      />
+
     </section>
   );
 }
