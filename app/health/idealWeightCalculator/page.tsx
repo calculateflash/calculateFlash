@@ -8,21 +8,20 @@ import { InputCard } from "@/components/calculators/InputCard";
 import { ActionsCard } from "@/components/calculators/ActionsCard";
 import { ResultCard } from "@/components/calculators/ResultCard";
 
-import { calculateBMI } from "./lib/bmiCalculate";
+import { calculateIdealWeight } from "./lib/idealWeightCalculate";
 
-export default function BMICalculatorPage() {
-  const [weight, setWeight] = useState<number | "">(70);
+export default function IdealWeightCalculatorPage() {
   const [height, setHeight] = useState<number | "">(170);
+  const [gender, setGender] = useState<"male" | "female">("male");
 
   const [result, setResult] = useState<{
-    bmi: number;
-    category: string;
+    idealWeight: number;
   } | null>(null);
 
   const handleCalculate = () => {
-    const output = calculateBMI({
-      weightKg: Number(weight) || 0,
+    const output = calculateIdealWeight({
       heightCm: Number(height) || 0,
+      gender
     });
 
     setResult(output);
@@ -32,8 +31,8 @@ export default function BMICalculatorPage() {
     <section className="max-w-3xl mx-auto">
 
       <CalculatorHeader
-        title="BMI Calculator"
-        description="Check your Body Mass Index (BMI) and health category."
+        title="Ideal Weight Calculator"
+        description="Find your ideal body weight based on height and gender."
       />
 
       {/* INPUT CARD */}
@@ -41,19 +40,26 @@ export default function BMICalculatorPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
           <InputCard
-            label="Weight (kg)"
-            value={weight}
-            onChange={setWeight}
-          />
-
-          <InputCard
             label="Height (cm)"
             value={height}
             onChange={setHeight}
           />
 
+          {/* Gender Dropdown */}
+          <div>
+            <label className="block mb-2 font-medium">Gender</label>
+            <select
+              className="w-full border rounded-md p-2"
+              value={gender}
+              onChange={(e) => setGender(e.target.value as "male" | "female")}
+            >
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+
           <ActionsCard
-            calculateLabel="Calculate BMI"
+            calculateLabel="Calculate Ideal Weight"
             exportLabel="Export PDF"
             onCalculate={handleCalculate}
             onExport={() => {}}
@@ -62,11 +68,10 @@ export default function BMICalculatorPage() {
         </div>
       </Card>
 
-      {/* RESULT CARDS */}
+      {/* RESULT CARD */}
       {result && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <ResultCard label="BMI Value" value={result.bmi} />
-          <ResultCard label="Category" value={result.category} />
+          <ResultCard label="Ideal Weight (kg)" value={result.idealWeight} />
         </div>
       )}
     </section>
