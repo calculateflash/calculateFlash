@@ -37,7 +37,7 @@ export default function LoanTenureCalculatorPage() {
 
       <CalculatorHeader
         title="Loan Tenure Calculator"
-        description="Find out how long it will take to repay your loan based on EMI and interest rate."
+        description="Calculate how long it will take to repay your loan based on EMI, interest rate, and loan amount. This tool determines the exact loan tenure in months and years. Useful for choosing the right EMI and optimizing repayment planning."
       />
 
       {/* INPUTS */}
@@ -102,11 +102,33 @@ export default function LoanTenureCalculatorPage() {
       <CalculatorFAQ
         items={[
           {
-            question: "Can I reduce my loan tenure?",
-            answer: "Yes. Increasing EMI or prepayment reduces your tenure."
+            question: "How is loan tenure calculated using EMI and interest rate?",
+            answer:
+              "Loan tenure is calculated using a logarithmic formula that determines how long it will take to repay a loan based on the EMI, interest rate, and principal amount. The calculator replicates the exact mathematical method used by banks to compute the duration required to close a loan fully."
+          },
+          {
+            question: "Does a higher EMI reduce the loan tenure?",
+            answer:
+              "Yes. A higher EMI increases the portion of principal repaid each month, resulting in a shorter loan tenure. This reduces your overall interest payment and helps you become debt-free faster. Even a small EMI increase can significantly shorten the tenure."
+          },
+          {
+            question: "How does the interest rate affect loan tenure?",
+            answer:
+              "A higher interest rate increases the interest portion of your EMI, which means it takes longer to reduce the principal. As a result, your loan tenure becomes longer. Conversely, a lower interest rate shortens the tenure and reduces the total interest paid."
+          },
+          {
+            question: "Can I shorten my loan tenure without increasing EMI?",
+            answer:
+              "Yes. Making part-prepayments directly reduces the outstanding principal, which decreases the remaining tenure even if EMI stays the same. Many borrowers use bonuses or savings to prepay and reduce their overall loan duration significantly."
+          },
+          {
+            question: "Why does the tenure vary between different lenders?",
+            answer:
+              "Different banks may use slightly different rounding rules, compounding methods, or minimum EMI thresholds. Additionally, lender-specific policies and risk assessments can influence how they calculate the allowable EMI and resulting loan tenure."
           }
         ]}
       />
+
 
     </section>
   );

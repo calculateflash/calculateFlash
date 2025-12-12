@@ -37,7 +37,7 @@ export default function SimpleInterestCalculatorPage() {
 
       <CalculatorHeader
         title="Simple Interest Calculator"
-        description="Calculate interest and total amount using the simple interest formula."
+        description="Calculate simple interest and total amount payable on loans or savings without compounding. Ideal for short-term loans, manual interest checks, and quick financial calculations. Enter principal, rate, and duration to get accurate results instantly."
       />
 
       {/* INPUT SECTION */}
@@ -104,11 +104,33 @@ export default function SimpleInterestCalculatorPage() {
       <CalculatorFAQ
         items={[
           {
-            question: "Is simple interest used in loans?",
-            answer: "It is used in short-term loans, education interest subsidies, and some savings schemes."
+            question: "How is simple interest calculated on a loan or investment?",
+            answer:
+              "Simple interest is calculated only on the principal amount using the formula SI = (P × R × T) / 100. It does not involve compounding, which makes it easy to understand and ideal for short-term loans, educational loans, and manual financial estimations."
+          },
+          {
+            question: "What is the difference between simple interest and compound interest?",
+            answer:
+              "Simple interest grows only on the initial principal, while compound interest grows on principal plus accumulated interest. For long-term investments, compound interest yields much higher returns. Simple interest is better suited for short-term and low-risk financial products."
+          },
+          {
+            question: "Is simple interest used by banks for loans?",
+            answer:
+              "Most banks use compound interest for long-term loans, but simple interest is commonly used for short-term loans, personal borrowing, agricultural loans, and interest subsidies. Simple interest makes repayment calculations straightforward and predictable."
+          },
+          {
+            question: "Does simple interest change during the loan period?",
+            answer:
+              "No, simple interest remains constant throughout the loan tenure because it is calculated only on the principal. This makes total repayment predictable and easy to calculate without complex formulas or fluctuating monthly payments."
+          },
+          {
+            question: "When is simple interest a better choice than compound interest?",
+            answer:
+              "Simple interest is ideal when you need short-term financing or want a transparent and predictable repayment plan. It's beneficial for loans with shorter durations where compounding would not significantly change the overall interest amount."
           }
         ]}
       />
+
 
     </section>
   );

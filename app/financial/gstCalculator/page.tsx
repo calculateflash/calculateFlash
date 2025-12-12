@@ -38,7 +38,7 @@ export default function GSTCalculatorPage() {
 
       <CalculatorHeader
         title="GST Calculator"
-        description="Add or remove GST from an amount based on the selected GST percentage."
+        description="Quickly add or remove GST from any amount using this simple tool. Calculate GST for 5%, 12%, 18%, or 28% tax slabs instantly. Useful for businesses, billing, accounting, and invoicing with accurate GST computations."
       />
 
       {/* INPUT CARD */}
@@ -111,15 +111,33 @@ export default function GSTCalculatorPage() {
       <CalculatorFAQ
         items={[
           {
-            question: "What are GST slabs in India?",
-            answer: "Common slabs are 5%, 12%, 18%, and 28% depending on the product/service."
+            question: "How is GST calculated on goods and services?",
+            answer:
+              "GST is calculated by applying the GST percentage (5%, 12%, 18%, or 28%) on the base amount. To add GST, the calculator multiplies the base value by the GST rate. To remove GST, it extracts the tax portion from an inclusive amount using reverse calculation."
           },
           {
-            question: "How do I calculate GST from an inclusive amount?",
-            answer: "Use formula: Amount ÷ (1 + GST%) to get base value, difference gives GST."
+            question: "How do I calculate GST from a GST-inclusive price?",
+            answer:
+              "A GST-inclusive amount already contains tax, so the calculator divides the value by (1 + GST/100) to find the base price. The difference between the inclusive amount and the base value is the GST portion. This method ensures precise tax extraction."
+          },
+          {
+            question: "Which GST slab applies to my product or service?",
+            answer:
+              "India follows four main GST slabs: 5% for essentials, 12% for certain goods, 18% for most services and products, and 28% for luxury items. Always verify the correct slab using official GST guidelines or your accountant."
+          },
+          {
+            question: "Why is GST added separately on some invoices?",
+            answer:
+              "Businesses registered under GST are required to show the tax amount clearly on invoices. Adding GST separately improves transparency, helps with input tax credit claims, and ensures compliance with government regulations."
+          },
+          {
+            question: "Can GST calculation vary between states?",
+            answer:
+              "GST is a unified tax across India, so the calculation does not vary between states. However, the distribution between CGST, SGST, and IGST depends on whether the transaction is intra-state or inter-state."
           }
         ]}
       />
+
 
     </section>
   );

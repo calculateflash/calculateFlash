@@ -37,7 +37,7 @@ export default function SIPCalculatorPage() {
     <section className="max-w-3xl mx-auto">
       <CalculatorHeader
         title="SIP Calculator"
-        description="Calculate future value, total invested amount and estimated returns."
+        description="Estimate how much wealth you can build through monthly SIP investments. This calculator shows the future value of your SIP based on expected returns and time period. Understand long-term compounding and plan systematic investments smarter."
       />
 
       {/* INPUT CARD */}
@@ -108,19 +108,33 @@ export default function SIPCalculatorPage() {
       <CalculatorFAQ
         items={[
           {
-            question: "What is SIP?",
-            answer: "SIP is a method of investing in mutual funds by contributing a fixed amount every month."
+            question: "How does a SIP calculator estimate the future value of investments?",
+            answer:
+              "A SIP calculator uses the compound interest formula to compute the future value of monthly investments. It considers your monthly contribution, expected annual returns, and investment duration. This helps you understand how consistent SIP investing builds long-term wealth through compounding."
           },
           {
-            question: "Does SIP guarantee returns?",
-            answer: "No. SIP returns depend on market performance, but long-term SIPs generally give stable growth."
+            question: "Is SIP better than lump sum investment?",
+            answer:
+              "SIP is ideal for averaging out market fluctuations because you invest periodically. It reduces market timing risk and suits beginners who want disciplined investing. Lump sum works better when markets are undervalued and you have large capital available."
           },
           {
-            question: "What is considered a good SIP return rate?",
-            answer: "Historically, equity SIPs deliver 10–15% annualized returns over long periods."
+            question: "How much return can I expect from SIP investments?",
+            answer:
+              "SIP returns depend on market performance, fund type, and investment duration. Historically, equity SIPs deliver 10–14% annualized returns over long periods. The longer you stay invested, the greater the compounding impact on your overall returns."
+          },
+          {
+            question: "Can I increase or decrease my SIP amount over time?",
+            answer:
+              "Yes, SIPs are flexible. You can increase your SIP amount through a top-up SIP or reduce it based on your financial situation. Adjusting SIP contributions helps align long-term goals like retirement, education, or wealth creation."
+          },
+          {
+            question: "Is SIP safe for long-term financial goals?",
+            answer:
+              "SIP is considered one of the most stable long-term wealth-building strategies. By investing monthly, you benefit from rupee cost averaging and compound returns. Over 5–10 years, SIPs can outperform many traditional investment options."
           }
         ]}
       />
+
 
     </section>
   );

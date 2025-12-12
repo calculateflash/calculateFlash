@@ -39,7 +39,7 @@ export default function EMICalculatorPage() {
 
       <CalculatorHeader
         title="EMI Calculator"
-        description="Estimate your monthly EMI, total interest, and total payment."
+        description="Calculate your monthly EMI along with total interest and total payment over your loan period. This tool helps you understand how loan amount, interest rate, and tenure affect your EMI. Use it to plan home, personal, or car loans more effectively."
       />
 
       {/* INPUT CARD */}
@@ -111,21 +111,33 @@ export default function EMICalculatorPage() {
       <CalculatorFAQ
         items={[
           {
-            question: "What is EMI?",
+            question: "How is EMI calculated for loans?",
             answer:
-              "EMI stands for Equated Monthly Instalment. It is the monthly amount you pay to repay a loan."
+              "EMI is calculated using the amortization formula based on loan amount, interest rate, and loan tenure. The EMI stays constant, while the interest and principal portions vary each month. Banks follow the reducing balance method to determine interest distribution."
           },
           {
-            question: "Does EMI reduce over time?",
+            question: "Why is the interest portion higher in the early months?",
             answer:
-              "The interest portion reduces and principal portion increases as you progress in loan tenure."
+              "At the start of the loan, the outstanding principal is high, so the interest charged is also higher. Over time, as the principal reduces, the interest portion decreases and more of the EMI goes toward repaying the principal."
           },
           {
-            question: "How does loan tenure affect EMI?",
-            answer: "Longer tenure reduces EMI but increases total interest paid."
+            question: "Can I reduce my EMI amount?",
+            answer:
+              "Yes. EMI can be reduced by increasing the loan tenure, refinancing to a lower interest rate, or making part-prepayments. All these methods reduce your financial burden depending on your repayment strategy."
           },
+          {
+            question: "Does increasing tenure lower EMI?",
+            answer:
+              "Increasing the tenure lowers your EMI significantly, making loan repayment easier. However, it increases the total interest paid over the life of the loan, making the loan costlier overall."
+          },
+          {
+            question: "Is EMI the same for home, car, and personal loans?",
+            answer:
+              "The EMI formula is the same for all loan types, but interest rates and tenures differ. Personal loans typically have higher interest rates, while home loans offer longer tenures and lower monthly payments."
+          }
         ]}
       />
+
     </section>
 
   );

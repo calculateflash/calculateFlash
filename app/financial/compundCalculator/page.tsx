@@ -39,7 +39,7 @@ export default function CompoundInterestCalculatorPage() {
 
       <CalculatorHeader
         title="Compound Interest Calculator"
-        description="Calculate the future value and interest earned on an investment with compound interest."
+        description="Calculate how your investment grows over time using compound interest. This calculator shows how the principal amount, interest rate, investment duration, and compounding frequency impact your final returns. Understand the exponential power of compounding and plan your long-term wealth effectively."
       />
 
       {/* INPUT SECTION */}
@@ -130,32 +130,33 @@ export default function CompoundInterestCalculatorPage() {
       <CalculatorFAQ
         items={[
           {
-            question: "What is compound interest?",
+            question: "How does compound interest work in investment growth?",
             answer:
-              "Compound interest is interest calculated on the initial principal plus any accumulated interest from previous periods. This leads to exponential growth of an investment."
+              "Compound interest reinvests earned interest back into the principal, allowing your investment to grow exponentially over time. Each compounding period adds new interest to the previous balance, making returns significantly higher than simple interest, especially for long-term investments."
           },
           {
-            question: "Which compounding frequency gives the highest return?",
+            question: "Which compounding frequency gives the highest returns?",
             answer:
-              "Higher compounding frequencies such as monthly or quarterly yield higher returns compared to annual compounding because interest is added more often."
+              "More frequent compounding—such as monthly or quarterly—yields higher returns because interest is calculated and added more frequently. Annual compounding offers lower returns compared to monthly compounding, making frequency a major factor in wealth growth."
           },
           {
-            question: "Is compound interest good for long-term investment?",
+            question: "Is compound interest better for long-term financial planning?",
             answer:
-              "Yes. The longer you stay invested, the more compounding benefits you receive — making it ideal for wealth-building."
+              "Yes, compound interest is one of the most powerful tools for long-term wealth creation. The longer you stay invested, the more your interest earns interest. This makes compound interest ideal for goals like retirement, education planning, or long-term savings."
           },
           {
-            question: "What is the difference between simple and compound interest?",
+            question: "What factors influence compound interest returns?",
             answer:
-              "Simple interest is only calculated on the principal amount, whereas compound interest adds interest on both principal and accumulated interest. This results in significantly higher returns."
+              "Key factors include principal amount, annual interest rate, investment duration, and compounding frequency. Even small increases in duration or rate can lead to significantly higher returns due to the exponential nature of compounding."
           },
           {
-            question: "Can compound interest work against me?",
+            question: "How is compound interest different from simple interest?",
             answer:
-              "Yes, in the case of credit cards or loans with compounding interest, unpaid balances grow faster, increasing the total amount owed."
+              "Simple interest grows only on the original principal, while compound interest grows on principal plus previously-earned interest. Over long periods, compound interest generates much higher returns, making it ideal for investment strategies."
           }
         ]}
       />
+
 
     </section>
   );
