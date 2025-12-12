@@ -7,6 +7,8 @@ import { CalculatorHeader } from "@/components/calculators/CalculatorHeader";
 import { InputCard } from "@/components/calculators/InputCard";
 import { ActionsCard } from "@/components/calculators/ActionsCard";
 import { ResultCard } from "@/components/calculators/ResultCard";
+import { CalculatorExplanation } from "@/components/calculators/CalculatorExplanation";
+import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
 import { calculateEMI } from "./lib/emicalculate";
 
@@ -93,6 +95,38 @@ export default function EMICalculatorPage() {
 
         </div>
       )}
+
+      <CalculatorExplanation
+        title="How EMI is Calculated?"
+        description="EMI (Equated Monthly Installment) is calculated using the standard amortization formula used by all Indian banks."
+        formula={`EMI = P × r × (1 + r)^n / [(1 + r)^n – 1]`}
+        steps={[
+          "P = Loan Amount",
+          "r = Monthly Interest Rate (Annual Rate / 12 / 100)",
+          "n = Loan tenure in months",
+          "The EMI includes both principal and interest.",
+        ]}
+      />
+
+      <CalculatorFAQ
+        items={[
+          {
+            question: "What is EMI?",
+            answer:
+              "EMI stands for Equated Monthly Instalment. It is the monthly amount you pay to repay a loan."
+          },
+          {
+            question: "Does EMI reduce over time?",
+            answer:
+              "The interest portion reduces and principal portion increases as you progress in loan tenure."
+          },
+          {
+            question: "How does loan tenure affect EMI?",
+            answer: "Longer tenure reduces EMI but increases total interest paid."
+          },
+        ]}
+      />
     </section>
+
   );
 }

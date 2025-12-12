@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { calculateSIP } from "./lib/sipCalculate";
 import { CalculatorHeader } from "@/components/calculators/CalculatorHeader";
 import { InputCard } from "@/components/calculators/InputCard";
 import { ActionsCard } from "@/components/calculators/ActionsCard";
 import { ResultCard } from "@/components/calculators/ResultCard";
+import { CalculatorExplanation } from "@/components/calculators/CalculatorExplanation";
+import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
 
 export default function SIPCalculatorPage() {
@@ -93,6 +93,35 @@ export default function SIPCalculatorPage() {
 
         </div>
       )}
+      <CalculatorExplanation
+        title="How SIP Returns Are Calculated?"
+        description="SIP (Systematic Investment Plan) grows your money using the power of compounding. Each month’s investment compounds based on the expected rate of return."
+        formula={`Future Value = P × [(1 + r)^n – 1] / r × (1 + r)`}
+        steps={[
+          "P = Monthly SIP investment.",
+          "r = Monthly return rate (Annual Rate ÷ 12 ÷ 100).",
+          "n = Total number of months.",
+          "SIP uses the compound interest formula for each monthly instalment."
+        ]}
+      />
+
+      <CalculatorFAQ
+        items={[
+          {
+            question: "What is SIP?",
+            answer: "SIP is a method of investing in mutual funds by contributing a fixed amount every month."
+          },
+          {
+            question: "Does SIP guarantee returns?",
+            answer: "No. SIP returns depend on market performance, but long-term SIPs generally give stable growth."
+          },
+          {
+            question: "What is considered a good SIP return rate?",
+            answer: "Historically, equity SIPs deliver 10–15% annualized returns over long periods."
+          }
+        ]}
+      />
+
     </section>
   );
 }

@@ -7,6 +7,8 @@ import { CalculatorHeader } from "@/components/calculators/CalculatorHeader";
 import { InputCard } from "@/components/calculators/InputCard";
 import { ActionsCard } from "@/components/calculators/ActionsCard";
 import { ResultCard } from "@/components/calculators/ResultCard";
+import { CalculatorExplanation } from "@/components/calculators/CalculatorExplanation";
+import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
 import { calculateGST } from "./lib/gstcalculate";
 
@@ -90,6 +92,35 @@ export default function GSTCalculatorPage() {
 
         </div>
       )}
+
+      <CalculatorExplanation
+        title="How GST is Calculated?"
+        description="GST can either be added to the base amount or removed from a GST-inclusive amount. Both calculations follow standard tax rules."
+        formula={`GST Added = Amount × (GST% / 100)
+        Total After GST = Amount + GST Added
+
+        GST Removed = Amount – [Amount ÷ (1 + GST%/100)]`}
+        steps={[
+          "Select whether you want to add or remove GST.",
+          "Enter the amount and GST percentage.",
+          "For addition, GST is applied on the base value.",
+          "For removal, the formula extracts GST from an inclusive price."
+        ]}
+      />
+
+      <CalculatorFAQ
+        items={[
+          {
+            question: "What are GST slabs in India?",
+            answer: "Common slabs are 5%, 12%, 18%, and 28% depending on the product/service."
+          },
+          {
+            question: "How do I calculate GST from an inclusive amount?",
+            answer: "Use formula: Amount ÷ (1 + GST%) to get base value, difference gives GST."
+          }
+        ]}
+      />
+
     </section>
   );
 }
