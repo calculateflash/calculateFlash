@@ -66,7 +66,13 @@ export default function HealthPage() {
         href="/health/dueDateCalculator"
         gradient="from-teal-500 to-green-600"
       />
+<CalculatorCard
+  title="Stress Score Calculator"
+  description="Estimate your stress level based on sleep, work, screen time, activity, caffeine and mood."
+  href="/health/stressScoreCalculator"
+  gradient="from-purple-500 to-red-600"
+/>
 
     </section>
-  );
+  )
 }

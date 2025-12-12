@@ -9,6 +9,8 @@ import { ActionsCard } from "@/components/calculators/ActionsCard";
 import { ResultCard } from "@/components/calculators/ResultCard";
 
 import { calculateBMR } from "./lib/bmrCalculate";
+import { CalculatorExplanation } from "@/components/calculators/CalculatorExplanation";
+import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
 export default function BMRCalculatorPage() {
   const [weight, setWeight] = useState<number | "">(70);
@@ -36,7 +38,7 @@ export default function BMRCalculatorPage() {
 
       <CalculatorHeader
         title="BMR Calculator"
-        description="Estimate your Basal Metabolic Rate (BMR)."
+        description="Estimate your Basal Metabolic Rate (BMR), which represents the number of calories your body needs at rest to maintain essential functions like breathing, circulation, and cell repair. Understanding your BMR helps you plan your diet, weight loss, or fitness goals more accurately."
       />
 
       {/* INPUT CARD */}
@@ -61,7 +63,7 @@ export default function BMRCalculatorPage() {
             onChange={setAge}
           />
 
-          {/* Gender dropdown — same UI container, still InputCard-style */}
+          {/* Gender dropdown */}
           <div>
             <label className="block mb-2 font-medium">Gender</label>
             <select
@@ -90,6 +92,58 @@ export default function BMRCalculatorPage() {
           <ResultCard label="BMR (Calories/day)" value={result.bmr} />
         </div>
       )}
+
+      {/* EXPLANATION SECTION */}
+      <CalculatorExplanation
+        title="How BMR Is Calculated?"
+        description="Basal Metabolic Rate (BMR) represents the minimum number of calories your body requires to perform basic life-sustaining functions. It is calculated using factors like weight, height, age, and gender. BMR is an important starting point for determining your total daily calorie needs."
+        formula={`Mifflin–St Jeor Formula:
+
+For Men:
+BMR = 10 × weight (kg) + 6.25 × height (cm) – 5 × age (years) + 5
+
+For Women:
+BMR = 10 × weight (kg) + 6.25 × height (cm) – 5 × age (years) – 161`}
+        steps={[
+          "Enter your weight, height, age, and gender.",
+          "The calculator applies the Mifflin–St Jeor equation to estimate your resting calorie burn.",
+          "Your BMR tells you how many calories you would burn in a day if you stayed at complete rest.",
+          "This value is used to calculate TDEE (Total Daily Energy Expenditure) when combined with your activity level.",
+          "Knowing your BMR helps you plan effective diet and fitness strategies."
+        ]}
+      />
+
+      {/* FAQ SECTION */}
+      <CalculatorFAQ
+        items={[
+          {
+            question: "What is BMR?",
+            answer:
+              "BMR (Basal Metabolic Rate) is the number of calories your body requires at rest to maintain essential functions such as breathing, blood circulation, and cell production."
+          },
+          {
+            question: "Why is BMR important?",
+            answer:
+              "BMR is the foundation for calculating your total daily calorie needs. It helps determine how many calories you should consume to lose, maintain, or gain weight."
+          },
+          {
+            question: "How does gender affect BMR?",
+            answer:
+              "Men usually have a higher BMR due to greater muscle mass. The BMR formulas include gender adjustments to reflect this difference."
+          },
+          {
+            question: "Does BMR change with age?",
+            answer:
+              "Yes. BMR generally decreases with age due to changes in muscle mass and metabolic activity."
+          },
+          {
+            question: "Is BMR alone enough to plan my diet?",
+            answer:
+              "No. BMR tells you your resting calorie needs. To get accurate daily calorie requirements, you must multiply BMR by an activity factor (TDEE)."
+          }
+        ]}
+      />
+
     </section>
   );
 }

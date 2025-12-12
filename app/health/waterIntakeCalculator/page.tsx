@@ -9,6 +9,8 @@ import { ActionsCard } from "@/components/calculators/ActionsCard";
 import { ResultCard } from "@/components/calculators/ResultCard";
 
 import { calculateWaterIntake } from "./lib/waterIntakeCalculate";
+import { CalculatorExplanation } from "@/components/calculators/CalculatorExplanation";
+import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
 export default function WaterIntakeCalculatorPage() {
   const [weight, setWeight] = useState<number | "">(70);
@@ -55,7 +57,7 @@ export default function WaterIntakeCalculatorPage() {
 
       <CalculatorHeader
         title="Water Intake Calculator"
-        description="Estimate your daily water needs based on weight, activity, climate and life stage."
+        description="Estimate your optimal daily water intake based on your weight, activity level, climate, and personal needs. Proper hydration supports energy levels, digestion, temperature regulation, and overall health."
       />
 
       {/* INPUT CARD */}
@@ -174,6 +176,67 @@ export default function WaterIntakeCalculatorPage() {
 
         </div>
       )}
+
+      {/* EXPLANATION SECTION */}
+      <CalculatorExplanation
+        title="How Water Intake Is Calculated?"
+        description="Daily hydration needs depend on your weight, physical activity, environmental temperature, and biological factors such as pregnancy or breastfeeding. This calculator uses scientifically supported hydration multipliers to give a personalized water recommendation."
+        formula={`Base Hydration:
+Men ≈ weight × 0.035 L
+Women ≈ weight × 0.033 L
+
+Activity Additions:
+Light: +0.3 L
+Moderate: +0.6 L
+Heavy: +1.0 L
+
+Climate Additions:
+Hot: +0.3 L
+Very Hot: +0.5 L
+
+Pregnancy:
+Pregnant: +0.5 L
+Breastfeeding: +0.75 L`}
+        steps={[
+          "Enter your weight and age, then select gender.",
+          "Choose your daily activity level to account for sweat and exertion.",
+          "Select your climate since hotter weather increases hydration needs.",
+          "If applicable, choose pregnancy or breastfeeding for additional hydration.",
+          "The calculator adds your base water requirement and all adjustments to estimate your ideal daily intake."
+        ]}
+      />
+
+      {/* FAQ SECTION */}
+      <CalculatorFAQ
+        items={[
+          {
+            question: "Is drinking more water always better?",
+            answer:
+              "Not necessarily. Excessive intake can lead to overhydration. Drink according to your body's needs and avoid forcing extreme volumes."
+          },
+          {
+            question: "Why does weight affect water needs?",
+            answer:
+              "Larger bodies contain more tissue that requires hydration, so water needs increase proportionally with weight."
+          },
+          {
+            question: "Does age change hydration needs?",
+            answer:
+              "Yes. Older adults may need slightly less due to lower metabolic activity, but staying hydrated is critical for all ages."
+          },
+          {
+            question: "Do I need more water if I exercise?",
+            answer:
+              "Yes. Physical activity increases sweat loss and requires additional hydration to maintain performance and health."
+          },
+          {
+            question: "Should pregnant or breastfeeding women drink more water?",
+            answer:
+              "Yes. Pregnancy and breastfeeding increase hydration requirements to support fetal development and milk production."
+          }
+        ]}
+      />
+
     </section>
   );
 }

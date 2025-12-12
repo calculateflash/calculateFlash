@@ -9,6 +9,8 @@ import { ActionsCard } from "@/components/calculators/ActionsCard";
 import { ResultCard } from "@/components/calculators/ResultCard";
 
 import { calculateMacros } from "./lib/macroCalculate";
+import { CalculatorExplanation } from "@/components/calculators/CalculatorExplanation";
+import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
 export default function MacroCalculatorPage() {
   const [weight, setWeight] = useState<number | "">(70);
@@ -43,7 +45,7 @@ export default function MacroCalculatorPage() {
 
       <CalculatorHeader
         title="Macro Calculator"
-        description="Calculate daily protein, fat, and carbohydrate targets based on your TDEE."
+        description="Determine your daily protein, fat, and carbohydrate targets based on your BMR, activity level, and fitness goals. This calculator uses your TDEE to create a balanced macro split for maintenance, weight loss, or muscle gain."
       />
 
       {/* INPUT CARD */}
@@ -105,6 +107,7 @@ export default function MacroCalculatorPage() {
             onCalculate={handleCalculate}
             onExport={() => {}}
           />
+
         </div>
       </Card>
 
@@ -122,6 +125,66 @@ export default function MacroCalculatorPage() {
 
         </div>
       )}
+
+      {/* EXPLANATION SECTION */}
+      <CalculatorExplanation
+        title="How Macro Needs Are Calculated?"
+        description="Your macro requirements are determined using your Basal Metabolic Rate (BMR), your activity level, and your fitness goal. Once your Total Daily Energy Expenditure (TDEE) is calculated, the calories are divided into protein, fat, and carbs based on scientifically recommended macro ratios."
+        formula={`Step 1 — Calculate BMR (Mifflin–St Jeor Formula):
+Men: BMR = 10 × weight + 6.25 × height − 5 × age + 5
+Women: BMR = 10 × weight + 6.25 × height − 5 × age − 161
+
+Step 2 — Apply Activity Multiplier:
+Sedentary × 1.2
+Light × 1.375
+Moderate × 1.55
+Active × 1.725
+Very Active × 1.9
+
+Step 3 — Distribute Macros by Goal:
+Maintenance: Protein 30%, Fat 25%, Carbs 45%
+Weight Loss: Protein 35%, Fat 25%, Carbs 40%
+Weight Gain: Protein 30%, Fat 30%, Carbs 40%`}
+        steps={[
+          "Enter your height, weight, age, gender, and activity level.",
+          "The calculator determines your BMR using the Mifflin–St Jeor formula.",
+          "Your activity level is applied to estimate TDEE (total calories burned daily).",
+          "Your chosen goal adjusts your calorie target up or down.",
+          "Your calories are split into recommended grams of protein, fat, and carbohydrates."
+        ]}
+      />
+
+      {/* FAQ SECTION */}
+      <CalculatorFAQ
+        items={[
+          {
+            question: "What are macros?",
+            answer:
+              "Macros (macronutrients) are protein, fat, and carbohydrates—nutrients that provide energy and support essential body functions."
+          },
+          {
+            question: "Why do fitness goals change macro ratios?",
+            answer:
+              "Muscle gain requires more calories and protein, while weight loss usually increases protein and lowers carb intake to preserve lean muscle."
+          },
+          {
+            question: "Is this macro split suitable for everyone?",
+            answer:
+              "These ratios work for most people, but athletes, bodybuilders, and individuals with medical conditions may need personalized adjustments."
+          },
+          {
+            question: "Should I track macros daily?",
+            answer:
+              "Tracking macros helps improve nutrition accuracy, especially for fat loss or muscle building."
+          },
+          {
+            question: "How accurate is this macro calculator?",
+            answer:
+              "It provides a reliable estimate based on scientific formulas, but individual metabolism can vary."
+          }
+        ]}
+      />
+
     </section>
   );
 }
