@@ -102,6 +102,88 @@ export default function LandingPage() {
           />
 
         </div>
+
+        <section className="mt-16 bg-white p-8 rounded-xl shadow-sm border">
+          <h2 className="text-2xl font-bold text-blue-700 mb-4">About CalculateFlash</h2>
+
+          <p className="text-slate-700 leading-relaxed mb-4">
+            CalculateFlash is a comprehensive suite of modern calculators designed to help users make
+            accurate financial, health, and everyday decisions—instantly. Our platform brings together
+            professional-grade tools in a simple, intuitive interface so anyone can calculate, plan,
+            and analyze without needing technical knowledge or complex formulas.
+          </p>
+
+          <p className="text-slate-700 leading-relaxed mb-4">
+            From EMI, SIP, GST, compound interest, and income tax tools to FD, RD, inflation, and more,
+            our financial calculators use reliable formulas followed by banks and financial institutions.
+            Whether you're planning investments, evaluating loans, or estimating savings growth, our tools
+            offer clarity and precision for confident financial planning.
+          </p>
+
+          <p className="text-slate-700 leading-relaxed mb-4">
+            Beyond finance, CalculateFlash includes essential health and utility calculators such as BMI,
+            calorie needs, age calculators, and unit converters. Each tool is built for speed and accuracy,
+            making it easier to track health metrics, convert values, or perform everyday calculations with ease.
+          </p>
+
+          <p className="text-slate-700 leading-relaxed mb-4">
+            Our platform is engineered with performance and accessibility in mind—fast loading pages,
+            mobile-friendly layouts, and structured SEO optimization ensure that both users and search engines
+            find exactly what they’re looking for. Every calculator is tested for accuracy and crafted to deliver
+            an effortless, informative experience.
+          </p>
+
+          <p className="text-slate-700 leading-relaxed">
+            CalculateFlash continues to grow with new tools, enhanced features, and ongoing performance
+            improvements. Our mission is simple: to become the most reliable and user-focused calculator
+            platform online, empowering millions of users with quick, accurate, and easy-to-use tools
+            for everyday decision-making.
+          </p>
+        </section>
+
+        <section className="mt-16 bg-white p-8 rounded-xl shadow-sm border space-y-10">
+
+          {/* WHY CHOOSE US */}
+          <div>
+            <h2 className="text-2xl font-bold text-blue-700 mb-3">Why Choose CalculateFlash?</h2>
+
+            <p className="text-slate-700 leading-relaxed mb-4">
+              CalculateFlash is built to deliver fast, accurate, and easy-to-use
+              calculators that help users make informed decisions effortlessly. 
+              With a growing suite of financial, health, and utility tools, we focus 
+              on reliability, transparency, and user satisfaction—making complex 
+              calculations simple for everyone.
+            </p>
+
+            <ul className="list-disc pl-6 text-slate-700 space-y-2">
+              <li><strong>Accurate & Trusted Results:</strong> Uses industry-standard formulas trusted by experts and institutions.</li>
+              <li><strong>Fast & Lightweight:</strong> Instant results with an optimized interface that works smoothly across all devices.</li>
+              <li><strong>Wide Range of Tools:</strong> Financial, health, and utility calculators—all available in one place.</li>
+              <li><strong>SEO-Optimized Pages:</strong> Built to rank higher on Google and deliver authoritative content for users.</li>
+              <li><strong>Ad-friendly Platform:</strong> Clean UI designed for monetization without compromising user experience.</li>
+            </ul>
+          </div>
+
+          {/* HOW IT WORKS */}
+          <div>
+            <h2 className="text-2xl font-bold text-blue-700 mb-3">How It Works</h2>
+
+            <p className="text-slate-700 leading-relaxed mb-4">
+              CalculateFlash is designed to make every tool intuitive and effortless to use.
+              Whether you're calculating EMI, estimating returns, checking your health stats,
+              or converting units, our system works the same way across all tools.
+            </p>
+
+            <ol className="list-decimal pl-6 text-slate-700 space-y-2">
+              <li><strong>Choose a Calculator:</strong> Browse our finance, health, or utility tools to find the one you need.</li>
+              <li><strong>Enter Your Values:</strong> Input only the necessary details—no complicated forms or technical steps.</li>
+              <li><strong>Get Instant Results:</strong> View accurate outputs immediately, including charts, comparisons, and summaries.</li>
+              <li><strong>Explore Insights:</strong> Read explanations, formulas, and FAQs to understand how the calculation works.</li>
+              <li><strong>Use Anywhere, Anytime:</strong> All tools are mobile-friendly, fast, and available without login or downloads.</li>
+            </ol>
+          </div>
+      </section>
+
       </div>
 
     </section>

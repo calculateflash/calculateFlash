@@ -1,66 +1,64 @@
 "use client";
 
 import Link from "next/link";
-import { cn } from "@/lib/utils";
-import { usePathname } from "next/navigation";
+import { Menu } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
+
 
 export function Header() {
-  
-const pathname = usePathname();
-
-const isActive = (path: string) => pathname.startsWith(path);
-
   return (
-    <header className="w-full border-b bg-white sticky top-0 z-30">
-      <div className="max-w-6xl mx-auto flex items-center justify-between py-4 px-4">
-        
-        {/* Logo */}
-        <Link href="/" className="text-xl font-bold text-blue-800">
+    <header className="w-full border-b bg-white sticky top-0 z-40">
+      <div className="max-w-6xl mx-auto flex justify-between items-center px-4 py-4">
+
+        {/* LOGO */}
+        <Link href="/" className="text-xl font-bold text-blue-700">
           CalculateFlash
         </Link>
 
-        {/* Nav */}
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-          <Link
-            href="/financial"
-            className={cn(
-              "transition-colors",
-              isActive("/financial") 
-                ? "text-amber-600 font-semibold"       // active
-                : "text-slate-600 hover:text-blue-600" // normal
-            )}
-          >
-            Financial
-          </Link>
-
-
-          <Link
-            href="/health"
-            className={cn(
-              "transition-colors",
-              isActive("/health")
-                ? "text-amber-600 font-semibold"
-                : "text-slate-600 hover:text-blue-600"
-            )}
-          >
-            Health
-          </Link>
-
-          <Link
-            href="/utility"
-            className={cn(
-              "transition-colors",
-              isActive("/student")
-                ? "text-amber-600 font-semibold"
-                : "text-slate-600 hover:text-blue-600"
-            )}
-          >
-            Utility
-          </Link>
-
+        {/* DESKTOP NAV */}
+        <nav className="hidden md:flex items-center gap-6 text-sm">
+          <Link href="/financial" className="hover:text-blue-600 transition">Financial</Link>
+          <Link href="/health" className="hover:text-blue-600 transition">Health</Link>
+          <Link href="/utility" className="hover:text-blue-600 transition">Utility</Link>
         </nav>
-        {/* CTA Button */}
-        {/* <Button className="hidden md:flex">Get Started</Button> */}
+
+        {/* MOBILE NAV */}
+        <div className="md:hidden">
+          <Sheet>
+            <SheetTrigger>
+              <Menu className="w-6 h-6 text-slate-700" />
+            </SheetTrigger>
+
+            <SheetContent side="right" className="p-6 w-64">
+
+              {/* REQUIRED FOR ACCESSIBILITY */}
+              <SheetTitle className="sr-only">
+                Mobile Navigation Menu
+              </SheetTitle>
+
+              <div className="flex flex-col gap-6 mt-6 text-lg font-medium">
+
+                <Link href="/financial" className="text-slate-700 hover:text-blue-600">
+                  Financial Tools
+                </Link>
+
+                <Link href="/health" className="text-slate-700 hover:text-blue-600">
+                  Health Tools
+                </Link>
+
+                <Link href="/utility" className="text-slate-700 hover:text-blue-600">
+                  Utility Tools
+                </Link>
+
+                <Link href="/" className="text-slate-700 hover:text-blue-600">
+                  Home
+                </Link>
+
+              </div>
+
+            </SheetContent>
+          </Sheet>
+        </div>
 
       </div>
     </header>
