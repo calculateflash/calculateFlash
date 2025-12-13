@@ -66,12 +66,25 @@ export default function HealthPage() {
         href="/health/dueDateCalculator"
         gradient="from-teal-500 to-green-600"
       />
-<CalculatorCard
-  title="Stress Score Calculator"
-  description="Estimate your stress level based on sleep, work, screen time, activity, caffeine and mood."
-  href="/health/stressScoreCalculator"
-  gradient="from-purple-500 to-red-600"
-/>
+      <CalculatorCard
+        title="Stress Score Calculator"
+        description="Estimate your stress level based on sleep, work, screen time, activity, caffeine and mood."
+        href="/health/stressScoreCalculator"
+        gradient="from-purple-500 to-red-600"
+      />
+      <CalculatorCard
+        title="Numerology Calculator"
+        description="Find your Life Path Number and discover what it reveals about your personality."
+        href="/health/numerologyCalculator"
+        gradient="from-violet-500 to-indigo-600"
+      />
+      <CalculatorCard
+        title="Unit Converter"
+        description="Convert length, weight, temperature, and time units instantly."
+        href="/health/unitConverter"
+        gradient="from-blue-500 to-indigo-600"
+      />
+
 
     </section>
   )
