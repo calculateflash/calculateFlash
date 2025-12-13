@@ -1,6 +1,5 @@
 import LandingPage from "./landing"
 import type { Metadata } from "next";
-
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 
 export const metadata: Metadata = {
@@ -34,6 +33,10 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: "CalculateFlash",
     type: "website",
+  },
+
+  verification: {
+    google: "4zG-IrufvY0feDXzKCPkpCGaB-kse9R8gRhwaItJzeM",
   },
 };
 
