@@ -10,6 +10,10 @@ import { ResultCard } from "@/components/calculators/ResultCard";
 import { CalculatorExplanation } from "@/components/calculators/CalculatorExplanation";
 import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
+import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
+import { utilityRelatedCalculatorsMap } from "../lib/utilityRelatedCalculators";
+const related = utilityRelatedCalculatorsMap.percentageCalculator;
+
 import {
   calculatePercentage,
   calculatePercentageOf,
@@ -173,7 +177,17 @@ export default function PercentageCalculatorPage() {
           },
         ]}
       />
-
+<section className="mt-12">
+                      <h2 className="text-xl font-semibold mb-6">
+                          Some other Calculators
+                      </h2>
+                
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                          {related.map((calc) => (
+                          <CalculatorMiniCard key={calc.href} {...calc} />
+                          ))}
+                      </div>
+                  </section>
     </section>
   );
 }

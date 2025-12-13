@@ -12,6 +12,10 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
 import { calculateIncomeTax } from "./lib/incometax";
 
+import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
+import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
+const related = relatedCalculatorsMap.incomeTax;
+
 export default function IncomeTaxCalculatorPage() {
   const [income, setIncome] = useState<number | "">(800000);
 
@@ -119,6 +123,19 @@ export default function IncomeTaxCalculatorPage() {
           }
         ]}
       />
+
+
+         <section className="mt-12">
+              <h2 className="text-xl font-semibold mb-6">
+                  Related Financial Calculators
+              </h2>
+        
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {related.map((calc) => (
+                  <CalculatorMiniCard key={calc.href} {...calc} />
+                  ))}
+              </div>
+              </section>
 
     </section>
   );

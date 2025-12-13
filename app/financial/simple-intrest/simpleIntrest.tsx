@@ -12,6 +12,12 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
 import { calculateSimpleInterest } from "./lib/simplecalculate";
 
+
+import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
+import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
+const related = relatedCalculatorsMap.simpleInterest;
+
+
 export default function SimpleInterestCalculatorPage() {
   const [principal, setPrincipal] = useState<number | "">(10000);
   const [annualRate, setAnnualRate] = useState<number | "">(10);
@@ -131,7 +137,17 @@ export default function SimpleInterestCalculatorPage() {
         ]}
       />
 
-
+        <section className="mt-12">
+             <h2 className="text-xl font-semibold mb-6">
+                 Related Financial Calculators
+             </h2>
+       
+             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                 {related.map((calc) => (
+                 <CalculatorMiniCard key={calc.href} {...calc} />
+                 ))}
+             </div>
+             </section>
     </section>
   );
 }

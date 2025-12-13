@@ -12,6 +12,10 @@ import { calculateIdealWeight } from "./lib/idealWeightCalculate";
 import { CalculatorExplanation } from "@/components/calculators/CalculatorExplanation";
 import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
+import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
+import { healthRelatedCalculatorsMap } from "../lib/healthRelatedCalculators";
+const related = healthRelatedCalculatorsMap.idealWeightCalculator;
+
 export default function IdealWeightCalculatorPage() {
   const [height, setHeight] = useState<number | "">(170);
   const [gender, setGender] = useState<"male" | "female">("male");
@@ -131,7 +135,17 @@ Women: 45 kg + 2.2 kg per inch over 5 ft
           }
         ]}
       />
-
+     <section className="mt-12">
+                <h2 className="text-xl font-semibold mb-6">
+                    Related Health Calculators
+                </h2>
+          
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {related.map((calc) => (
+                    <CalculatorMiniCard key={calc.href} {...calc} />
+                    ))}
+                </div>
+            </section>
     </section>
   );
 }

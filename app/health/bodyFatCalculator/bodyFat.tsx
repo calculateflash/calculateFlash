@@ -12,6 +12,11 @@ import { calculateBodyFat } from "./lib/bodyFatCalculate";
 import { CalculatorExplanation } from "@/components/calculators/CalculatorExplanation";
 import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
+import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
+import { healthRelatedCalculatorsMap } from "../lib/healthRelatedCalculators";
+const related = healthRelatedCalculatorsMap.bodyFatCalculator;
+
+
 export default function BodyFatCalculatorPage() {
   const [height, setHeight] = useState<number | "">(170);
   const [neck, setNeck] = useState<number | "">(35);
@@ -157,6 +162,18 @@ Body Fat % = 163.205 × log10(waist + hip − neck) − 97.684 × log10(height) 
         ]}
       />
 
+
+ <section className="mt-12">
+            <h2 className="text-xl font-semibold mb-6">
+                Related Health Calculators
+            </h2>
+      
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {related.map((calc) => (
+                <CalculatorMiniCard key={calc.href} {...calc} />
+                ))}
+            </div>
+        </section>
     </section>
   );
 }

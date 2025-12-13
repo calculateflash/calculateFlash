@@ -12,6 +12,10 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
 import { calculateLumpSum } from "./lib/lumpsumcalculate";
 
+import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
+import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
+const related = relatedCalculatorsMap.lumpSumCalculator;
+
 export default function LumpSumCalculatorPage() {
   const [principal, setPrincipal] = useState<number | "">(100000);
   const [annualRate, setAnnualRate] = useState<number | "">(12);
@@ -130,7 +134,17 @@ export default function LumpSumCalculatorPage() {
           }
         ]}
       />
-
+               <section className="mt-12">
+                    <h2 className="text-xl font-semibold mb-6">
+                        Related Financial Calculators
+                    </h2>
+              
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {related.map((calc) => (
+                        <CalculatorMiniCard key={calc.href} {...calc} />
+                        ))}
+                    </div>
+                    </section>
 
     </section>
   );

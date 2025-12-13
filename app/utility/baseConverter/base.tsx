@@ -11,6 +11,11 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
 import { convertAll, BaseType } from "./lib/baseConverter";
 
+
+import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
+import { utilityRelatedCalculatorsMap } from "../lib/utilityRelatedCalculators";
+const related = utilityRelatedCalculatorsMap.baseConverter;
+
 export default function BaseConverterPage() {
   const [input, setInput] = useState<string>("");
   const [sourceBase, setSourceBase] = useState<BaseType>("decimal");
@@ -116,7 +121,17 @@ Decimal → Hex: number.toString(16)`}
           }
         ]}
       />
-
+<section className="mt-12">
+                      <h2 className="text-xl font-semibold mb-6">
+                          Some other Calculators
+                      </h2>
+                
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                          {related.map((calc) => (
+                          <CalculatorMiniCard key={calc.href} {...calc} />
+                          ))}
+                      </div>
+                  </section>
     </section>
   );
 }

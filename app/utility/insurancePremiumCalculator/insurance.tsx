@@ -15,6 +15,9 @@ import {
   InsuranceResult,
 } from "./lib/insurancePremiumCalculate";
 
+import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
+import { utilityRelatedCalculatorsMap } from "../lib/utilityRelatedCalculators";
+const related = utilityRelatedCalculatorsMap.insurancePremiumCalculator;
 export default function InsurancePremiumCalculatorPage() {
   const [age, setAge] = useState<number | "">(30);
   const [sumInsured, setSumInsured] = useState<number | "">(500000);
@@ -178,7 +181,17 @@ export default function InsurancePremiumCalculatorPage() {
           },
         ]}
       />
-
+<section className="mt-12">
+                      <h2 className="text-xl font-semibold mb-6">
+                          Some other Calculators
+                      </h2>
+                
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                          {related.map((calc) => (
+                          <CalculatorMiniCard key={calc.href} {...calc} />
+                          ))}
+                      </div>
+                  </section>
     </section>
   );
 }

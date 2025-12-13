@@ -10,6 +10,9 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
 import { calculateZodiac, ZodiacResult } from "./lib/zodiacCalculate";
 
+import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
+import { utilityRelatedCalculatorsMap } from "../lib/utilityRelatedCalculators";
+const related = utilityRelatedCalculatorsMap.zodiacCalculator;
 export default function ZodiacCalculatorPage() {
   const [dob, setDob] = useState<string>("");
   const [result, setResult] = useState<ZodiacResult | null>(null);
@@ -117,7 +120,17 @@ export default function ZodiacCalculatorPage() {
           }
         ]}
       />
-
+<section className="mt-12">
+                      <h2 className="text-xl font-semibold mb-6">
+                          Some other Calculators
+                      </h2>
+                
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                          {related.map((calc) => (
+                          <CalculatorMiniCard key={calc.href} {...calc} />
+                          ))}
+                      </div>
+                  </section>
     </section>
   );
 }

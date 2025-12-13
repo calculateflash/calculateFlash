@@ -13,7 +13,7 @@ import { CalculatorMiniCard } from "@/components/CalculatorMiniCard";
 import { calculateEMI } from "./lib/emicalculate";
 
 import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
-const related = relatedCalculatorsMap.sipCalculator;
+const related = relatedCalculatorsMap.emiCalculator;
 
 export default function EMICalculatorPage() {
   const [loanAmount, setLoanAmount] = useState<number | "">(500000);

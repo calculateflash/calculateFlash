@@ -12,6 +12,10 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
 import { calculateLoanEligibility } from "./lib/loanEligibility";
 
+import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
+import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
+const related = relatedCalculatorsMap.loanEligibilityCalculator;
+
 export default function LoanEligibilityCalculatorPage() {
   const [income, setIncome] = useState<number | "">(50000);
   const [existingEmi, setExistingEmi] = useState<number | "">(0);
@@ -142,7 +146,17 @@ export default function LoanEligibilityCalculatorPage() {
           }
         ]}
       />
-
+        <section className="mt-12">
+             <h2 className="text-xl font-semibold mb-6">
+                 Related Financial Calculators
+             </h2>
+       
+             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                 {related.map((calc) => (
+                 <CalculatorMiniCard key={calc.href} {...calc} />
+                 ))}
+             </div>
+             </section>
     </section>
   );
 }

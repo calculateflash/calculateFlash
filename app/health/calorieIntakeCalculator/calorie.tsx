@@ -12,6 +12,12 @@ import { calculateCalorieIntake } from "./lib/calorieIntakeCalculate";
 import { CalculatorExplanation } from "@/components/calculators/CalculatorExplanation";
 import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
+
+import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
+import { healthRelatedCalculatorsMap } from "../lib/healthRelatedCalculators";
+const related = healthRelatedCalculatorsMap.calorieIntakeCalculator;
+
+
 export default function CalorieIntakeCalculatorPage() {
   const [weight, setWeight] = useState<number | "">(70);
   const [height, setHeight] = useState<number | "">(170);
@@ -161,7 +167,17 @@ Very Active: × 1.9`}
           }
         ]}
       />
-
+    <section className="mt-12">
+              <h2 className="text-xl font-semibold mb-6">
+                  Related Health Calculators
+              </h2>
+        
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {related.map((calc) => (
+                  <CalculatorMiniCard key={calc.href} {...calc} />
+                  ))}
+              </div>
+          </section>
     </section>
   );
 }

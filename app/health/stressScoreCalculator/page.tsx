@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import StressScoreCalculatorPage from "./stress";
 import { healthMetaDataMap } from "../lib/healthMetaData";
 import { healthCalculatorKeywordsMap } from "../lib/healthCalculatorKeywords";
-
 const meta = healthMetaDataMap.stressScoreCalculator;
 
 export const metadata: Metadata = {

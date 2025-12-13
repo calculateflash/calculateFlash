@@ -11,6 +11,10 @@ import { CalculatorExplanation } from "@/components/calculators/CalculatorExplan
 import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
 import { calculateGST } from "./lib/gstcalculate";
+import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
+import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
+
+const related = relatedCalculatorsMap.gstCalculator;
 
 export default function GSTCalculatorPage() {
   const [amount, setAmount] = useState<number | "">(1000);
@@ -137,7 +141,17 @@ export default function GSTCalculatorPage() {
           }
         ]}
       />
+    <section className="mt-12">
+      <h2 className="text-xl font-semibold mb-6">
+          Related Financial Calculators
+      </h2>
 
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {related.map((calc) => (
+          <CalculatorMiniCard key={calc.href} {...calc} />
+          ))}
+      </div>
+      </section>
 
     </section>
   );

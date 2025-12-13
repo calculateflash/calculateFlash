@@ -12,6 +12,10 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
 import { calculateRD } from "./lib/rdcalculate";
 
+import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
+import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
+const related = relatedCalculatorsMap.rdCalculator;
+
 export default function RDCalculatorPage() {
   const [monthlyDeposit, setMonthlyDeposit] = useState<number | "">(5000);
   const [annualRate, setAnnualRate] = useState<number | "">(7);
@@ -137,6 +141,17 @@ export default function RDCalculatorPage() {
         ]}
       />
      
+     <section className="mt-12">
+          <h2 className="text-xl font-semibold mb-6">
+              Related Financial Calculators
+          </h2>
+    
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {related.map((calc) => (
+              <CalculatorMiniCard key={calc.href} {...calc} />
+              ))}
+          </div>
+          </section>
     </section>
   );
 }

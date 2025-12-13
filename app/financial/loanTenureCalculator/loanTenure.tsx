@@ -12,6 +12,10 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
 import { calculateLoanTenure } from "./lib/loanTenureCalculate";
 
+import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
+import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
+const related = relatedCalculatorsMap.loanTenureCalculator;
+
 export default function LoanTenureCalculatorPage() {
   const [loanAmount, setLoanAmount] = useState<number | "">(500000);
   const [annualRate, setAnnualRate] = useState<number | "">(10);
@@ -129,7 +133,17 @@ export default function LoanTenureCalculatorPage() {
         ]}
       />
 
-
+        <section className="mt-12">
+             <h2 className="text-xl font-semibold mb-6">
+                 Related Financial Calculators
+             </h2>
+       
+             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                 {related.map((calc) => (
+                 <CalculatorMiniCard key={calc.href} {...calc} />
+                 ))}
+             </div>
+             </section>
     </section>
   );
 }

@@ -12,6 +12,10 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
 import { calculateCompoundInterest } from "./lib/compundCalculate";
 
+import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
+import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
+const related = relatedCalculatorsMap.compoundCalculator;
+
 export default function CompoundInterestCalculatorPage() {
   const [principal, setPrincipal] = useState<number | "">(100000);
   const [annualRate, setAnnualRate] = useState<number | "">(8);
@@ -156,6 +160,18 @@ export default function CompoundInterestCalculatorPage() {
           }
         ]}
       />
+        <section className="mt-12">
+      <h2 className="text-xl font-semibold mb-6">
+          Related Financial Calculators
+      </h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {related.map((calc) => (
+          <CalculatorMiniCard key={calc.href} {...calc} />
+          ))}
+      </div>
+      </section>
+
 
 
     </section>
