@@ -1,6 +1,6 @@
 import { CalculatorCard } from "@/components/CardCalculator";
 import { AboutSection } from "@/components/AboutSection";
-import { ArrowRight, HeartPulse, Settings, Wallet } from "lucide-react";
+import { HeartPulse, Settings, Wallet } from "lucide-react";
 import Link from "next/link";
 
 export default function LandingPage() {
@@ -135,7 +135,7 @@ export default function LandingPage() {
 
             <p className="text-slate-700 leading-relaxed mb-4">
               CalculateFlash is designed to make every tool intuitive and effortless to use.
-              Whether you're calculating EMI, estimating returns, checking your health stats,
+              Whether you&apos; re calculating EMI, estimating returns, checking your health stats,
               or converting units, our system works the same way across all tools.
             </p>
 
