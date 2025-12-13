@@ -16,7 +16,9 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { healthRelatedCalculatorsMap } from "../lib/healthRelatedCalculators";
 const related = healthRelatedCalculatorsMap.stressScoreCalculator;
+import StructuredData from "@/lib/StructuredData";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 export default function StressScoreCalculatorPage() {
   const [sleep, setSleep] = useState<number | "">(7);
   const [workHours, setWorkHours] = useState<number | "">(8);
@@ -52,6 +54,16 @@ export default function StressScoreCalculatorPage() {
 
   return (
     <section className="max-w-3xl mx-auto">
+      <StructuredData
+        calculatorKey="stressScore"
+        pageTitle="Stress Score Calculator"
+        pageUrl={`${SITE_URL}/health/stress-score-calculator`}
+        breadcrumbs={[
+          { name: "Home", url: SITE_URL },
+          { name: "Health Calculators", url: `${SITE_URL}/health` },
+          { name: "Stress Score Calculator", url: `${SITE_URL}/health/stress-score-calculator` },
+        ]}
+      />
 
       <CalculatorHeader
         title="Stress Score Calculator"

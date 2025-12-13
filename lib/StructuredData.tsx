@@ -22,9 +22,7 @@ export default function StructuredData({
     utilityCalculatorSchemaMap[calculatorKey];
 
   if (!data) return null;
-
   const schemas: any[] = [];
-
   /* -------------------- WebPage Schema -------------------- */
   schemas.push({
     "@context": "https://schema.org",

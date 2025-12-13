@@ -16,7 +16,9 @@ import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { healthRelatedCalculatorsMap } from "../lib/healthRelatedCalculators";
 const related = healthRelatedCalculatorsMap.bodyFatCalculator;
 
+import StructuredData from "@/lib/StructuredData";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 export default function BodyFatCalculatorPage() {
   const [height, setHeight] = useState<number | "">(170);
   const [neck, setNeck] = useState<number | "">(35);
@@ -43,6 +45,16 @@ export default function BodyFatCalculatorPage() {
 
   return (
     <section className="max-w-3xl mx-auto">
+       <StructuredData
+        calculatorKey="bodyFat"
+        pageTitle="Body Fat Calculator"
+        pageUrl={`${SITE_URL}/health/body-fat-calculator`}
+        breadcrumbs={[
+          { name: "Home", url: SITE_URL },
+          { name: "Health Calculators", url: `${SITE_URL}/health` },
+          { name: "Body Fat Calculator", url: `${SITE_URL}/health/body-fat-calculator` },
+        ]}
+      />
 
       <CalculatorHeader
         title="Body Fat Percentage Calculator"

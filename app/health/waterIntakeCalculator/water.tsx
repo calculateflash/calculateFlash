@@ -14,6 +14,10 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { healthRelatedCalculatorsMap } from "../lib/healthRelatedCalculators";
 const related = healthRelatedCalculatorsMap.waterIntakeCalculator;
+
+import StructuredData from "@/lib/StructuredData";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
+
 export default function WaterIntakeCalculatorPage() {
   const [weight, setWeight] = useState<number | "">(70);
   const [age, setAge] = useState<number | "">(30);
@@ -56,6 +60,16 @@ export default function WaterIntakeCalculatorPage() {
 
   return (
     <section className="max-w-3xl mx-auto">
+      <StructuredData
+        calculatorKey="waterIntake"
+        pageTitle="Water Intake Calculator"
+        pageUrl={`${SITE_URL}/health/water-intake-calculator`}
+        breadcrumbs={[
+          { name: "Home", url: SITE_URL },
+          { name: "Health Calculators", url: `${SITE_URL}/health` },
+          { name: "Water Intake Calculator", url: `${SITE_URL}/health/water-intake-calculator` },
+        ]}
+      />
 
       <CalculatorHeader
         title="Water Intake Calculator"

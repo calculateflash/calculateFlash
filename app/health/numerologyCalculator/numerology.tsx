@@ -13,7 +13,9 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { healthRelatedCalculatorsMap } from "../lib/healthRelatedCalculators";
 const related = healthRelatedCalculatorsMap.numerologyCalculator;
+import StructuredData from "@/lib/StructuredData";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 import {
   calculateNumerology,
   NumerologyResult,
@@ -36,6 +38,16 @@ export default function NumerologyCalculatorPage() {
 
   return (
     <section className="max-w-3xl mx-auto">
+      <StructuredData
+        calculatorKey="numerology"
+        pageTitle="Numerology Calculator"
+        pageUrl={`${SITE_URL}/health/numerology-calculator`}
+        breadcrumbs={[
+          { name: "Home", url: SITE_URL },
+          { name: "Health Calculators", url: `${SITE_URL}/health` },
+          { name: "Numerology Calculator", url: `${SITE_URL}/health/numerology-calculator` },
+        ]}
+      />
 
       <CalculatorHeader
         title="Numerology Calculator (Life Path Number)"

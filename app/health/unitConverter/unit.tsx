@@ -11,6 +11,10 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { healthRelatedCalculatorsMap } from "../lib/healthRelatedCalculators";
 const related = healthRelatedCalculatorsMap.unitConverter;
+
+import StructuredData from "@/lib/StructuredData";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 import {
   UnitCategory,
   units,
@@ -38,6 +42,16 @@ export default function UnitConverterPage() {
 
   return (
     <section className="max-w-3xl mx-auto">
+      <StructuredData
+        calculatorKey="unitConverter"
+        pageTitle="Health Unit Converter"
+        pageUrl={`${SITE_URL}/health/unit-converter`}
+        breadcrumbs={[
+          { name: "Home", url: SITE_URL },
+          { name: "Health Calculators", url: `${SITE_URL}/health` },
+          { name: "Unit Converter", url: `${SITE_URL}/health/unit-converter` },
+        ]}
+      />
 
       <CalculatorHeader
         title="Unit Converter"

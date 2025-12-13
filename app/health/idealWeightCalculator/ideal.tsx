@@ -15,7 +15,8 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { healthRelatedCalculatorsMap } from "../lib/healthRelatedCalculators";
 const related = healthRelatedCalculatorsMap.idealWeightCalculator;
-
+import StructuredData from "@/lib/StructuredData";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 export default function IdealWeightCalculatorPage() {
   const [height, setHeight] = useState<number | "">(170);
   const [gender, setGender] = useState<"male" | "female">("male");
@@ -35,6 +36,16 @@ export default function IdealWeightCalculatorPage() {
 
   return (
     <section className="max-w-3xl mx-auto">
+      <StructuredData
+      calculatorKey="idealWeight"
+      pageTitle="Ideal Weight Calculator"
+      pageUrl={`${SITE_URL}/health/ideal-weight-calculator`}
+      breadcrumbs={[
+        { name: "Home", url: SITE_URL },
+        { name: "Health Calculators", url: `${SITE_URL}/health` },
+        { name: "Ideal Weight Calculator", url: `${SITE_URL}/health/ideal-weight-calculator` },
+      ]}
+    />
 
       <CalculatorHeader
         title="Ideal Weight Calculator"

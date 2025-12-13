@@ -16,6 +16,11 @@ import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { healthRelatedCalculatorsMap } from "../lib/healthRelatedCalculators";
 const related = healthRelatedCalculatorsMap.bmiCalculator;
 
+import StructuredData from "@/lib/StructuredData";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
+
+
 export default function BMICalculatorPage() {
   const [weight, setWeight] = useState<number | "">(70);
   const [height, setHeight] = useState<number | "">(170);
@@ -36,6 +41,16 @@ export default function BMICalculatorPage() {
 
   return (
     <section className="max-w-3xl mx-auto">
+      <StructuredData
+  calculatorKey="bmi"
+  pageTitle="BMI Calculator"
+  pageUrl={`${SITE_URL}/health/bmi-calculator`}
+  breadcrumbs={[
+    { name: "Home", url: SITE_URL },
+    { name: "Health Calculators", url: `${SITE_URL}/health` },
+    { name: "BMI Calculator", url: `${SITE_URL}/health/bmi-calculator` },
+  ]}
+/>
 
       <CalculatorHeader
         title="BMI Calculator"

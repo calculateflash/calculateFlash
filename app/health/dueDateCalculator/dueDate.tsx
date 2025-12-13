@@ -15,7 +15,9 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { healthRelatedCalculatorsMap } from "../lib/healthRelatedCalculators";
 const related = healthRelatedCalculatorsMap.dueDateCalculator;
+import StructuredData from "@/lib/StructuredData";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 export default function PregnancyDueDateCalculatorPage() {
   const [lmp, setLmp] = useState<string>("");
 
@@ -35,7 +37,16 @@ export default function PregnancyDueDateCalculatorPage() {
 
   return (
     <section className="max-w-3xl mx-auto">
-
+      <StructuredData
+      calculatorKey="dueDate"
+      pageTitle="Pregnancy Due Date Calculator"
+      pageUrl={`${SITE_URL}/health/due-date-calculator`}
+      breadcrumbs={[
+        { name: "Home", url: SITE_URL },
+        { name: "Health Calculators", url: `${SITE_URL}/health` },
+        { name: "Due Date Calculator", url: `${SITE_URL}/health/due-date-calculator` },
+      ]}
+    />
       <CalculatorHeader
         title="Pregnancy Due Date Calculator"
         description="Estimate your baby's expected delivery date using Naegele’s Rule. By entering the first day of your last menstrual period (LMP), you can quickly predict your due date, current pregnancy week, and trimester."

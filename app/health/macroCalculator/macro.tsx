@@ -15,7 +15,9 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { healthRelatedCalculatorsMap } from "../lib/healthRelatedCalculators";
 const related = healthRelatedCalculatorsMap.macroCalculator;
+import StructuredData from "@/lib/StructuredData";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 export default function MacroCalculatorPage() {
   const [weight, setWeight] = useState<number | "">(70);
   const [height, setHeight] = useState<number | "">(170);
@@ -46,6 +48,16 @@ export default function MacroCalculatorPage() {
 
   return (
     <section className="max-w-3xl mx-auto">
+      <StructuredData
+      calculatorKey="macro"
+      pageTitle="Macro Calculator"
+      pageUrl={`${SITE_URL}/health/macro-calculator`}
+      breadcrumbs={[
+        { name: "Home", url: SITE_URL },
+        { name: "Health Calculators", url: `${SITE_URL}/health` },
+        { name: "Macro Calculator", url: `${SITE_URL}/health/macro-calculator` },
+      ]}
+    />
 
       <CalculatorHeader
         title="Macro Calculator"

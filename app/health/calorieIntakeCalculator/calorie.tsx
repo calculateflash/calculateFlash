@@ -12,7 +12,9 @@ import { calculateCalorieIntake } from "./lib/calorieIntakeCalculate";
 import { CalculatorExplanation } from "@/components/calculators/CalculatorExplanation";
 import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
+import StructuredData from "@/lib/StructuredData";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { healthRelatedCalculatorsMap } from "../lib/healthRelatedCalculators";
 const related = healthRelatedCalculatorsMap.calorieIntakeCalculator;
@@ -178,6 +180,17 @@ Very Active: × 1.9`}
                   ))}
               </div>
           </section>
+          <StructuredData
+            calculatorKey="calorieIntake"
+            pageTitle="Calorie Intake Calculator"
+            pageUrl={`${SITE_URL}/health/calorie-intake-calculator`}
+            breadcrumbs={[
+              { name: "Home", url: SITE_URL },
+              { name: "Health Calculators", url: `${SITE_URL}/health` },
+              { name: "Calorie Intake Calculator", url: `${SITE_URL}/health/calorie-intake-calculator` },
+            ]}
+          />
+
     </section>
   );
 }
