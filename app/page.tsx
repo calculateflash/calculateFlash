@@ -1,4 +1,5 @@
 import { CalculatorCard } from "@/components/CardCalculator";
+import { AboutSection } from "@/components/AboutSection";
 import { ArrowRight, HeartPulse, Settings, Wallet } from "lucide-react";
 import Link from "next/link";
 
@@ -75,14 +76,14 @@ export default function LandingPage() {
           <CalculatorCard
             title="BMI Calculator"
             description="Body Mass Index for weight category."
-            href="/health/bmi"
+            href="/health/bmiCalculator"
             gradient="from-red-500 to-rose-600"
           />
 
           <CalculatorCard
             title="Calorie Calculator"
             description="Daily calorie needs based on activity."
-            href="/health/calorie"
+            href="/health/calorieIntakeCalculator"
             gradient="from-orange-500 to-amber-600"
           />
 
@@ -90,56 +91,20 @@ export default function LandingPage() {
           <CalculatorCard
             title="Age Calculator"
             description="Calculate accurate age in seconds."
-            href="/utility/age"
+            href="/utility/ageCalculator"
             gradient="from-purple-500 to-fuchsia-600"
           />
 
           <CalculatorCard
             title="Unit Converter"
             description="Convert units quickly and easily."
-            href="/utility/unitConverter"
+            href="/health/unitConverter"
             gradient="from-teal-500 to-cyan-600"
           />
 
         </div>
 
-        <section className="mt-16 bg-white p-8 rounded-xl shadow-sm border">
-          <h2 className="text-2xl font-bold text-blue-700 mb-4">About CalculateFlash</h2>
-
-          <p className="text-slate-700 leading-relaxed mb-4">
-            CalculateFlash is a comprehensive suite of modern calculators designed to help users make
-            accurate financial, health, and everyday decisions—instantly. Our platform brings together
-            professional-grade tools in a simple, intuitive interface so anyone can calculate, plan,
-            and analyze without needing technical knowledge or complex formulas.
-          </p>
-
-          <p className="text-slate-700 leading-relaxed mb-4">
-            From EMI, SIP, GST, compound interest, and income tax tools to FD, RD, inflation, and more,
-            our financial calculators use reliable formulas followed by banks and financial institutions.
-            Whether you're planning investments, evaluating loans, or estimating savings growth, our tools
-            offer clarity and precision for confident financial planning.
-          </p>
-
-          <p className="text-slate-700 leading-relaxed mb-4">
-            Beyond finance, CalculateFlash includes essential health and utility calculators such as BMI,
-            calorie needs, age calculators, and unit converters. Each tool is built for speed and accuracy,
-            making it easier to track health metrics, convert values, or perform everyday calculations with ease.
-          </p>
-
-          <p className="text-slate-700 leading-relaxed mb-4">
-            Our platform is engineered with performance and accessibility in mind—fast loading pages,
-            mobile-friendly layouts, and structured SEO optimization ensure that both users and search engines
-            find exactly what they’re looking for. Every calculator is tested for accuracy and crafted to deliver
-            an effortless, informative experience.
-          </p>
-
-          <p className="text-slate-700 leading-relaxed">
-            CalculateFlash continues to grow with new tools, enhanced features, and ongoing performance
-            improvements. Our mission is simple: to become the most reliable and user-focused calculator
-            platform online, empowering millions of users with quick, accurate, and easy-to-use tools
-            for everyday decision-making.
-          </p>
-        </section>
+        <AboutSection/>
 
         <section className="mt-16 bg-white p-8 rounded-xl shadow-sm border space-y-10">
 
