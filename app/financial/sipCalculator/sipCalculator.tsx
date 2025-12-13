@@ -14,7 +14,6 @@ import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
 import { calculatorSeoContentMap } from "../../financial/lib/financeCalculatorSeoContent";
 import { CalculatorCard } from "@/components/CardCalculator";
 
-import StructuredData from "../lib/StructuredData";
 import { p } from "framer-motion/client";
 
 const related = relatedCalculatorsMap.sipCalculator;
@@ -57,7 +56,7 @@ export default function SIPCalculatorPage() {
   return (
     <>
 
-    <StructuredData
+    {/* <StructuredData
       calculatorKey="sipCalculator"
       pageTitle="SIP Calculator"
       pageUrl={`${SITE_URL}/financial/sipCalculator`}
@@ -66,7 +65,7 @@ export default function SIPCalculatorPage() {
         { name: "Financial Calculators", url: `${SITE_URL}/financial` },
         { name: "SIP Calculator", url: `${SITE_URL}/financial/sipCalculator` },
       ]}
-    />
+    /> */}
 
     <section className="max-w-3xl mx-auto">
       <CalculatorHeader

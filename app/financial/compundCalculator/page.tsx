@@ -3,12 +3,12 @@ import { calculatorMetaMap } from "../lib/financeMetaData";
 import { calculatorKeywordsMap } from "../../financial/lib/financeCalculatorKeywords";
 import CompoundInterestCalculatorPage from "./compoundCalculator";
 
-const meta = calculatorMetaMap.compundCalculator;
+const meta = calculatorMetaMap.compoundCalculator;
 
 export const metadata: Metadata = {
   title: meta.title,
   description: meta.description,
-  keywords: calculatorKeywordsMap.compundCalculator,
+  keywords: calculatorKeywordsMap.compoundCalculator,
   alternates: {
     canonical: `${process.env.url}/financial/compundCalculator`,
   },

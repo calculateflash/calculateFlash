@@ -24,15 +24,21 @@ export default function LoanEligibilityCalculatorPage() {
   } | null>(null);
 
   const handleCalculate = () => {
-    const output = calculateLoanEligibility({
-      income: Number(income) || 0,
-      existingEmi: Number(existingEmi) || 0,
-      annualRate: Number(annualRate) || 0,
-      tenureYears: Number(tenureYears) || 0,
-    });
+    try {
+      const output = calculateLoanEligibility({
+        income: Number(income) || 0,
+        existingEmi: Number(existingEmi) || 0,
+        annualRate: Number(annualRate) || 0,
+        tenureYears: Number(tenureYears) || 0,
+      });
 
-    setResult(output);
+      setResult(output);
+    } catch (e) {
+      console.error(e);
+      alert("Please enter valid loan details");
+    }
   };
+
 
   return (
     <section className="max-w-3xl mx-auto">

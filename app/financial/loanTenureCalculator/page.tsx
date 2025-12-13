@@ -3,14 +3,14 @@ import { calculatorMetaMap } from "../lib/financeMetaData";
 import { calculatorKeywordsMap } from "../../financial/lib/financeCalculatorKeywords";
 import LoanTenureCalculatorPage from "./loanTenure";
 
-const meta = calculatorMetaMap.LoanTenureCalculator;
+const meta = calculatorMetaMap.loanTenureCalculator;
 
 export const metadata: Metadata = {
   title: meta.title,
   description: meta.description,
-  keywords: calculatorKeywordsMap.LoanTenureCalculator,
+  keywords: calculatorKeywordsMap.loanTenureCalculator,
   alternates: {
-    canonical: `${process.env.url}/financial/LoanTenureCalculator`,
+    canonical: `${process.env.url}/financial/loanTenureCalculator`,
   },
 };
 

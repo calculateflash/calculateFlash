@@ -3,7 +3,7 @@ import { calculatorMetaMap } from "../lib/financeMetaData";
 import { calculatorKeywordsMap } from "../../financial/lib/financeCalculatorKeywords";
 import IncomeTaxCalculatorPage from "./income";
 
-const meta = calculatorMetaMap.incomeTaxCalculator;
+const meta = calculatorMetaMap.incomeTax;
 
 export const metadata: Metadata = {
   title: meta.title,

@@ -3,14 +3,14 @@ import { calculatorMetaMap } from "../lib/financeMetaData";
 import { calculatorKeywordsMap } from "../../financial/lib/financeCalculatorKeywords";
 import LumpSumCalculatorPage from "./lumpSum";
 
-const meta = calculatorMetaMap.LumpSumCalculator;
+const meta = calculatorMetaMap.lumpSumCalculator;
 
 export const metadata: Metadata = {
   title: meta.title,
   description: meta.description,
-  keywords: calculatorKeywordsMap.LumpSumCalculator,
+  keywords: calculatorKeywordsMap.lumpSumCalculator,
   alternates: {
-    canonical: `${process.env.url}/financial/LumpSumCalculator`,
+    canonical: `${process.env.url}/financial/lumpSumCalculator`,
   },
 };
 

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { calculatorMetaMap } from "../lib/financeMetaData";
 import { calculatorKeywordsMap } from "../../financial/lib/financeCalculatorKeywords";
-import LoanEligibilityCalculatorPage from "./page";
+import LoanEligibilityCalculatorPage from "./loan";
 
 const meta = calculatorMetaMap.loanEligibilityCalculator;
 
@@ -14,6 +14,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function fdCalculator() {
+export default function Page() {
   return <LoanEligibilityCalculatorPage/>
 }
