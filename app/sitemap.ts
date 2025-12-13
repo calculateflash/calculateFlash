@@ -11,9 +11,21 @@ export default function sitemap() {
       lastModified: now,
     },
 
+    {
+      url: `${baseUrl}/about`,
+      lastModified: now,
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: now,
+    },
+    {
+      url: `${baseUrl}/disclaimer`,
+      lastModified: now,
+    },
     // Section pages
     {
-      url: `${baseUrl}/financial`,
+      url: `${baseUrl}/privacy-policy`,
       lastModified: now,
     },
     {
