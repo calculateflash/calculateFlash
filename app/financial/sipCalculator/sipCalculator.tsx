@@ -10,12 +10,10 @@ import { ResultCard } from "@/components/calculators/ResultCard";
 import { CalculatorExplanation } from "@/components/calculators/CalculatorExplanation";
 import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 import type { Metadata } from "next";
-import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
 import { calculatorSeoContentMap } from "../../financial/lib/financeCalculatorSeoContent";
-import { CalculatorCard } from "@/components/CardCalculator";
+import { CalculatorMiniCard } from "@/components/CalculatorMiniCard";
 
-import { p } from "framer-motion/client";
-
+import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
 const related = relatedCalculatorsMap.sipCalculator;
 
 export const metadata: Metadata = {
@@ -171,7 +169,7 @@ export default function SIPCalculatorPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {related.map((calc) => (
-          <CalculatorCard key={calc.href} {...calc} />
+          <CalculatorMiniCard key={calc.href} {...calc} />
           ))}
       </div>
       </section>

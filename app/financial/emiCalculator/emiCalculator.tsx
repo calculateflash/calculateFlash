@@ -9,8 +9,11 @@ import { ActionsCard } from "@/components/calculators/ActionsCard";
 import { ResultCard } from "@/components/calculators/ResultCard";
 import { CalculatorExplanation } from "@/components/calculators/CalculatorExplanation";
 import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
-import { CalculatorCard } from "@/components/CardCalculator";
+import { CalculatorMiniCard } from "@/components/CalculatorMiniCard";
 import { calculateEMI } from "./lib/emicalculate";
+
+import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
+const related = relatedCalculatorsMap.sipCalculator;
 
 export default function EMICalculatorPage() {
   const [loanAmount, setLoanAmount] = useState<number | "">(500000);
@@ -137,28 +140,18 @@ export default function EMICalculatorPage() {
           }
         ]}
       />
-      <div className="flex flex-row gap-4 mt-8 ml-15">
-        <CalculatorCard
-        title="Income Tax Calculator"
-        description="Estimate your tax liability."
-        href="/financial/incomeTax"
-        gradient="from-purple-500 to-purple-700"
-      />
+      
+      <section className="mt-12">
+      <h2 className="text-xl font-semibold mb-6">
+          Related Financial Calculators
+      </h2>
 
-      <CalculatorCard
-        title="Compound Interest Calculator"
-        description="Future value of compounded investment."
-        href="/financial/compundCalculator"
-        gradient="from-indigo-500 to-indigo-700"
-      />
-
-      <CalculatorCard
-        title="FD Calculator"
-        description="Calculate maturity value of fixed deposits."
-        href="/financial/fdCalculator"
-        gradient="from-emerald-500 to-emerald-700"
-      />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {related.map((calc) => (
+          <CalculatorMiniCard key={calc.href} {...calc} />
+          ))}
       </div>
+      </section>
     </section>
 
   );
