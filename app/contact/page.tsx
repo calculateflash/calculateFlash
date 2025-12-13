@@ -12,7 +12,7 @@ export default function ContactPage() {
         <div className="max-w-xl mx-auto rounded-2xl bg-white/70 backdrop-blur border p-10 shadow-sm text-center">
           <Mail className="w-12 h-12 mx-auto text-blue-600 mb-4" />
           <p className="text-lg font-semibold text-slate-800">
-            support@calculateflash.com
+            calculateflash@gmail.com
           </p>
           <p className="mt-2 text-slate-600">
             We usually respond within 24–48 hours.
