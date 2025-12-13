@@ -1,4 +1,6 @@
-import { calculatorSchemaMap } from "../../financial/lib/financeCalculatorSchema";
+import { calculatorSchemaMap as financeSchemaMap } from "../app/financial/lib/financeCalculatorSchema";
+import { healthCalculatorSchemaMap } from "../app/health/lib/healthCalculatorSchema";
+import { utilityCalculatorSchemaMap } from "../app/utility/lib/utilityCalculatorSchema";
 
 type Props = {
   calculatorKey: string;
@@ -13,7 +15,12 @@ export default function StructuredData({
   pageUrl,
   breadcrumbs,
 }: Props) {
-  const data = calculatorSchemaMap[calculatorKey];
+  // 🔥 Resolve schema from correct section
+  const data =
+    financeSchemaMap[calculatorKey] ||
+    healthCalculatorSchemaMap[calculatorKey] ||
+    utilityCalculatorSchemaMap[calculatorKey];
+
   if (!data) return null;
 
   const schemas: any[] = [];
@@ -70,13 +77,13 @@ export default function StructuredData({
     });
   }
 
-  /* -------------------- Software Application Schema -------------------- */
+  /* -------------------- SoftwareApplication Schema -------------------- */
   schemas.push({
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name: pageTitle,
     operatingSystem: "All",
-    applicationCategory: "FinanceApplication",
+    applicationCategory: "CalculatorApplication",
     offers: {
       "@type": "Offer",
       price: "0",
