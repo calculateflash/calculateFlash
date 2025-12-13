@@ -14,6 +14,9 @@ import { calculateRD } from "./lib/rdcalculate";
 
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
+import StructuredData from "@/lib/StructuredData";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 const related = relatedCalculatorsMap.rdCalculator;
 
 export default function RDCalculatorPage() {
@@ -152,6 +155,17 @@ export default function RDCalculatorPage() {
               ))}
           </div>
           </section>
+          <StructuredData
+  calculatorKey="rd"
+  pageTitle="RD Calculator"
+  pageUrl={`${SITE_URL}/financial/rd-calculator`}
+  breadcrumbs={[
+    { name: "Home", url: SITE_URL },
+    { name: "Financial Calculators", url: `${SITE_URL}/financial` },
+    { name: "RD Calculator", url: `${SITE_URL}/financial/rd-calculator` },
+  ]}
+/>
+
     </section>
   );
 }

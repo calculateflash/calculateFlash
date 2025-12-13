@@ -17,6 +17,9 @@ import {
 
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { utilityRelatedCalculatorsMap } from "../lib/utilityRelatedCalculators";
+
+import StructuredData from "@/lib/StructuredData";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 const related = utilityRelatedCalculatorsMap.insurancePremiumCalculator;
 export default function InsurancePremiumCalculatorPage() {
   const [age, setAge] = useState<number | "">(30);
@@ -192,6 +195,18 @@ export default function InsurancePremiumCalculatorPage() {
                           ))}
                       </div>
                   </section>
+
+            <StructuredData
+  calculatorKey="insurancePremium"
+  pageTitle="Insurance Premium Calculator"
+  pageUrl={`${SITE_URL}/utility/insurance-premium-calculator`}
+  breadcrumbs={[
+    { name: "Home", url: SITE_URL },
+    { name: "Utility Calculators", url: `${SITE_URL}/utility` },
+    { name: "Insurance Premium Calculator", url: `${SITE_URL}/utility/insurance-premium-calculator` },
+  ]}
+/>
+
     </section>
   );
 }

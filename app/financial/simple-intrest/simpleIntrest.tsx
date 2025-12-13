@@ -15,8 +15,10 @@ import { calculateSimpleInterest } from "./lib/simplecalculate";
 
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
-const related = relatedCalculatorsMap.simpleInterest;
+import StructuredData from "@/lib/StructuredData";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
+const related = relatedCalculatorsMap.simpleInterest;
 
 export default function SimpleInterestCalculatorPage() {
   const [principal, setPrincipal] = useState<number | "">(10000);
@@ -138,16 +140,27 @@ export default function SimpleInterestCalculatorPage() {
       />
 
         <section className="mt-12">
-             <h2 className="text-xl font-semibold mb-6">
-                 Related Financial Calculators
-             </h2>
-       
-             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                 {related.map((calc) => (
-                 <CalculatorMiniCard key={calc.href} {...calc} />
-                 ))}
-             </div>
-             </section>
+          <h2 className="text-xl font-semibold mb-6">
+              Related Financial Calculators
+          </h2>
+    
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {related.map((calc) => (
+              <CalculatorMiniCard key={calc.href} {...calc} />
+              ))}
+          </div>
+        </section>
+        <StructuredData
+  calculatorKey="simpleInterest"
+  pageTitle="Simple Interest Calculator"
+  pageUrl={`${SITE_URL}/financial/simple-interest-calculator`}
+  breadcrumbs={[
+    { name: "Home", url: SITE_URL },
+    { name: "Financial Calculators", url: `${SITE_URL}/financial` },
+    { name: "Simple Interest Calculator", url: `${SITE_URL}/financial/simple-interest-calculator` },
+  ]}
+/>
+
     </section>
   );
 }

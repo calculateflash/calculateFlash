@@ -1,4 +1,38 @@
 import { CalculatorCard } from "@/components/CardCalculator";
+import type { Metadata } from "next";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
+
+export const metadata: Metadata = {
+  title: "Financial Calculators – EMI, SIP, GST, Tax, FD, RD & More | CalculateFlash",
+  description:
+    "Access powerful financial calculators including EMI, SIP, GST, Income Tax, Compound Interest, FD, RD, Inflation, Loan Eligibility, and more. Plan loans, investments, and savings accurately with CalculateFlash.",
+  keywords: [
+    "financial calculator",
+    "emi calculator",
+    "sip calculator",
+    "gst calculator",
+    "income tax calculator",
+    "compound interest calculator",
+    "fd calculator",
+    "rd calculator",
+    "loan eligibility calculator",
+    "loan tenure calculator",
+    "investment calculator",
+    "online finance tools",
+  ],
+  alternates: {
+    canonical: `${SITE_URL}/financial`,
+  },
+  openGraph: {
+    title: "Financial Calculators – EMI, SIP, GST, Tax & Investment Tools",
+    description:
+      "Calculate EMI, SIP returns, GST, income tax, FD, RD, inflation impact, and loan eligibility using accurate financial calculators.",
+    url: `${SITE_URL}/financial`,
+    siteName: "CalculateFlash",
+    type: "website",
+  },
+};
 
 export default function FinancialPage() {
   return (
@@ -87,6 +121,29 @@ export default function FinancialPage() {
         href="/financial/loanTenureCalculator"
         gradient="from-yellow-500 to-yellow-700"
       />
+      <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: SITE_URL,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Financial Calculators",
+          item: `${SITE_URL}/financial`,
+        },
+      ],
+    }),
+  }}
+/>
 
     </section>
   );

@@ -1,4 +1,44 @@
 import { CalculatorCard } from "@/components/CardCalculator";
+import type { Metadata } from "next";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
+
+export const metadata: Metadata = {
+  title:
+    "Utility Calculators – Age, Percentage, GPA, QR Code, Date, Salary & More | CalculateFlash",
+  description:
+    "Use smart utility calculators like age calculator, date difference, GPA to percentage, QR code generator, percentage calculator, salary breakup, GST/VAT, matrix solver, zodiac, and more. Simple, fast, and accurate tools by CalculateFlash.",
+  keywords: [
+    "utility calculator",
+    "age calculator",
+    "percentage calculator",
+    "date difference calculator",
+    "gpa to percentage",
+    "qr code generator",
+    "salary breakup calculator",
+    "gst vat calculator",
+    "matrix calculator",
+    "zodiac calculator",
+    "equation solver",
+    "insurance premium calculator",
+    "sgpa to cgpa calculator",
+    "love compatibility calculator",
+    "flames calculator",
+    "online utility tools",
+  ],
+  alternates: {
+    canonical: `${SITE_URL}/utility`,
+  },
+  openGraph: {
+    title:
+      "Utility Calculators – Age, Percentage, GPA, QR Code & More",
+    description:
+      "Calculate age, date difference, GPA to percentage, generate QR codes, solve equations, calculate salary breakup, GST, and more using powerful utility calculators.",
+    url: `${SITE_URL}/utility`,
+    siteName: "CalculateFlash",
+    type: "website",
+  },
+};
 
 export default function HealthPage() {
   return (
@@ -104,6 +144,36 @@ export default function HealthPage() {
   description="Check love compatibility percentage between two names instantly."
   href="/utility/loveCompatibilityCalculator"
   gradient="from-pink-500 to-red-500"
+/>
+    <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "Utility Calculators",
+      description:
+        "A collection of online utility calculators including age calculator, date difference, GPA to percentage, QR code generator, salary breakup, percentage calculator, equation solver, zodiac calculator, and more.",
+      url: `${SITE_URL}/utility`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Date Difference Calculator", url: `${SITE_URL}/utility/dateDifferenceCalculator` },
+        { "@type": "ListItem", position: 2, name: "GPA / CGPA to Percentage", url: `${SITE_URL}/utility/gpaConverter` },
+        { "@type": "ListItem", position: 3, name: "QR Code Generator", url: `${SITE_URL}/utility/qrCodeGenerator` },
+        { "@type": "ListItem", position: 4, name: "Number Base Converter", url: `${SITE_URL}/utility/baseConverter` },
+        { "@type": "ListItem", position: 5, name: "GST / VAT Calculator", url: `${SITE_URL}/utility/gstCalculator` },
+        { "@type": "ListItem", position: 6, name: "Salary Breakup Calculator", url: `${SITE_URL}/utility/salaryBreakupCalculator` },
+        { "@type": "ListItem", position: 7, name: "Matrix Calculator", url: `${SITE_URL}/utility/matrixCalculator` },
+        { "@type": "ListItem", position: 8, name: "DOB to Zodiac Calculator", url: `${SITE_URL}/utility/zodiacCalculator` },
+        { "@type": "ListItem", position: 9, name: "Equation Solver", url: `${SITE_URL}/utility/equationSolver` },
+        { "@type": "ListItem", position: 10, name: "Insurance Premium Calculator", url: `${SITE_URL}/utility/insurancePremiumCalculator` },
+        { "@type": "ListItem", position: 11, name: "Age Calculator", url: `${SITE_URL}/utility/ageCalculator` },
+        { "@type": "ListItem", position: 12, name: "Percentage Calculator", url: `${SITE_URL}/utility/percentageCalculator` },
+        { "@type": "ListItem", position: 13, name: "SGPA to CGPA Calculator", url: `${SITE_URL}/utility/sgpaCgpaCalculator` },
+        { "@type": "ListItem", position: 14, name: "FLAMES Calculator", url: `${SITE_URL}/utility/flamesCalculator` },
+        { "@type": "ListItem", position: 15, name: "Love Compatibility Calculator", url: `${SITE_URL}/utility/loveCompatibilityCalculator` },
+      ],
+    }),
+  }}
 />
 
     </section>

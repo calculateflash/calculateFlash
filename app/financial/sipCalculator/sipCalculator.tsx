@@ -14,6 +14,9 @@ import { calculatorSeoContentMap } from "../../financial/lib/financeCalculatorSe
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard";
 
 import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
+import StructuredData from "@/lib/StructuredData";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 const related = relatedCalculatorsMap.sipCalculator;
 
 export const metadata: Metadata = {
@@ -173,6 +176,17 @@ export default function SIPCalculatorPage() {
           ))}
       </div>
       </section>
+
+      <StructuredData
+        calculatorKey="sip"
+        pageTitle="SIP Calculator"
+        pageUrl={`${SITE_URL}/financial/sip-calculator`}
+        breadcrumbs={[
+          { name: "Home", url: SITE_URL },
+          { name: "Financial Calculators", url: `${SITE_URL}/financial` },
+          { name: "SIP Calculator", url: `${SITE_URL}/financial/sip-calculator` },
+        ]}
+      />
 
       
     </section>

@@ -14,7 +14,11 @@ import { calculateInflation } from "./lib/inflationcalculate";
 
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
+import StructuredData from "@/lib/StructuredData";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 const related = relatedCalculatorsMap.inflationCalculator;
+
 export default function InflationCalculatorPage() {
   const [amount, setAmount] = useState<number | "">(100000);
   const [inflationRate, setInflationRate] = useState<number | "">(6);
@@ -148,6 +152,17 @@ export default function InflationCalculatorPage() {
                  ))}
              </div>
              </section>
+             <StructuredData
+  calculatorKey="inflation"
+  pageTitle="Inflation Calculator"
+  pageUrl={`${SITE_URL}/financial/inflation-calculator`}
+  breadcrumbs={[
+    { name: "Home", url: SITE_URL },
+    { name: "Financial Calculators", url: `${SITE_URL}/financial` },
+    { name: "Inflation Calculator", url: `${SITE_URL}/financial/inflation-calculator` },
+  ]}
+/>
+
     </section>
   );
 }

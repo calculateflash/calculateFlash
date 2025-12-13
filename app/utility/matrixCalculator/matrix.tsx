@@ -10,6 +10,9 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { utilityRelatedCalculatorsMap } from "../lib/utilityRelatedCalculators";
+
+import StructuredData from "@/lib/StructuredData";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 const related = utilityRelatedCalculatorsMap.matrixCalculator;
 import {
   calculateMatrix,
@@ -187,6 +190,17 @@ Number of independent rows`}
                           ))}
                       </div>
                   </section>
+                  <StructuredData
+  calculatorKey="matrix"
+  pageTitle="Matrix Calculator"
+  pageUrl={`${SITE_URL}/utility/matrix-calculator`}
+  breadcrumbs={[
+    { name: "Home", url: SITE_URL },
+    { name: "Utility Calculators", url: `${SITE_URL}/utility` },
+    { name: "Matrix Calculator", url: `${SITE_URL}/utility/matrix-calculator` },
+  ]}
+/>
+
     </section>
   );
 }

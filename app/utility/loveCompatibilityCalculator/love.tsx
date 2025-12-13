@@ -10,6 +10,9 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { utilityRelatedCalculatorsMap } from "../lib/utilityRelatedCalculators";
+
+import StructuredData from "@/lib/StructuredData";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 const related = utilityRelatedCalculatorsMap.loveCompatibilityCalculator;
 import {
   calculateLoveCompatibility,
@@ -140,6 +143,16 @@ export default function LoveCompatibilityCalculatorPage() {
                                 ))}
                             </div>
                         </section>
+              <StructuredData
+  calculatorKey="loveCompatibility"
+  pageTitle="Love Compatibility Calculator"
+  pageUrl={`${SITE_URL}/utility/love-compatibility-calculator`}
+  breadcrumbs={[
+    { name: "Home", url: SITE_URL },
+    { name: "Utility Calculators", url: `${SITE_URL}/utility` },
+    { name: "Love Compatibility Calculator", url: `${SITE_URL}/utility/love-compatibility-calculator` },
+  ]}
+/>
 
     </section>
   );

@@ -29,6 +29,10 @@ export default function sitemap() {
       lastModified: now,
     },
     {
+      url: `${baseUrl}/financial`,
+      lastModified: now,
+    },
+    {
       url: `${baseUrl}/health`,
       lastModified: now,
     },

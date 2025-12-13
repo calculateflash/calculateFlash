@@ -14,6 +14,9 @@ import { calculateLoanTenure } from "./lib/loanTenureCalculate";
 
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
+import StructuredData from "@/lib/StructuredData";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 const related = relatedCalculatorsMap.loanTenureCalculator;
 
 export default function LoanTenureCalculatorPage() {
@@ -144,6 +147,17 @@ export default function LoanTenureCalculatorPage() {
                  ))}
              </div>
              </section>
+             <StructuredData
+  calculatorKey="loanTenure"
+  pageTitle="Loan Tenure Calculator"
+  pageUrl={`${SITE_URL}/financial/loan-tenure-calculator`}
+  breadcrumbs={[
+    { name: "Home", url: SITE_URL },
+    { name: "Financial Calculators", url: `${SITE_URL}/financial` },
+    { name: "Loan Tenure Calculator", url: `${SITE_URL}/financial/loan-tenure-calculator` },
+  ]}
+/>
+
     </section>
   );
 }

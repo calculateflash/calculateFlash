@@ -13,6 +13,9 @@ import { calculateGST, GSTMode } from "./lib/gstCalculate";
 
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { utilityRelatedCalculatorsMap } from "../lib/utilityRelatedCalculators";
+
+import StructuredData from "@/lib/StructuredData";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 const related = utilityRelatedCalculatorsMap.gstCalculator;
 export default function GSTCalculatorPage() {
   const [amount, setAmount] = useState<string>("");
@@ -24,6 +27,7 @@ export default function GSTCalculatorPage() {
     taxAmount: number;
     totalAmount: number;
   } | null>(null);
+
 
   const handleCalculate = () => {
     const amt = Number(amount);
@@ -170,6 +174,17 @@ Tax = Amount − Base`}
                           ))}
                       </div>
                   </section>
+                <StructuredData
+  calculatorKey="gstUtility"
+  pageTitle="GST Calculator"
+  pageUrl={`${SITE_URL}/utility/gst-calculator`}
+  breadcrumbs={[
+    { name: "Home", url: SITE_URL },
+    { name: "Utility Calculators", url: `${SITE_URL}/utility` },
+    { name: "GST Calculator", url: `${SITE_URL}/utility/gst-calculator` },
+  ]}
+/>
+
     </section>
   );
 }

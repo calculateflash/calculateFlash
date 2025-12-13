@@ -13,6 +13,9 @@ import { calculateCGPA } from "./lib/sgpaCgpaCalculate";
 
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { utilityRelatedCalculatorsMap } from "../lib/utilityRelatedCalculators";
+
+import StructuredData from "@/lib/StructuredData";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 const related = utilityRelatedCalculatorsMap.sgpaCgpaCalculator;
 export default function SGPAToCGPACalculatorPage() {
   const [sgpas, setSgpas] = useState<(number | "")[]>(["", "", "", ""]);
@@ -145,6 +148,17 @@ export default function SGPAToCGPACalculatorPage() {
                           ))}
                       </div>
                   </section>
+                <StructuredData
+  calculatorKey="sgpaCgpa"
+  pageTitle="SGPA to CGPA Calculator"
+  pageUrl={`${SITE_URL}/utility/sgpa-cgpa-calculator`}
+  breadcrumbs={[
+    { name: "Home", url: SITE_URL },
+    { name: "Utility Calculators", url: `${SITE_URL}/utility` },
+    { name: "SGPA to CGPA Calculator", url: `${SITE_URL}/utility/sgpa-cgpa-calculator` },
+  ]}
+/>
+
     </section>
   );
 }
