@@ -12,8 +12,7 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
 import { calculateSimpleInterest } from "./lib/simplecalculate";
 
-
-import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
+import { CalculatorMiniCard } from "@/components/CalculatorMiniCard";
 import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
 import StructuredData from "@/lib/StructuredData";
 
@@ -23,18 +22,22 @@ const related = relatedCalculatorsMap.simpleInterest;
 export default function SimpleInterestCalculatorPage() {
   const [principal, setPrincipal] = useState<number | "">(10000);
   const [annualRate, setAnnualRate] = useState<number | "">(10);
-  const [years, setYears] = useState<number | "">(2);
+
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
   const [result, setResult] = useState<{
     simpleInterest: number;
     totalAmount: number;
+    years: number;
   } | null>(null);
 
   const handleCalculate = () => {
     const output = calculateSimpleInterest({
       principal: Number(principal) || 0,
       annualRate: Number(annualRate) || 0,
-      years: Number(years) || 0,
+      startDate,
+      endDate,
     });
 
     setResult(output);
@@ -45,7 +48,7 @@ export default function SimpleInterestCalculatorPage() {
 
       <CalculatorHeader
         title="Simple Interest Calculator"
-        description="Calculate simple interest and total amount payable on loans or savings without compounding. Ideal for short-term loans, manual interest checks, and quick financial calculations. Enter principal, rate, and duration to get accurate results instantly."
+        description="Calculate simple interest based on exact dates instead of guessing years. This calculator helps you compute interest accurately for short-term loans, savings, and manual interest calculations using start and end dates."
       />
 
       {/* INPUT SECTION */}
@@ -64,11 +67,31 @@ export default function SimpleInterestCalculatorPage() {
             onChange={setAnnualRate}
           />
 
-          <InputCard
-            label="Time Period (Years)"
-            value={years}
-            onChange={setYears}
-          />
+          {/* START DATE */}
+          <div>
+            <label className="block mb-1 text-sm font-medium">
+              Start Date
+            </label>
+            <input
+              type="date"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+              className="w-full rounded-md border px-3 py-2 text-sm"
+            />
+          </div>
+
+          {/* END DATE */}
+          <div>
+            <label className="block mb-1 text-sm font-medium">
+              End Date
+            </label>
+            <input
+              type="date"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+              className="w-full rounded-md border px-3 py-2 text-sm"
+            />
+          </div>
 
           <ActionsCard
             calculateLabel="Calculate SI"
@@ -82,7 +105,12 @@ export default function SimpleInterestCalculatorPage() {
 
       {/* RESULT SECTION */}
       {result && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+          <ResultCard
+            label="Interest Period (Years)"
+            value={result.years}
+          />
 
           <ResultCard
             label="Simple Interest"
@@ -98,68 +126,72 @@ export default function SimpleInterestCalculatorPage() {
       )}
 
       <CalculatorExplanation
-        title="How Simple Interest Is Calculated?"
-        description="Simple interest is calculated only on the principal amount without compounding."
+        title="How Simple Interest Is Calculated Using Dates?"
+        description="This calculator computes simple interest based on the exact number of days between the selected start and end dates."
         formula={`SI = (P × R × T) / 100`}
         steps={[
           "P = Principal amount.",
           "R = Annual interest rate.",
-          "T = Time period in years.",
-          "Total Amount = P + SI."
+          "T = Time period calculated from dates.",
+          "T = Number of days between dates ÷ 365.",
+          "Total Amount = P + Simple Interest.",
         ]}
       />
 
       <CalculatorFAQ
         items={[
           {
-            question: "How is simple interest calculated on a loan or investment?",
+            question: "How is simple interest calculated using dates?",
             answer:
-              "Simple interest is calculated only on the principal amount using the formula SI = (P × R × T) / 100. It does not involve compounding, which makes it easy to understand and ideal for short-term loans, educational loans, and manual financial estimations."
+              "Simple interest is calculated by finding the exact number of days between the start and end dates, converting it into years by dividing by 365, and applying the standard simple interest formula. This method is more accurate than manually entering years."
           },
           {
-            question: "What is the difference between simple interest and compound interest?",
+            question: "Why is date-based calculation more accurate?",
             answer:
-              "Simple interest grows only on the initial principal, while compound interest grows on principal plus accumulated interest. For long-term investments, compound interest yields much higher returns. Simple interest is better suited for short-term and low-risk financial products."
+              "Date-based calculations use the exact duration of the loan or investment, avoiding approximation errors. This is especially useful for short-term loans, legal interest calculations, and financial settlements."
           },
           {
-            question: "Is simple interest used by banks for loans?",
+            question: "Does simple interest compound over time?",
             answer:
-              "Most banks use compound interest for long-term loans, but simple interest is commonly used for short-term loans, personal borrowing, agricultural loans, and interest subsidies. Simple interest makes repayment calculations straightforward and predictable."
+              "No. Simple interest is calculated only on the principal amount. The interest does not compound, making it predictable and easy to calculate."
           },
           {
-            question: "Does simple interest change during the loan period?",
+            question: "Is simple interest still used by banks?",
             answer:
-              "No, simple interest remains constant throughout the loan tenure because it is calculated only on the principal. This makes total repayment predictable and easy to calculate without complex formulas or fluctuating monthly payments."
+              "Banks commonly use compound interest for long-term loans, but simple interest is still applied for short-term loans, agricultural loans, subsidies, and manual interest calculations."
           },
           {
-            question: "When is simple interest a better choice than compound interest?",
+            question: "When should I use a simple interest calculator?",
             answer:
-              "Simple interest is ideal when you need short-term financing or want a transparent and predictable repayment plan. It's beneficial for loans with shorter durations where compounding would not significantly change the overall interest amount."
+              "Simple interest calculators are ideal for short-term loans, educational purposes, legal interest checks, and situations where transparency and predictability are important."
           }
         ]}
       />
 
-        <section className="mt-12">
-          <h2 className="text-xl font-semibold mb-6">
-              Related Financial Calculators
-          </h2>
-    
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {related.map((calc) => (
-              <CalculatorMiniCard key={calc.href} {...calc} />
-              ))}
-          </div>
-        </section>
-        <StructuredData
-  calculatorKey="simpleInterest"
-  pageTitle="Simple Interest Calculator"
-  pageUrl={`${SITE_URL}/financial/simple-interest-calculator`}
-  breadcrumbs={[
-    { name: "Home", url: SITE_URL },
-    { name: "Financial Calculators", url: `${SITE_URL}/financial` },
-    { name: "Simple Interest Calculator", url: `${SITE_URL}/financial/simple-interest-calculator` },
-  ]}
-/>
+      {/* RELATED CALCULATORS */}
+      <section className="mt-12">
+        <h2 className="text-xl font-semibold mb-6">
+          Related Financial Calculators
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {related.map((calc) => (
+            <CalculatorMiniCard key={calc.href} {...calc} />
+          ))}
+        </div>
+      </section>
+
+      {/* STRUCTURED DATA */}
+      <StructuredData
+        calculatorKey="simpleInterest"
+        pageTitle="Simple Interest Calculator"
+        pageUrl={`${SITE_URL}/financial/simple-interest-calculator`}
+        breadcrumbs={[
+          { name: "Home", url: SITE_URL },
+          { name: "Financial Calculators", url: `${SITE_URL}/financial` },
+          { name: "Simple Interest Calculator", url: `${SITE_URL}/financial/simple-interest-calculator` },
+        ]}
+      />
 
     </section>
   );

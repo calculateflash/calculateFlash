@@ -12,7 +12,7 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
 import { calculateCompoundInterest } from "./lib/compundCalculate";
 
-import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
+import { CalculatorMiniCard } from "@/components/CalculatorMiniCard";
 import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
 import StructuredData from "@/lib/StructuredData";
 
@@ -22,19 +22,24 @@ const related = relatedCalculatorsMap.compoundCalculator;
 export default function CompoundInterestCalculatorPage() {
   const [principal, setPrincipal] = useState<number | "">(100000);
   const [annualRate, setAnnualRate] = useState<number | "">(8);
-  const [years, setYears] = useState<number | "">(10);
+
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+
   const [compounding, setCompounding] = useState<number>(4); // Quarterly default
 
   const [result, setResult] = useState<{
     maturityValue: number;
     interestEarned: number;
+    years: number;
   } | null>(null);
 
   const handleCalculate = () => {
     const output = calculateCompoundInterest({
       principal: Number(principal) || 0,
       annualRate: Number(annualRate) || 0,
-      years: Number(years) || 0,
+      startDate,
+      endDate,
       compounding,
     });
 
@@ -46,7 +51,7 @@ export default function CompoundInterestCalculatorPage() {
 
       <CalculatorHeader
         title="Compound Interest Calculator"
-        description="Calculate how your investment grows over time using compound interest. This calculator shows how the principal amount, interest rate, investment duration, and compounding frequency impact your final returns. Understand the exponential power of compounding and plan your long-term wealth effectively."
+        description="Calculate compound interest using exact investment dates instead of manual year entry. This calculator shows how your money grows over time based on compounding frequency, interest rate, and precise duration between start and end dates."
       />
 
       {/* INPUT SECTION */}
@@ -65,15 +70,37 @@ export default function CompoundInterestCalculatorPage() {
             onChange={setAnnualRate}
           />
 
-          <InputCard
-            label="Time Period (Years)"
-            value={years}
-            onChange={setYears}
-          />
-
-          {/* Compounding Frequency Dropdown */}
+          {/* START DATE */}
           <div>
-            <label className="block mb-1 text-sm font-medium">Compounding Frequency</label>
+            <label className="block mb-1 text-sm font-medium">
+              Start Date
+            </label>
+            <input
+              type="date"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+              className="w-full rounded-md border px-3 py-2 text-sm"
+            />
+          </div>
+
+          {/* END DATE */}
+          <div>
+            <label className="block mb-1 text-sm font-medium">
+              End Date
+            </label>
+            <input
+              type="date"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+              className="w-full rounded-md border px-3 py-2 text-sm"
+            />
+          </div>
+
+          {/* COMPOUNDING FREQUENCY */}
+          <div>
+            <label className="block mb-1 text-sm font-medium">
+              Compounding Frequency
+            </label>
             <select
               className="border rounded-md p-2 w-full"
               value={compounding}
@@ -98,11 +125,11 @@ export default function CompoundInterestCalculatorPage() {
 
       {/* RESULT SECTION */}
       {result && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 
           <ResultCard
-            label="Maturity Value"
-            value={result.maturityValue}
+            label="Investment Period (Years)"
+            value={result.years}
           />
 
           <ResultCard
@@ -110,70 +137,78 @@ export default function CompoundInterestCalculatorPage() {
             value={result.interestEarned}
           />
 
+          <ResultCard
+            label="Total Amount"
+            value={`${result.maturityValue}`}
+          />
+
         </div>
       )}
 
       <CalculatorExplanation
-        title="How Compound Interest Is Calculated?"
-        description="Compound interest allows your investment to grow faster because interest is earned on both the initial principal and the interest accumulated over previous periods. It is widely used in savings accounts, fixed deposits, mutual funds, and long-term investments."
+        title="How Compound Interest Is Calculated Using Dates?"
+        description="Compound interest is calculated using the exact number of days between selected dates, converted into years, and applied to the compound interest formula based on the chosen compounding frequency."
         formula={`A = P × (1 + r/n)^(n × t)
 
-      Where:
-      A = Future Value
-      P = Principal Amount
-      r = Annual Interest Rate (in decimal)
-      n = Number of compounding periods per year
-      t = Time in years`}
+Where:
+A = Future Value  
+P = Principal Amount  
+r = Annual Interest Rate (decimal)  
+n = Compounding periods per year  
+t = Time period in years (calculated from dates)`}
         steps={[
-          "Enter the principal amount (initial investment).",
-          "Select the compounding frequency (monthly, quarterly, yearly, etc.).",
-          "The investment grows faster when compounding frequency increases.",
-          "The calculator applies the formula using the selected values to estimate future value and total interest earned.",
-          "Compound interest results in exponential growth over long durations."
+          "Enter the principal amount and annual interest rate.",
+          "Select the investment start and end dates.",
+          "The calculator determines the exact duration in years (days ÷ 365).",
+          "Choose compounding frequency (monthly, quarterly, yearly, etc.).",
+          "The formula is applied to compute interest earned and final maturity value.",
         ]}
       />
-
 
       <CalculatorFAQ
         items={[
           {
-            question: "How does compound interest work in investment growth?",
+            question: "Why is date-based compound interest more accurate?",
             answer:
-              "Compound interest reinvests earned interest back into the principal, allowing your investment to grow exponentially over time. Each compounding period adds new interest to the previous balance, making returns significantly higher than simple interest, especially for long-term investments."
+              "Date-based compound interest calculations use the exact duration between investment dates, eliminating approximation errors. This ensures higher accuracy, especially for short or irregular investment periods."
           },
           {
-            question: "Which compounding frequency gives the highest returns?",
+            question: "How does compounding frequency affect returns?",
             answer:
-              "More frequent compounding—such as monthly or quarterly—yields higher returns because interest is calculated and added more frequently. Annual compounding offers lower returns compared to monthly compounding, making frequency a major factor in wealth growth."
+              "Higher compounding frequency means interest is added more often, resulting in greater overall returns. Monthly compounding yields higher returns than quarterly or yearly compounding."
           },
           {
-            question: "Is compound interest better for long-term financial planning?",
+            question: "Is compound interest suitable for long-term investments?",
             answer:
-              "Yes, compound interest is one of the most powerful tools for long-term wealth creation. The longer you stay invested, the more your interest earns interest. This makes compound interest ideal for goals like retirement, education planning, or long-term savings."
+              "Yes. Compound interest is ideal for long-term investments like retirement planning, fixed deposits, and mutual funds, as it allows your interest to earn interest over time."
           },
           {
-            question: "What factors influence compound interest returns?",
+            question: "What happens if the investment duration is short?",
             answer:
-              "Key factors include principal amount, annual interest rate, investment duration, and compounding frequency. Even small increases in duration or rate can lead to significantly higher returns due to the exponential nature of compounding."
+              "Even for short durations, compound interest benefits from precise date calculations. While returns may be lower, the accuracy ensures correct interest estimation."
           },
           {
             question: "How is compound interest different from simple interest?",
             answer:
-              "Simple interest grows only on the original principal, while compound interest grows on principal plus previously-earned interest. Over long periods, compound interest generates much higher returns, making it ideal for investment strategies."
+              "Simple interest is calculated only on the principal, while compound interest includes interest on accumulated interest. Over time, compounding produces significantly higher returns."
           }
         ]}
       />
-        <section className="mt-12">
-      <h2 className="text-xl font-semibold mb-6">
-          Related Financial Calculators
-      </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* RELATED CALCULATORS */}
+      <section className="mt-12">
+        <h2 className="text-xl font-semibold mb-6">
+          Related Financial Calculators
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {related.map((calc) => (
-          <CalculatorMiniCard key={calc.href} {...calc} />
+            <CalculatorMiniCard key={calc.href} {...calc} />
           ))}
-      </div>
+        </div>
       </section>
+
+      {/* STRUCTURED DATA */}
       <StructuredData
         calculatorKey="compoundInterest"
         pageTitle="Compound Interest Calculator"

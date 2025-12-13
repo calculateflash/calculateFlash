@@ -10,7 +10,7 @@ export function ResultCard({ label, value }: ResultCardProps) {
     <Card className="p-4">
       <div className="text-sm text-slate-500">{label}</div>
       <div className="text-xl font-semibold">
-        {typeof value === "number" ? `₹${value.toLocaleString()}` : value}
+        {typeof value === "number" ? `${value.toLocaleString()}` : value}
       </div>
     </Card>
   );
