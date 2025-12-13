@@ -14,6 +14,10 @@ import { calculateLoanEligibility } from "./lib/loanEligibility";
 
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
+
+import StructuredData from "@/lib/StructuredData";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 const related = relatedCalculatorsMap.loanEligibilityCalculator;
 
 export default function LoanEligibilityCalculatorPage() {
@@ -157,6 +161,17 @@ export default function LoanEligibilityCalculatorPage() {
                  ))}
              </div>
              </section>
+             <StructuredData
+  calculatorKey="loanEligibility"
+  pageTitle="Loan Eligibility Calculator"
+  pageUrl={`${SITE_URL}/financial/loan-eligibility-calculator`}
+  breadcrumbs={[
+    { name: "Home", url: SITE_URL },
+    { name: "Financial Calculators", url: `${SITE_URL}/financial` },
+    { name: "Loan Eligibility Calculator", url: `${SITE_URL}/financial/loan-eligibility-calculator` },
+  ]}
+/>
+
     </section>
   );
 }

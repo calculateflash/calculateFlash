@@ -14,6 +14,10 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { utilityRelatedCalculatorsMap } from "../lib/utilityRelatedCalculators";
+import StructuredData from "@/lib/StructuredData";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
+
 const related = utilityRelatedCalculatorsMap.ageCalculator;
 
 export default function AgeCalculatorPage() {
@@ -158,6 +162,17 @@ Days left = Next Birthday Date - Today`}
                           ))}
                       </div>
                   </section>
+                <StructuredData
+  calculatorKey="age"
+  pageTitle="Age Calculator"
+  pageUrl={`${SITE_URL}/utility/age-calculator`}
+  breadcrumbs={[
+    { name: "Home", url: SITE_URL },
+    { name: "Utility Calculators", url: `${SITE_URL}/utility` },
+    { name: "Age Calculator", url: `${SITE_URL}/utility/age-calculator` },
+  ]}
+/>
+
     </section>
   );
 }

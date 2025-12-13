@@ -13,6 +13,10 @@ import { CalculatorMiniCard } from "@/components/CalculatorMiniCard";
 import { calculateEMI } from "./lib/emicalculate";
 
 import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
+import StructuredData from "@/lib/StructuredData";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
+
 const related = relatedCalculatorsMap.emiCalculator;
 
 export default function EMICalculatorPage() {

@@ -14,6 +14,9 @@ import { calculateIncomeTax } from "./lib/incometax";
 
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
+import StructuredData from "@/lib/StructuredData";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 const related = relatedCalculatorsMap.incomeTax;
 
 export default function IncomeTaxCalculatorPage() {
@@ -125,17 +128,28 @@ export default function IncomeTaxCalculatorPage() {
       />
 
 
-         <section className="mt-12">
-              <h2 className="text-xl font-semibold mb-6">
-                  Related Financial Calculators
-              </h2>
-        
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {related.map((calc) => (
-                  <CalculatorMiniCard key={calc.href} {...calc} />
-                  ))}
-              </div>
-              </section>
+      <section className="mt-12">
+        <h2 className="text-xl font-semibold mb-6">
+            Related Financial Calculators
+        </h2>
+  
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {related.map((calc) => (
+            <CalculatorMiniCard key={calc.href} {...calc} />
+            ))}
+        </div>
+        </section>
+
+        <StructuredData
+  calculatorKey="incomeTax"
+  pageTitle="Income Tax Calculator"
+  pageUrl={`${SITE_URL}/financial/income-tax-calculator`}
+  breadcrumbs={[
+    { name: "Home", url: SITE_URL },
+    { name: "Financial Calculators", url: `${SITE_URL}/financial` },
+    { name: "Income Tax Calculator", url: `${SITE_URL}/financial/income-tax-calculator` },
+  ]}
+/>
 
     </section>
   );

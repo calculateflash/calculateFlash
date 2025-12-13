@@ -9,6 +9,10 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { utilityRelatedCalculatorsMap } from "../lib/utilityRelatedCalculators";
+import StructuredData from "@/lib/StructuredData";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
+
 const related = utilityRelatedCalculatorsMap.equationSolver;
 import {
   solvePolynomial,
@@ -340,6 +344,17 @@ export default function EquationSolverPage() {
                           ))}
                       </div>
                   </section>
+                  <StructuredData
+  calculatorKey="equationSolver"
+  pageTitle="Equation Solver"
+  pageUrl={`${SITE_URL}/utility/equation-solver`}
+  breadcrumbs={[
+    { name: "Home", url: SITE_URL },
+    { name: "Utility Calculators", url: `${SITE_URL}/utility` },
+    { name: "Equation Solver", url: `${SITE_URL}/utility/equation-solver` },
+  ]}
+/>
+
     </section>
   );
 }

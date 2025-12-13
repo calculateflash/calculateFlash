@@ -14,6 +14,9 @@ import { calculateCompoundInterest } from "./lib/compundCalculate";
 
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
+import StructuredData from "@/lib/StructuredData";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 const related = relatedCalculatorsMap.compoundCalculator;
 
 export default function CompoundInterestCalculatorPage() {
@@ -171,8 +174,16 @@ export default function CompoundInterestCalculatorPage() {
           ))}
       </div>
       </section>
-
-
+      <StructuredData
+        calculatorKey="compoundInterest"
+        pageTitle="Compound Interest Calculator"
+        pageUrl={`${SITE_URL}/financial/compound-interest-calculator`}
+        breadcrumbs={[
+          { name: "Home", url: SITE_URL },
+          { name: "Financial Calculators", url: `${SITE_URL}/financial` },
+          { name: "Compound Interest Calculator", url: `${SITE_URL}/financial/compound-interest-calculator` },
+        ]}
+      />
 
     </section>
   );

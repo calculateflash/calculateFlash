@@ -14,6 +14,9 @@ import { calculateLumpSum } from "./lib/lumpsumcalculate";
 
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
+import StructuredData from "@/lib/StructuredData";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 const related = relatedCalculatorsMap.lumpSumCalculator;
 
 export default function LumpSumCalculatorPage() {
@@ -145,6 +148,17 @@ export default function LumpSumCalculatorPage() {
                         ))}
                     </div>
                     </section>
+                    <StructuredData
+  calculatorKey="lumpSum"
+  pageTitle="Lump Sum Calculator"
+  pageUrl={`${SITE_URL}/financial/lump-sum-calculator`}
+  breadcrumbs={[
+    { name: "Home", url: SITE_URL },
+    { name: "Financial Calculators", url: `${SITE_URL}/financial` },
+    { name: "Lump Sum Calculator", url: `${SITE_URL}/financial/lump-sum-calculator` },
+  ]}
+/>
+
 
     </section>
   );

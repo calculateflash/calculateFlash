@@ -13,7 +13,9 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 import { calculateGST } from "./lib/gstcalculate";
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
+import StructuredData from "@/lib/StructuredData";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 const related = relatedCalculatorsMap.gstCalculator;
 
 export default function GSTCalculatorPage() {
@@ -152,6 +154,16 @@ export default function GSTCalculatorPage() {
           ))}
       </div>
       </section>
+        <StructuredData
+        calculatorKey="gst"
+        pageTitle="GST Calculator"
+        pageUrl={`${SITE_URL}/financial/gst-calculator`}
+        breadcrumbs={[
+          { name: "Home", url: SITE_URL },
+          { name: "Financial Calculators", url: `${SITE_URL}/financial` },
+          { name: "GST Calculator", url: `${SITE_URL}/financial/gst-calculator` },
+        ]}
+      />
 
     </section>
   );

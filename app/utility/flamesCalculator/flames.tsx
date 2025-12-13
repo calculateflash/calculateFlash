@@ -12,6 +12,10 @@ import { calculateFlames, FlamesResult } from "./lib/flamesCalculate";
 
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { utilityRelatedCalculatorsMap } from "../lib/utilityRelatedCalculators";
+import StructuredData from "@/lib/StructuredData";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
+
 const related = utilityRelatedCalculatorsMap.flamesCalculator;
 const resultStyles: Record<FlamesResult, string> = {
   Friends: "from-blue-500 to-cyan-500",
@@ -142,6 +146,17 @@ export default function FlamesCalculatorPage() {
                                   ))}
                               </div>
                           </section>
+                          <StructuredData
+  calculatorKey="flames"
+  pageTitle="FLAMES Calculator"
+  pageUrl={`${SITE_URL}/utility/flames-calculator`}
+  breadcrumbs={[
+    { name: "Home", url: SITE_URL },
+    { name: "Utility Calculators", url: `${SITE_URL}/utility` },
+    { name: "FLAMES Calculator", url: `${SITE_URL}/utility/flames-calculator` },
+  ]}
+/>
+
 
     </section>
   );
