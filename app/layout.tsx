@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -20,6 +21,8 @@ export const metadata = {
   description: "Simple tools for finance, student life & health.",
 };
 
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+
 export default function RootLayout({
     children,
   }: Readonly<{
@@ -34,9 +37,8 @@ export default function RootLayout({
           <main className="min-h-[80vh] max-w-6xl mx-auto p-4">
             {children}
           </main>
-          
           <Footer />
-
+          {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
         </body>
       </html>
     );
