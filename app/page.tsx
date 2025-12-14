@@ -1,7 +1,7 @@
 import LandingPage from "./landing"
 import type { Metadata } from "next";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
-
+//<meta name="google-site-verification" content="IGS5reZtlr1oqLoN6n0T-4hPkipyAOke8I4kSss_iwk" />
 export const metadata: Metadata = {
   title:
     "CalculateFlash – Financial, Health & Utility Calculators Online",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
 
   verification: {
-    google: "4zG-IrufvY0feDXzKCPkpCGaB-kse9R8gRhwaItJzeM",
+    google: "IGS5reZtlr1oqLoN6n0T-4hPkipyAOke8I4kSss_iwk",
   },
 };
 
