@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "calculate body fat percentage"
   ],
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/health/body-fat-calculator`,
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/health/bodyFatCalculator`,
   },
 };
 
@@ -32,11 +32,11 @@ export default function Page() {
     <StructuredData
         calculatorKey="bodyFat"
         pageTitle="Body Fat Calculator"
-        pageUrl={`${SITE_URL}/health/body-fat-calculator`}
+        pageUrl={`${SITE_URL}/health/bodyFatCalculator`}
         breadcrumbs={[
           { name: "Home", url: SITE_URL },
           { name: "Health Calculators", url: `${SITE_URL}/health` },
-          { name: "Body Fat Calculator", url: `${SITE_URL}/health/body-fat-calculator` },
+          { name: "Body Fat Calculator", url: `${SITE_URL}/health/bodyFatCalculator` },
         ]}
       />
   <BodyFatCalculatorPage />;
