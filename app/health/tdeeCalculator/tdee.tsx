@@ -57,8 +57,9 @@ export default function TDEECalculatorPage() {
 
       <CalculatorHeader
         title="TDEE Calculator"
-        description="Estimate your Total Daily Energy Expenditure (TDEE), which represents the total number of calories you burn each day based on your Basal Metabolic Rate (BMR) and activity level. This helps you plan weight loss, muscle gain, or maintenance goals more accurately."
+        description="Use this TDEE calculator to estimate how many calories you burn per day based on your BMR and activity level. Plan weight loss, muscle gain, or maintenance accurately."
       />
+
 
       {/* INPUT CARD */}
       <Card className="p-6 mb-6">
@@ -122,25 +123,48 @@ export default function TDEECalculatorPage() {
         title="How TDEE Is Calculated?"
         description="Your Total Daily Energy Expenditure (TDEE) is the total number of calories you burn per day. It is calculated by determining your Basal Metabolic Rate (BMR) and multiplying it by an activity factor. TDEE reflects your daily calorie needs for maintaining your current weight."
         formula={`Step 1 — Calculate BMR (Mifflin–St Jeor Formula):
-For Men:
-BMR = 10 × weight + 6.25 × height − 5 × age + 5
-For Women:
-BMR = 10 × weight + 6.25 × height − 5 × age − 161
+      For Men:
+      BMR = 10 × weight + 6.25 × height − 5 × age + 5
+      For Women:
+      BMR = 10 × weight + 6.25 × height − 5 × age − 161
 
-Step 2 — Apply Activity Multiplier:
-Sedentary × 1.2
-Light × 1.375
-Moderate × 1.55
-Active × 1.725
-Very Active × 1.9`}
-        steps={[
-          "Enter your age, weight, height, gender, and activity level.",
-          "The calculator first computes your BMR using the Mifflin–St Jeor equation.",
-          "Your BMR is multiplied by an activity factor to estimate your TDEE.",
-          "Your TDEE represents how many calories you burn per day including exercise and normal activity.",
-          "TDEE helps you set calorie goals for maintenance, fat loss, or muscle gain."
-        ]}
-      />
+      Step 2 — Apply Activity Multiplier:
+      Sedentary × 1.2
+      Light × 1.375
+      Moderate × 1.55
+      Active × 1.725
+      Very Active × 1.9`}
+              steps={[
+                "Enter your age, weight, height, gender, and activity level.",
+                "The calculator first computes your BMR using the Mifflin–St Jeor equation.",
+                "Your BMR is multiplied by an activity factor to estimate your TDEE.",
+                "Your TDEE represents how many calories you burn per day including exercise and normal activity.",
+                "TDEE helps you set calorie goals for maintenance, fat loss, or muscle gain."
+              ]}
+            />
+          <Card className="p-6 mt-10 space-y-4 text-gray-700">
+        <h2 className="text-xl font-semibold">
+          What is TDEE?
+        </h2>
+
+        <p>
+          TDEE (Total Daily Energy Expenditure) is the total number of calories your
+          body burns in a day, including basic bodily functions, physical activity,
+          and exercise. It represents your daily calorie requirement to maintain your
+          current weight.
+        </p>
+
+        <p>
+          This TDEE calculator first calculates your Basal Metabolic Rate (BMR) using
+          the Mifflin–St Jeor formula, then adjusts it based on your activity level.
+          This provides a more accurate calorie estimate than BMR alone.
+        </p>
+
+        <p>
+          Knowing your TDEE helps you set clear nutrition goals—eat below TDEE for fat
+          loss, above TDEE for muscle gain, or equal to TDEE for weight maintenance.
+        </p>
+      </Card>
 
       {/* FAQ SECTION */}
       <CalculatorFAQ
