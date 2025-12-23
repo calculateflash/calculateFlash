@@ -15,9 +15,6 @@ import { calculateLoanEligibility } from "./lib/loanEligibility";
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
 
-import StructuredData from "@/lib/StructuredData";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 const related = relatedCalculatorsMap.loanEligibilityCalculator;
 
 export default function LoanEligibilityCalculatorPage() {
@@ -52,9 +49,9 @@ export default function LoanEligibilityCalculatorPage() {
     <section className="max-w-3xl mx-auto">
 
       <CalculatorHeader
-        title="Loan Eligibility Calculator"
-        description="Check how much loan you are eligible for based on your income, existing EMIs, interest rate, and tenure. This tool estimates maximum EMI and loan amount using standard banking FOIR rules. Helpful for planning home, personal, and car loans."
-      />
+  title="Loan Eligibility Calculator"
+  description="Use this loan eligibility calculator to check how much loan you can get based on income, existing EMIs, interest rate, and tenure. Ideal for home, car, and personal loan planning."
+/>
 
       <Card className="p-6 mb-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -121,6 +118,30 @@ export default function LoanEligibilityCalculatorPage() {
         ]}
       />
 
+        <Card className="p-6 mt-10 text-gray-700">
+  <h2 className="text-xl text-blue-700 font-semibold">
+    What is Loan Eligibility?
+  </h2>
+
+  <p>
+    Loan eligibility refers to the maximum loan amount a bank or financial
+    institution is willing to offer based on your income, existing financial
+    obligations, interest rate, and repayment capacity.
+  </p>
+
+  <p>
+    Most banks use the FOIR (Fixed Obligation to Income Ratio) method to assess
+    eligibility. This ensures that a borrower does not spend more than a safe
+    percentage of their income on EMIs.
+  </p>
+
+  <p>
+    Checking loan eligibility in advance helps borrowers plan better, avoid loan
+    rejection, and choose the right loan amount and tenure.
+  </p>
+</Card>
+
+
       <CalculatorFAQ
         items={[
           {
@@ -161,17 +182,6 @@ export default function LoanEligibilityCalculatorPage() {
                  ))}
              </div>
              </section>
-             <StructuredData
-  calculatorKey="loanEligibility"
-  pageTitle="Loan Eligibility Calculator"
-  pageUrl={`${SITE_URL}/financial/loan-eligibility-calculator`}
-  breadcrumbs={[
-    { name: "Home", url: SITE_URL },
-    { name: "Financial Calculators", url: `${SITE_URL}/financial` },
-    { name: "Loan Eligibility Calculator", url: `${SITE_URL}/financial/loan-eligibility-calculator` },
-  ]}
-/>
-
     </section>
   );
 }

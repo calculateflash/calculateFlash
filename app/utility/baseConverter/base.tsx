@@ -12,9 +12,6 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 import { convertAll, BaseType } from "./lib/baseConverter";
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { utilityRelatedCalculatorsMap } from "../lib/utilityRelatedCalculators";
-import StructuredData from "@/lib/StructuredData";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 const related = utilityRelatedCalculatorsMap.baseConverter;
 
 export default function BaseConverterPage() {
@@ -40,8 +37,8 @@ export default function BaseConverterPage() {
     <section className="max-w-3xl mx-auto">
 
       <CalculatorHeader
-        title="Binary / Decimal / Hex Converter"
-        description="Enter a number and select its format. The calculator will convert it to all three number systems automatically."
+        title="Binary, Decimal & Hex Converter"
+        description="Use this number base converter to convert binary, decimal, and hexadecimal values instantly and accurately."
       />
 
       {/* INPUT CARD */}
@@ -106,6 +103,30 @@ Decimal → Hex: number.toString(16)`}
         ]}
       />
 
+        <Card className="p-6 mt-10 text-gray-700">
+  <h2 className="text-xl text-blue-700 font-semibold">
+    What is a Number Base Converter?
+  </h2>
+
+  <p>
+    A number base converter is a tool used to convert numbers between different
+    numeral systems such as binary, decimal, and hexadecimal. Each system
+    represents numbers using a different base.
+  </p>
+
+  <p>
+    Binary numbers are commonly used in computers, decimal numbers are used in
+    everyday calculations, and hexadecimal numbers are often used in programming
+    and digital systems.
+  </p>
+
+  <p>
+    This base converter ensures accurate conversion by validating the input
+    based on the selected source number system.
+  </p>
+</Card>
+
+
       <CalculatorFAQ
         items={[
           {
@@ -123,26 +144,17 @@ Decimal → Hex: number.toString(16)`}
         ]}
       />
 <section className="mt-12">
-                      <h2 className="text-xl font-semibold mb-6">
-                          Some other Calculators
-                      </h2>
-                
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                          {related.map((calc) => (
-                          <CalculatorMiniCard key={calc.href} {...calc} />
-                          ))}
-                      </div>
-                  </section>
-                  <StructuredData
-  calculatorKey="baseConverter"
-  pageTitle="Base Converter"
-  pageUrl={`${SITE_URL}/utility/base-converter`}
-  breadcrumbs={[
-    { name: "Home", url: SITE_URL },
-    { name: "Utility Calculators", url: `${SITE_URL}/utility` },
-    { name: "Base Converter", url: `${SITE_URL}/utility/base-converter` },
-  ]}
-/>
+  <h2 className="text-xl font-semibold mb-6">
+    Some other Calculators
+  </h2>
+
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    {related.map((calc) => (
+    <CalculatorMiniCard key={calc.href} {...calc} />
+    ))}
+  </div>
+</section>
+  
 
     </section>
   );

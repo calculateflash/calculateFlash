@@ -12,9 +12,6 @@ import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { healthRelatedCalculatorsMap } from "../lib/healthRelatedCalculators";
 const related = healthRelatedCalculatorsMap.unitConverter;
 
-import StructuredData from "@/lib/StructuredData";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 import {
   UnitCategory,
   units,
@@ -42,20 +39,11 @@ export default function UnitConverterPage() {
 
   return (
     <section className="max-w-3xl mx-auto">
-      <StructuredData
-        calculatorKey="unitConverter"
-        pageTitle="Health Unit Converter"
-        pageUrl={`${SITE_URL}/health/unit-converter`}
-        breadcrumbs={[
-          { name: "Home", url: SITE_URL },
-          { name: "Health Calculators", url: `${SITE_URL}/health` },
-          { name: "Unit Converter", url: `${SITE_URL}/health/unit-converter` },
-        ]}
-      />
+      
 
       <CalculatorHeader
         title="Unit Converter"
-        description="Convert length, weight, temperature, and time units instantly. A simple and accurate unit converter for daily use."
+        description="Use this unit converter to convert length, weight, temperature, and time units instantly using accurate standard conversion factors."
       />
 
       <Card className="p-6 mb-6 space-y-4">
@@ -139,6 +127,30 @@ export default function UnitConverterPage() {
           "Results are shown instantly and accurately.",
         ]}
       />
+
+        <Card className="p-6 mt-10 text-gray-700">
+  <h2 className="text-xl text-blue-700 font-semibold">
+    What is a Unit Converter?
+  </h2>
+
+  <p>
+    A unit converter is a tool that helps convert measurements from one unit to
+    another using standard conversion factors. It eliminates manual calculation
+    errors and saves time.
+  </p>
+
+  <p>
+    This unit converter supports common categories such as length, weight,
+    temperature, and time. It converts values accurately by first converting
+    them into a base unit and then into the target unit.
+  </p>
+
+  <p>
+    Unit conversion is widely used in education, engineering, science, travel,
+    cooking, and everyday calculations.
+  </p>
+</Card>
+
 
       <CalculatorFAQ
         items={[

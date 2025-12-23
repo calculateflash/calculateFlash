@@ -34,4 +34,37 @@ export const utilityCalculatorSchemaMap: Record<
       },
     ],
   },
+  baseConverter: {
+  faq: [
+    {
+      question: "What is a number base converter?",
+      answer:
+        "A number base converter converts values between binary, decimal, and hexadecimal number systems."
+    },
+    {
+      question: "Which number systems are supported?",
+      answer:
+        "This converter supports binary, decimal, and hexadecimal number systems."
+    },
+    {
+      question: "Is this base converter accurate?",
+      answer:
+        "Yes, it validates inputs and uses standard base conversion methods."
+    },
+    {
+      question: "Who uses base converters?",
+      answer:
+        "Base converters are commonly used by students, programmers, and electronics engineers."
+    }
+  ],
+  howTo: {
+    name: "How to Convert Number Bases",
+    steps: [
+      { text: "Enter the number you want to convert." },
+      { text: "Select the source number system." },
+      { text: "Click convert to see binary, decimal, and hexadecimal results." }
+    ]
+  }
+},
+
 };

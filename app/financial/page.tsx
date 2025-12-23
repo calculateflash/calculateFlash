@@ -38,7 +38,7 @@ export default function FinancialPage() {
   return (
     <>
        {/* ================= TOP DESCRIPTION (ALIGNED + PREMIUM) ================= */}
-      <section className="mb-12 bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl px-6 py-10">
+      <section className="mb-12 linear-gradient-to-br from-slate-50 to-slate-100 rounded-2xl px-6 py-10">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Financial Calculators for Smarter Money Decisions

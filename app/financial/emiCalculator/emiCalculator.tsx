@@ -13,9 +13,6 @@ import { CalculatorMiniCard } from "@/components/CalculatorMiniCard";
 import { calculateEMI } from "./lib/emicalculate";
 
 import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
-import StructuredData from "@/lib/StructuredData";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 
 const related = relatedCalculatorsMap.emiCalculator;
 
@@ -63,8 +60,9 @@ export default function EMICalculatorPage() {
 
       <CalculatorHeader
         title="EMI Calculator"
-        description="Calculate your monthly EMI along with total interest and total payment over your loan period. This tool helps you understand how loan amount, interest rate, and tenure affect your EMI. Use it to plan home, personal, or car loans more effectively."
+        description="Use this EMI calculator to calculate monthly loan EMI, total interest, and total payment. Ideal for planning home loans, car loans, and personal loans accurately."
       />
+
 
       {/* INPUT CARD */}
       <Card className="p-6 mb-6">
@@ -132,6 +130,30 @@ export default function EMICalculatorPage() {
         ]}
       />
 
+        <Card className="p-6 mt-10 text-gray-700">
+  <h2 className="text-xl text-blue-700 font-semibold">
+    What is EMI?
+  </h2>
+
+  <p>
+    EMI (Equated Monthly Installment) is the fixed amount you pay every month to
+    repay a loan. It includes both principal repayment and interest charged by
+    the lender over the loan tenure.
+  </p>
+
+  <p>
+    EMI calculators help borrowers understand how changes in loan amount,
+    interest rate, or tenure affect monthly payments. This allows better
+    financial planning before taking a home loan, car loan, or personal loan.
+  </p>
+
+  <p>
+    By calculating EMI in advance, borrowers can choose a loan structure that
+    balances affordability with total interest cost.
+  </p>
+</Card>
+
+
       <CalculatorFAQ
         items={[
           {
@@ -173,17 +195,7 @@ export default function EMICalculatorPage() {
           ))}
       </div>
       </section>
-      {/* STRUCTURED DATA */}
-        <StructuredData
-          calculatorKey="emi"
-          pageTitle="Emi Calculator"
-          pageUrl={`${SITE_URL}/financial/emiCalculator`}
-          breadcrumbs={[
-            { name: "Home", url: SITE_URL },
-            { name: "Financial Calculators", url: `${SITE_URL}/financial` },
-            { name: "Emi Calculator", url: `${SITE_URL}/financial/emiCalculator` },
-          ]}
-        />
+      
     </section>
   );
 }

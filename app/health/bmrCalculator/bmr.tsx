@@ -15,9 +15,7 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { healthRelatedCalculatorsMap } from "../lib/healthRelatedCalculators";
 const related = healthRelatedCalculatorsMap.bmrCalculator;
-import StructuredData from "@/lib/StructuredData";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 export default function BMRCalculatorPage() {
   const [weight, setWeight] = useState<number | "">(70);
   const [height, setHeight] = useState<number | "">(170);
@@ -41,21 +39,12 @@ export default function BMRCalculatorPage() {
 
   return (
     <section className="max-w-3xl mx-auto">
-      <StructuredData
-        calculatorKey="bmr"
-        pageTitle="BMR Calculator"
-        pageUrl={`${SITE_URL}/health/bmr-calculator`}
-        breadcrumbs={[
-          { name: "Home", url: SITE_URL },
-          { name: "Health Calculators", url: `${SITE_URL}/health` },
-          { name: "BMR Calculator", url: `${SITE_URL}/health/bmr-calculator` },
-        ]}
-      />
+      
 
       <CalculatorHeader
-        title="BMR Calculator"
-        description="Estimate your Basal Metabolic Rate (BMR), which represents the number of calories your body needs at rest to maintain essential functions like breathing, circulation, and cell repair. Understanding your BMR helps you plan your diet, weight loss, or fitness goals more accurately."
-      />
+  title="BMR Calculator"
+  description="Use this BMR calculator to calculate your Basal Metabolic Rate and estimate how many calories your body burns at rest each day."
+/>
 
       {/* INPUT CARD */}
       <Card className="p-6 mb-6">
@@ -128,6 +117,30 @@ BMR = 10 × weight (kg) + 6.25 × height (cm) – 5 × age (years) – 161`}
           "Knowing your BMR helps you plan effective diet and fitness strategies."
         ]}
       />
+
+        <Card className="p-6 mt-10 text-gray-700">
+  <h2 className="text-xl text-blue-700 font-semibold">
+    What is BMR?
+  </h2>
+
+  <p>
+    BMR (Basal Metabolic Rate) is the number of calories your body needs to
+    maintain basic life functions such as breathing, blood circulation, and
+    cell repair while at complete rest.
+  </p>
+
+  <p>
+    This BMR calculator uses the Mifflin–St Jeor formula, which is considered one
+    of the most accurate methods for estimating resting calorie needs in adults.
+  </p>
+
+  <p>
+    Knowing your BMR helps you determine your daily calorie requirements when
+    combined with activity levels, making it essential for weight loss,
+    maintenance, or muscle gain planning.
+  </p>
+</Card>
+
 
       {/* FAQ SECTION */}
       <CalculatorFAQ

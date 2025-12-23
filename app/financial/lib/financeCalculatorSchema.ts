@@ -42,28 +42,38 @@ export const calculatorSchemaMap: Record<
   },
 
   emiCalculator: {
-    faq: [
-      {
-        question: "How is EMI calculated?",
-        answer:
-          "EMI is calculated using loan amount, interest rate, and tenure with a standard EMI formula.",
-      },
-      {
-        question: "Does EMI change during loan tenure?",
-        answer:
-          "EMI usually remains constant unless the loan has a floating interest rate.",
-      },
-    ],
-    howTo: {
-      name: "How to Calculate EMI",
-      steps: [
-        { text: "Enter loan amount" },
-        { text: "Enter interest rate" },
-        { text: "Select loan tenure" },
-        { text: "Click calculate to view EMI amount" },
-      ],
+  faq: [
+    {
+      question: "What is an EMI calculator?",
+      answer:
+        "An EMI calculator helps calculate monthly loan EMI, total interest payable, and total repayment amount based on loan amount, interest rate, and tenure."
     },
-  },
+    {
+      question: "How is EMI calculated?",
+      answer:
+        "EMI is calculated using the standard amortization formula that considers principal amount, monthly interest rate, and loan tenure in months."
+    },
+    {
+      question: "Can EMI be reduced?",
+      answer:
+        "Yes, EMI can be reduced by increasing tenure, refinancing at a lower interest rate, or making part prepayments."
+    },
+    {
+      question: "Is EMI same for all loans?",
+      answer:
+        "The EMI formula remains the same, but interest rates and tenures differ for home, car, and personal loans."
+    }
+  ],
+  howTo: {
+    name: "How to Calculate Loan EMI",
+    steps: [
+      { text: "Enter the loan amount." },
+      { text: "Enter the annual interest rate." },
+      { text: "Enter loan tenure in months." },
+      { text: "Click calculate to get EMI, interest, and total payment." }
+    ]
+  }
+},
 
   gstCalculator: {
     faq: [
@@ -269,28 +279,38 @@ export const calculatorSchemaMap: Record<
   },
 
   loanEligibilityCalculator: {
-    faq: [
-      {
-        question: "How is loan eligibility calculated?",
-        answer:
-          "Loan eligibility is calculated based on income, expenses, and interest rate.",
-      },
-      {
-        question: "Does credit score affect eligibility?",
-        answer:
-          "Yes, a good credit score increases loan eligibility.",
-      },
-    ],
-    howTo: {
-      name: "How to Calculate Loan Eligibility",
-      steps: [
-        { text: "Enter monthly income" },
-        { text: "Enter existing obligations" },
-        { text: "Select interest rate" },
-        { text: "View eligible loan amount" },
-      ],
+  faq: [
+    {
+      question: "What is a loan eligibility calculator?",
+      answer:
+        "A loan eligibility calculator helps estimate how much loan a person can get based on income, existing EMIs, interest rate, and loan tenure."
     },
-  },
+    {
+      question: "How do banks calculate loan eligibility?",
+      answer:
+        "Banks calculate eligibility using FOIR, income level, existing liabilities, interest rate, and repayment tenure."
+    },
+    {
+      question: "What is FOIR in loan eligibility?",
+      answer:
+        "FOIR stands for Fixed Obligation to Income Ratio and indicates how much of your income goes toward fixed obligations."
+    },
+    {
+      question: "Does credit score affect loan eligibility?",
+      answer:
+        "Yes, a good credit score improves eligibility and helps secure lower interest rates."
+    }
+  ],
+  howTo: {
+    name: "How to Check Loan Eligibility",
+    steps: [
+      { text: "Enter your monthly income." },
+      { text: "Enter existing EMIs if any." },
+      { text: "Enter interest rate and loan tenure." },
+      { text: "Click check eligibility to see maximum loan amount." }
+    ]
+  }
+},
 
   loanTenureCalculator: {
     faq: [
