@@ -39,7 +39,7 @@ export default function AboutPage() {
       </div>
 
       <FadeUp delay={0.3}>
-        <div className="rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 p-10 text-white shadow-lg">
+        <div className="rounded-2xl linear-gradient-to-r from-blue-600 to-indigo-600 p-10 text-white shadow-lg">
           <h2 className="text-2xl font-bold mb-3">Our Vision</h2>
           <p className="leading-relaxed text-blue-100">
             We believe calculators should be reliable, intuitive, and enjoyable.

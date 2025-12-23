@@ -11,8 +11,6 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { utilityRelatedCalculatorsMap } from "../lib/utilityRelatedCalculators";
 
-import StructuredData from "@/lib/StructuredData";
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 const related = utilityRelatedCalculatorsMap.matrixCalculator;
 import {
   calculateMatrix,
@@ -54,9 +52,9 @@ export default function MatrixCalculatorPage() {
     <section className="max-w-3xl mx-auto">
 
       <CalculatorHeader
-        title="Matrix Calculator"
-        description="Perform matrix addition, multiplication, determinant, inverse, and rank calculations instantly. Ideal for students and linear algebra practice."
-      />
+          title="Matrix Solver Online"
+          description="Use this matrix solver to perform addition, subtraction, multiplication, transpose, determinant, inverse, and rank calculations step by step. Ideal for students studying linear algebra."
+        />
 
       <Card className="p-6 mb-6">
         <div className="grid gap-6">
@@ -150,9 +148,9 @@ export default function MatrixCalculatorPage() {
         </div>
       )}
       <CalculatorExplanation
-        title="Matrix Operations Explained"
-        description="This calculator performs common linear algebra operations used in mathematics and engineering."
-        formula={`Determinant (2×2):
+  title="Matrix Operations Explained"
+  description="This matrix solver helps you solve common linear algebra problems used in mathematics, engineering, and competitive exams."
+  formula={`Determinant (2×2):
 |a b|
 |c d| = ad − bc
 
@@ -160,22 +158,63 @@ Inverse:
 A⁻¹ = adj(A) / det(A)
 
 Rank:
-Number of independent rows`}
-        steps={[
-          "Enter matrix values.",
-          "Select the operation.",
-          "Click calculate to get the result."
-        ]}
-      />
+Number of linearly independent rows`}
+  steps={[
+    "Enter matrix values using commas for columns and new lines for rows.",
+    "Select the required matrix operation.",
+    "Click calculate to instantly get the result."
+  ]}
+/>
+
+<Card className="p-6 mt-10 text-gray-700">
+  <h2 className="text-xl text-blue-700 font-semibold">
+    What is a Matrix Solver?
+  </h2>
+
+  <p>
+    A matrix solver is an online tool used to solve matrix-based problems in
+    linear algebra. It helps students quickly perform operations such as matrix
+    addition, multiplication, determinant calculation, inverse finding, and
+    rank determination without manual computation.
+  </p>
+
+  <p>
+    This matrix calculator is especially useful for school and college students,
+    engineering aspirants, and anyone preparing for exams where accuracy and
+    speed are important.
+  </p>
+
+  <p>
+    By following standard mathematical rules, the solver ensures reliable
+    results that match textbook solutions.
+  </p>
+</Card>
+
 
       <CalculatorFAQ
         items={[
-          { question: "What operations are supported?", answer: "Addition, multiplication, determinant, inverse, transpose and rank." },
-          { question: "Matrix format?", answer: "Comma for columns, new line for rows." },
-          { question: "Inverse condition?", answer: "Inverse exists only if determinant ≠ 0." },
-          { question: "Rank meaning?", answer: "Rank is the number of independent rows." },
-          { question: "Exam-ready?", answer: "Yes, follows standard linear algebra rules." },
-        ]}
+  {
+    question: "What is a matrix solver?",
+    answer: "A matrix solver is an online calculator used to perform matrix operations such as addition, multiplication, determinant, inverse, transpose, and rank."
+  },
+  {
+    question: "How do I enter matrix values?",
+    answer: "Enter values separated by commas for columns and use a new line for each row."
+  },
+  {
+    question: "Can this matrix solver be used for exams?",
+    answer: "Yes, it follows standard linear algebra rules and is suitable for exam practice and verification."
+  },
+  {
+    question: "When does a matrix inverse exist?",
+    answer: "A matrix inverse exists only when the determinant of the matrix is not zero."
+  },
+  {
+    question: "What does matrix rank represent?",
+    answer: "Matrix rank represents the number of linearly independent rows or columns in the matrix."
+  }
+]}
+
       />
 
       
@@ -190,16 +229,7 @@ Number of independent rows`}
                           ))}
                       </div>
                   </section>
-                  <StructuredData
-  calculatorKey="matrix"
-  pageTitle="Matrix Calculator"
-  pageUrl={`${SITE_URL}/utility/matrix-calculator`}
-  breadcrumbs={[
-    { name: "Home", url: SITE_URL },
-    { name: "Utility Calculators", url: `${SITE_URL}/utility` },
-    { name: "Matrix Calculator", url: `${SITE_URL}/utility/matrix-calculator` },
-  ]}
-/>
+  
 
     </section>
   );

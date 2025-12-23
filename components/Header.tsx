@@ -16,7 +16,7 @@ export function Header() {
         </Link>
 
         {/* DESKTOP NAV */}
-        <nav className="hidden md:flex items-center gap-6 text-sm">
+        <nav className="hidden md:flex font-semibold items-center gap-6 text-sm">
           <Link href="/financial" className="hover:text-blue-600 transition">Financial</Link>
           <Link href="/health" className="hover:text-blue-600 transition">Health</Link>
           <Link href="/utility" className="hover:text-blue-600 transition">Utility</Link>

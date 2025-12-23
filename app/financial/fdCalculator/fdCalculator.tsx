@@ -43,9 +43,10 @@ export default function FDCalculatorPage() {
     <section className="max-w-3xl mx-auto">
 
       <CalculatorHeader
-        title="FD Calculator"
-        description="Compute the maturity amount and interest earned on a Fixed Deposit. This calculator factors in principal, interest rate, duration, and compounding frequency. Compare FD returns across banks and plan secure, fixed-income investments easily."
+        title="FD Calculator (Fixed Deposit Calculator)"
+        description="Use this FD calculator to calculate fixed deposit maturity value and interest earned based on deposit amount, interest rate, tenure, and compounding frequency. Ideal for comparing bank FD returns and planning safe investments."
       />
+
 
       {/* INPUT SECTION */}
       <Card className="p-6 mb-6">
@@ -123,6 +124,32 @@ export default function FDCalculatorPage() {
           "Interest is added back every compounding period."
         ]}
       />
+
+        <Card className="p-6 mt-10 text-gray-700">
+  <h2 className="text-xl text-blue-700 font-semibold">
+    What is a Fixed Deposit (FD)?
+  </h2>
+
+  <p>
+    A Fixed Deposit (FD) is a popular investment option offered by banks and
+    financial institutions in India. It allows investors to deposit a lump sum
+    amount for a fixed tenure at a predetermined interest rate, providing
+    guaranteed returns.
+  </p>
+
+  <p>
+    FD calculators help estimate the maturity value and total interest earned
+    before investing. This makes it easier to compare FD schemes across banks
+    and choose the best option based on interest rates and tenure.
+  </p>
+
+  <p>
+    Since FD returns are predictable and low-risk, they are widely used for
+    short-term and long-term financial planning, especially by conservative
+    investors and senior citizens.
+  </p>
+</Card>
+
 
       <CalculatorFAQ
         items={[

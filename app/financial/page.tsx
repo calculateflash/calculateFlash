@@ -69,7 +69,7 @@ export default function FinancialPage() {
       <CalculatorCard
         title="Compound Interest Calculator"
         description="Future value of compounded investment."
-        href="/financial/compundCalculator"
+        href="/financial/compoundCalculator"
         gradient="from-indigo-500 to-indigo-700"
       />
 

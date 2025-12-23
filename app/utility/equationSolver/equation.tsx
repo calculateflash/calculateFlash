@@ -9,9 +9,7 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { utilityRelatedCalculatorsMap } from "../lib/utilityRelatedCalculators";
-import StructuredData from "@/lib/StructuredData";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 
 const related = utilityRelatedCalculatorsMap.equationSolver;
 import {
@@ -196,8 +194,8 @@ export default function EquationSolverPage() {
     <section className="max-w-3xl mx-auto">
 
       <CalculatorHeader
-        title="Equation Solver"
-        description="Solve linear, quadratic, cubic, and higher-degree polynomial equations with accurate step-by-step calculations."
+        title="Equation Solver Online"
+        description="Solve linear, quadratic, cubic, and higher-degree polynomial equations online with detailed step-by-step solutions and graphical visualization."
       />
 
       <Card className="p-6 space-y-4 mb-6">
@@ -307,31 +305,59 @@ export default function EquationSolverPage() {
         </>
       )}
 
+      <Card className="p-6 mt-10 text-gray-700">
+  <h2 className="text-xl text-blue-700 font-semibold">
+    What is an Equation Solver?
+  </h2>
+
+  <p>
+    An equation solver is an online tool that helps find the value of variables
+    that satisfy a mathematical equation. It is commonly used to solve linear,
+    quadratic, cubic, and higher-degree polynomial equations accurately.
+  </p>
+
+  <p>
+    This equation solver is especially useful for students studying algebra,
+    engineering, and mathematics, as well as for exam preparation and homework
+    verification.
+  </p>
+
+  <p>
+    By following standard algebraic and numerical methods, the solver produces
+    reliable results that match textbook solutions.
+  </p>
+</Card>
+
+
       <CalculatorFAQ
         items={[
-          {
-            question: "Why are roots repeated in explanation and above?",
-            answer:
-              "Roots are shown visually and textually for better understanding."
-          },
-          {
-            question: "Why are numerical methods used for expressions?",
-            answer:
-              "Symbolic steps vary by equation; numerical methods are reliable."
-          },
-          {
-            question: "Can I solve equations with decimals?",
-            answer: "Yes, decimal and negative values are supported."
-          },
-          {
-            question: "Is this solver suitable for students?",
-            answer: "Yes, steps are written clearly."
-          },
-          {
-            question: "Is the math accurate?",
-            answer: "Yes, standard polynomial-solving methods are used."
-          },
-        ]}
+  {
+    question: "What types of equations can this solver handle?",
+    answer:
+      "This solver supports linear, quadratic, cubic, and higher-degree polynomial equations."
+  },
+  {
+    question: "Does this equation solver show step-by-step solutions?",
+    answer:
+      "Yes, the solver displays detailed step-by-step calculations for better understanding."
+  },
+  {
+    question: "Can I solve equations with decimal or negative values?",
+    answer:
+      "Yes, both decimal and negative coefficients are fully supported."
+  },
+  {
+    question: "Is this equation solver suitable for students?",
+    answer:
+      "Yes, it is designed for students and follows standard algebra and exam-level methods."
+  },
+  {
+    question: "How accurate are the results?",
+    answer:
+      "The solver uses established mathematical formulas and numerical methods to ensure accuracy."
+  }
+]}
+
       />
 <section className="mt-12">
                       <h2 className="text-xl font-semibold mb-6">
@@ -344,16 +370,7 @@ export default function EquationSolverPage() {
                           ))}
                       </div>
                   </section>
-                  <StructuredData
-  calculatorKey="equationSolver"
-  pageTitle="Equation Solver"
-  pageUrl={`${SITE_URL}/utility/equation-solver`}
-  breadcrumbs={[
-    { name: "Home", url: SITE_URL },
-    { name: "Utility Calculators", url: `${SITE_URL}/utility` },
-    { name: "Equation Solver", url: `${SITE_URL}/utility/equation-solver` },
-  ]}
-/>
+  
 
     </section>
   );

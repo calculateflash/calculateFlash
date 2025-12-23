@@ -24,6 +24,7 @@ export default function EMICalculatorPage() {
   const [interestRate, setInterestRate] = useState<number | "">(10);
   const [loanTenure, setLoanTenure] = useState<number | "">(12);
 
+
   const [result, setResult] = useState<{
     emi: number;
     totalInterest: number;
@@ -31,10 +32,26 @@ export default function EMICalculatorPage() {
   } | null>(null);
 
   const handleCalculate = () => {
+  // Basic validations
+  if (!loanAmount || Number(loanAmount) <= 0) {
+    alert("⚠️ Please enter a valid loan amount");
+    return;
+  }
+
+  if (!interestRate || Number(interestRate) <= 0) {
+    alert("⚠️ Please enter a valid interest rate");
+    return;
+  }
+
+  if (!loanTenure || Number(loanTenure) <= 0) {
+    alert("⚠️ Please enter a valid loan tenure");
+    return;
+  }
+
   const output = calculateEMI({
-    loanAmount: Number(loanAmount) || 0,
-    annualRate: Number(interestRate) || 0,
-    tenureMonths: Number(loanTenure) || 0,
+    loanAmount: Number(loanAmount),
+    annualRate: Number(interestRate),
+    tenureMonths: Number(loanTenure),
   });
 
   setResult(output);
@@ -156,7 +173,17 @@ export default function EMICalculatorPage() {
           ))}
       </div>
       </section>
+      {/* STRUCTURED DATA */}
+        <StructuredData
+          calculatorKey="emi"
+          pageTitle="Emi Calculator"
+          pageUrl={`${SITE_URL}/financial/emiCalculator`}
+          breadcrumbs={[
+            { name: "Home", url: SITE_URL },
+            { name: "Financial Calculators", url: `${SITE_URL}/financial` },
+            { name: "Emi Calculator", url: `${SITE_URL}/financial/emiCalculator` },
+          ]}
+        />
     </section>
-
   );
 }

@@ -114,28 +114,39 @@ export const calculatorSchemaMap: Record<
   },
 
   compoundCalculator: {
-    faq: [
-      {
-        question: "What is compound interest?",
-        answer:
-          "Compound interest is interest calculated on both principal and accumulated interest.",
-      },
-      {
-        question: "Why is compounding important?",
-        answer:
-          "Compounding helps investments grow faster over long periods.",
-      },
-    ],
-    howTo: {
-      name: "How to Calculate Compound Interest",
-      steps: [
-        { text: "Enter principal amount" },
-        { text: "Enter interest rate" },
-        { text: "Select compounding frequency" },
-        { text: "View compounded value" },
-      ],
+  faq: [
+    {
+      question: "What is a compound interest calculator?",
+      answer:
+        "A compound interest calculator helps calculate interest where interest is added to the principal and future interest is earned on both principal and accumulated interest."
     },
-  },
+    {
+      question: "Why use date-based compound interest calculation?",
+      answer:
+        "Date-based calculation uses the exact duration between investment dates, improving accuracy compared to manual year entry."
+    },
+    {
+      question: "How does compounding frequency affect returns?",
+      answer:
+        "More frequent compounding increases returns because interest is added to the principal more often."
+    },
+    {
+      question: "Is compound interest better than simple interest?",
+      answer:
+        "Yes, compound interest generates higher returns over time because interest earns interest."
+    }
+  ],
+  howTo: {
+    name: "How to Calculate Compound Interest Using Dates",
+    steps: [
+      { text: "Enter the principal amount." },
+      { text: "Enter the annual interest rate." },
+      { text: "Select start and end dates." },
+      { text: "Choose compounding frequency." },
+      { text: "Click calculate to get interest and total amount." }
+    ]
+  }
+},
 
   fdCalculator: {
     faq: [

@@ -14,9 +14,7 @@ import { calculatorSeoContentMap } from "../../financial/lib/financeCalculatorSe
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard";
 
 import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
-import StructuredData from "@/lib/StructuredData";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 const related = relatedCalculatorsMap.sipCalculator;
 
 export const metadata: Metadata = {
@@ -24,7 +22,7 @@ export const metadata: Metadata = {
   description:
     "Free SIP Calculator to calculate future value, total investment, and estimated returns on monthly SIP investments in India.",
   alternates: {
-    canonical: `${process.env.website_url}/financial/sipCalculator`,
+    canonical: `${process.env.PUBLIC_SITE_URL}/financial/sipCalculator`,
   },
 };
 
@@ -56,23 +54,12 @@ export default function SIPCalculatorPage() {
 
   return (
     <>
-
-    {/* <StructuredData
-      calculatorKey="sipCalculator"
-      pageTitle="SIP Calculator"
-      pageUrl={`${SITE_URL}/financial/sipCalculator`}
-      breadcrumbs={[
-        { name: "Home", url: SITE_URL },
-        { name: "Financial Calculators", url: `${SITE_URL}/financial` },
-        { name: "SIP Calculator", url: `${SITE_URL}/financial/sipCalculator` },
-      ]}
-    /> */}
-
     <section className="max-w-3xl mx-auto">
       <CalculatorHeader
-        title="SIP Calculator"
-        description="Estimate how much wealth you can build through monthly SIP investments. This calculator shows the future value of your SIP based on expected returns and time period. Understand long-term compounding and plan systematic investments smarter."
-      />
+  title="SIP Calculator (Mutual Fund SIP Calculator)"
+  description="Use this SIP calculator to estimate future value, total investment, and returns from monthly mutual fund SIPs. Understand long-term compounding and plan systematic investments confidently."
+/>
+
 
       {/* INPUT CARD */}
       <Card className="p-6 mb-6">
@@ -135,6 +122,31 @@ export default function SIPCalculatorPage() {
         steps={calculatorSeoContentMap.sipCalculator.steps}
       />
 
+      <Card className="p-6 mt-10 text-gray-700">
+  <h2 className="text-xl text-blue-700 font-semibold">
+    What is SIP Investment?
+  </h2>
+
+  <p>
+    SIP (Systematic Investment Plan) is a disciplined way of investing in mutual
+    funds where you invest a fixed amount every month. SIPs help investors build
+    long-term wealth by benefiting from compounding and rupee cost averaging.
+  </p>
+
+  <p>
+    SIP calculators help estimate the future value of investments based on
+    monthly contribution, expected returns, and time horizon. This allows
+    investors to plan financial goals such as retirement, education, or wealth
+    creation more effectively.
+  </p>
+
+  <p>
+    Due to flexibility and long-term growth potential, SIPs are one of the most
+    popular investment options in India.
+  </p>
+</Card>
+
+
       <CalculatorFAQ
         items={[
           {
@@ -177,17 +189,7 @@ export default function SIPCalculatorPage() {
       </div>
       </section>
 
-      <StructuredData
-        calculatorKey="sip"
-        pageTitle="SIP Calculator"
-        pageUrl={`${SITE_URL}/financial/sip-calculator`}
-        breadcrumbs={[
-          { name: "Home", url: SITE_URL },
-          { name: "Financial Calculators", url: `${SITE_URL}/financial` },
-          { name: "SIP Calculator", url: `${SITE_URL}/financial/sip-calculator` },
-        ]}
-      />
-
+      
       
     </section>
     </>

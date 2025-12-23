@@ -14,9 +14,6 @@ import { calculateSimpleInterest } from "./lib/simplecalculate";
 
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard";
 import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
-import StructuredData from "@/lib/StructuredData";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 const related = relatedCalculatorsMap.simpleInterest;
 
 export default function SimpleInterestCalculatorPage() {
@@ -33,6 +30,8 @@ export default function SimpleInterestCalculatorPage() {
   } | null>(null);
 
   const handleCalculate = () => {
+
+    if(endDate <= startDate) alert("⚠️End date must be greater than the start date")
     const output = calculateSimpleInterest({
       principal: Number(principal) || 0,
       annualRate: Number(annualRate) || 0,
@@ -138,6 +137,30 @@ export default function SimpleInterestCalculatorPage() {
         ]}
       />
 
+        <Card className="p-6 mt-10 text-gray-700">
+  <h2 className="text-xl text-blue-700 font-semibold">
+    What is Simple Interest?
+  </h2>
+
+  <p>
+    Simple interest is a method of calculating interest where interest is
+    charged only on the principal amount. Unlike compound interest, the interest
+    earned does not get added back to the principal for future calculations.
+  </p>
+
+  <p>
+    This simple interest calculator uses exact start and end dates to determine
+    the precise interest period. This makes it especially useful for short-term
+    loans, legal interest calculations, and educational purposes.
+  </p>
+
+  <p>
+    Because of its transparency and predictability, simple interest is still
+    widely used in many financial and non-banking scenarios.
+  </p>
+</Card>
+
+
       <CalculatorFAQ
         items={[
           {
@@ -180,18 +203,6 @@ export default function SimpleInterestCalculatorPage() {
           ))}
         </div>
       </section>
-
-      {/* STRUCTURED DATA */}
-      <StructuredData
-        calculatorKey="simpleInterest"
-        pageTitle="Simple Interest Calculator"
-        pageUrl={`${SITE_URL}/financial/simple-interest-calculator`}
-        breadcrumbs={[
-          { name: "Home", url: SITE_URL },
-          { name: "Financial Calculators", url: `${SITE_URL}/financial` },
-          { name: "Simple Interest Calculator", url: `${SITE_URL}/financial/simple-interest-calculator` },
-        ]}
-      />
 
     </section>
   );

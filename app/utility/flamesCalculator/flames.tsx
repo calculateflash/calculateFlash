@@ -12,9 +12,6 @@ import { calculateFlames, FlamesResult } from "./lib/flamesCalculate";
 
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { utilityRelatedCalculatorsMap } from "../lib/utilityRelatedCalculators";
-import StructuredData from "@/lib/StructuredData";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 
 const related = utilityRelatedCalculatorsMap.flamesCalculator;
 const resultStyles: Record<FlamesResult, string> = {
@@ -50,8 +47,9 @@ export default function FlamesCalculatorPage() {
 
       <CalculatorHeader
         title="FLAMES Love Calculator"
-        description="Find out your relationship status using the classic FLAMES game. Enter two names and discover whether your bond is friendship, love, marriage, or more."
+        description="The FLAMES calculator is a fun and popular way to check relationship compatibility between two names. Enter any two names to discover whether your connection represents Friendship, Love, Affection, Marriage, Enmity, or Siblings using the traditional FLAMES game."
       />
+
 
       {/* INPUT */}
       <Card className="p-6 mb-6 space-y-4">
@@ -93,71 +91,84 @@ export default function FlamesCalculatorPage() {
 
       {/* EXPLANATION */}
       <CalculatorExplanation
-        title="How FLAMES Calculator Works?"
-        description="FLAMES is a fun relationship game based on eliminating common letters between two names."
+        title="How Does the FLAMES Calculator Work?"
+        description="The FLAMES calculator follows a traditional name-matching method that has been widely used for fun relationship predictions, especially among students and couples."
         steps={[
-          "Remove common letters from both names.",
-          "Count the remaining letters.",
-          "Use the count to eliminate letters from FLAMES.",
-          "Repeat until one letter remains.",
-          "The remaining letter reveals the relationship.",
+          "Both names are first written and common letters between them are removed.",
+          "The remaining letters from both names are counted together.",
+          "The total count is then used to eliminate letters from the word FLAMES in a circular pattern.",
+          "This elimination process continues until only one letter remains.",
+          "The final remaining letter represents the relationship outcome."
         ]}
       />
+<Card className="p-6 mt-10 text-gray-700">
+  <h2 className="text-xl text-blue-600 font-semibold">
+    Is the FLAMES Calculator Reliable?
+  </h2>
 
-      {/* FAQ */}
-      <CalculatorFAQ
-        items={[
-          {
-            question: "Is FLAMES calculator accurate?",
-            answer:
-              "FLAMES is a fun game, not a scientific relationship test.",
-          },
-          {
-            question: "What does FLAMES stand for?",
-            answer:
-              "F – Friends, L – Love, A – Affection, M – Marriage, E – Enemy, S – Siblings.",
-          },
-          {
-            question: "Does order of names matter?",
-            answer:
-              "No, the result remains the same regardless of name order.",
-          },
-          {
-            question: "Can I use nicknames?",
-            answer:
-              "Yes, any names can be used for fun results.",
-          },
-          {
-            question: "Is this calculator free?",
-            answer:
-              "Yes, it is completely free to use.",
-          },
-        ]}
+  <p>
+    The FLAMES calculator is mainly used for entertainment and should be taken
+    in a light-hearted way. Many people use it to have fun with friends, check
+    name compatibility, or simply relive childhood games.
+  </p>
+  <p>
+    Unlike random generators, this calculator follows the original FLAMES
+    elimination method, making the result consistent for the same pair of names.
+    However, it does not reflect real-life emotions or relationship outcomes.
+  </p>
+
+  <p>
+    If you are curious about love compatibility or want to enjoy a nostalgic
+    game, the FLAMES calculator is a simple and enjoyable way to explore
+    relationship possibilities.
+  </p>
+</Card>
+
+
+
+  {/* FAQ */}
+  <CalculatorFAQ
+    items={[
+  {
+    question: "What is a FLAMES calculator?",
+    answer:
+      "A FLAMES calculator is a fun relationship prediction tool that uses two names to determine compatibility based on the traditional FLAMES game."
+  },
+  {
+    question: "Is the FLAMES calculator accurate?",
+    answer:
+      "No, the FLAMES calculator is not scientifically accurate. It is meant only for entertainment and nostalgic fun."
+  },
+  {
+    question: "Can I use any names in the FLAMES calculator?",
+    answer:
+      "Yes, you can use real names, nicknames, or any words. The calculator works the same way for all inputs."
+  },
+  {
+    question: "Does the order of names affect the FLAMES result?",
+    answer:
+      "No, changing the order of the names does not change the final FLAMES result."
+  },
+  {
+    question: "Why is the FLAMES calculator popular?",
+    answer:
+      "The FLAMES calculator is popular because it is simple, fun, and commonly used as a playful way to explore relationship compatibility."
+  }
+]}
+
       />
 
         <section className="mt-12">
-                              <h2 className="text-xl font-semibold mb-6">
-                                  Some other Calculators
-                              </h2>
-                        
-                              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                  {related.map((calc) => (
-                                  <CalculatorMiniCard key={calc.href} {...calc} />
-                                  ))}
-                              </div>
-                          </section>
-                          <StructuredData
-  calculatorKey="flames"
-  pageTitle="FLAMES Calculator"
-  pageUrl={`${SITE_URL}/utility/flames-calculator`}
-  breadcrumbs={[
-    { name: "Home", url: SITE_URL },
-    { name: "Utility Calculators", url: `${SITE_URL}/utility` },
-    { name: "FLAMES Calculator", url: `${SITE_URL}/utility/flames-calculator` },
-  ]}
-/>
-
-
+          <h2 className="text-xl font-semibold mb-6">
+              Some other Calculators
+          </h2>
+    
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {related.map((calc) => (
+              <CalculatorMiniCard key={calc.href} {...calc} />
+              ))}
+          </div>
+      </section>
     </section>
   );
 }

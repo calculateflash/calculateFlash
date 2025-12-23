@@ -14,8 +14,6 @@ import { CalculatorFAQ } from "@/components/calculators/CalculatorFAQ";
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { utilityRelatedCalculatorsMap } from "../lib/utilityRelatedCalculators";
 
-import StructuredData from "@/lib/StructuredData";
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 const related = utilityRelatedCalculatorsMap.qrCodeGenerator;
 export default function QRCodeGeneratorPage() {
   const [text, setText] = useState<string>("");
@@ -41,9 +39,10 @@ export default function QRCodeGeneratorPage() {
     <section className="max-w-3xl mx-auto">
 
       <CalculatorHeader
-        title="QR Code Generator"
-        description="Generate a QR code from any text or URL. Works fully offline and supports PNG download."
+        title="QR Code Generator Online"
+        description="Create QR codes instantly for text, URLs, and messages using this free QR code generator. Works offline and allows quick PNG download."
       />
+
 
       {/* INPUT CARD */}
       <Card className="p-6 mb-6">
@@ -97,22 +96,59 @@ export default function QRCodeGeneratorPage() {
         ]}
       />
 
+    <Card className="p-6 mt-10 text-gray-700">
+  <h2 className="text-xl text-blue-700 font-semibold">
+    What is a QR Code Generator?
+  </h2>
+
+  <p>
+    A QR code generator is a tool that converts text, links, or messages into a
+    scannable QR code. QR codes can be scanned using smartphone cameras and are
+    widely used for sharing websites, contact details, payment links, and more.
+  </p>
+
+  <p>
+    This free QR code generator works completely offline, ensuring privacy and
+    instant generation without storing any data on servers.
+  </p>
+
+  <p>
+    You can generate unlimited QR codes and download them as PNG images for use
+    in posters, websites, visiting cards, or digital sharing.
+  </p>
+</Card>
+
+
       {/* FAQ Section */}
       <CalculatorFAQ
         items={[
-          {
-            question: "Can I generate QR codes for website links?",
-            answer: "Yes, any URL can be converted."
-          },
-          {
-            question: "Does this require internet?",
-            answer: "No. It works fully offline."
-          },
-          {
-            question: "Is there any usage limit?",
-            answer: "No. Generate unlimited QR codes."
-          }
-        ]}
+  {
+    question: "What is a QR code generator?",
+    answer:
+      "A QR code generator is a tool that converts text, URLs, or messages into a scannable QR code that can be read using smartphone cameras."
+  },
+  {
+    question: "Can I generate QR codes for website links?",
+    answer:
+      "Yes, you can generate QR codes for any website URL, text, or message."
+  },
+  {
+    question: "Does this QR code generator work offline?",
+    answer:
+      "Yes, this tool works fully offline and does not require an internet connection."
+  },
+  {
+    question: "Is there any limit on QR code generation?",
+    answer:
+      "No, you can generate unlimited QR codes for free."
+  },
+  {
+    question: "Can I download the QR code image?",
+    answer:
+      "Yes, generated QR codes can be downloaded as PNG images."
+  }
+]}
+
       />
 <section className="mt-12">
                       <h2 className="text-xl font-semibold mb-6">
@@ -125,16 +161,7 @@ export default function QRCodeGeneratorPage() {
                           ))}
                       </div>
                   </section>
-                <StructuredData
-  calculatorKey="qrCode"
-  pageTitle="QR Code Generator"
-  pageUrl={`${SITE_URL}/utility/qr-code-generator`}
-  breadcrumbs={[
-    { name: "Home", url: SITE_URL },
-    { name: "Utility Calculators", url: `${SITE_URL}/utility` },
-    { name: "QR Code Generator", url: `${SITE_URL}/utility/qr-code-generator` },
-  ]}
-/>
+  
 
     </section>
   );

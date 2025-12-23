@@ -16,9 +16,6 @@ import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { healthRelatedCalculatorsMap } from "../lib/healthRelatedCalculators";
 const related = healthRelatedCalculatorsMap.bodyFatCalculator;
 
-import StructuredData from "@/lib/StructuredData";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 export default function BodyFatCalculatorPage() {
   const [height, setHeight] = useState<number | "">(170);
   const [neck, setNeck] = useState<number | "">(35);
@@ -45,21 +42,13 @@ export default function BodyFatCalculatorPage() {
 
   return (
     <section className="max-w-3xl mx-auto">
-       <StructuredData
-        calculatorKey="bodyFat"
-        pageTitle="Body Fat Calculator"
-        pageUrl={`${SITE_URL}/health/body-fat-calculator`}
-        breadcrumbs={[
-          { name: "Home", url: SITE_URL },
-          { name: "Health Calculators", url: `${SITE_URL}/health` },
-          { name: "Body Fat Calculator", url: `${SITE_URL}/health/body-fat-calculator` },
-        ]}
-      />
+       
 
       <CalculatorHeader
-        title="Body Fat Percentage Calculator"
-        description="Calculate your body fat percentage using the U.S. Navy Method, which uses body measurements to estimate body composition. This method provides a quick and practical way to understand your fat levels and fitness category."
-      />
+  title="Body Fat Percentage Calculator"
+  description="Use this body fat calculator to estimate body fat percentage for men and women using the U.S. Navy Method. Understand your fitness level and body composition accurately."
+/>
+
 
       {/* INPUT CARD */}
       <Card className="p-6 mb-6">
@@ -142,6 +131,31 @@ Body Fat % = 163.205 × log10(waist + hip − neck) − 97.684 × log10(height) 
           "Use the results to understand your fitness level and track progress."
         ]}
       />
+
+        <Card className="p-6 mt-10 text-gray-700">
+  <h2 className="text-xl text-blue-700 font-semibold">
+    What is Body Fat Percentage?
+  </h2>
+
+  <p>
+    Body fat percentage represents the proportion of fat in your body compared
+    to your total body weight. Unlike BMI, body fat percentage provides a more
+    accurate picture of physical fitness and health.
+  </p>
+
+  <p>
+    This body fat calculator uses the U.S. Navy Method, which relies on simple
+    body measurements such as height, waist, neck, and hip (for women). It is
+    widely used because it is practical, quick, and more accurate than weight-based
+    formulas.
+  </p>
+
+  <p>
+    Tracking body fat percentage can help monitor fitness progress, guide weight
+    loss goals, and improve overall health awareness.
+  </p>
+</Card>
+
 
       {/* FAQ SECTION */}
       <CalculatorFAQ

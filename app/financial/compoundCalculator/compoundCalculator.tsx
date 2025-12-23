@@ -14,9 +14,6 @@ import { calculateCompoundInterest } from "./lib/compundCalculate";
 
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard";
 import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
-import StructuredData from "@/lib/StructuredData";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 const related = relatedCalculatorsMap.compoundCalculator;
 
 export default function CompoundInterestCalculatorPage() {
@@ -35,14 +32,21 @@ export default function CompoundInterestCalculatorPage() {
   } | null>(null);
 
   const handleCalculate = () => {
-    const output = calculateCompoundInterest({
-      principal: Number(principal) || 0,
-      annualRate: Number(annualRate) || 0,
-      startDate,
-      endDate,
-      compounding,
-    });
+  const start = new Date(startDate);
+  const end = new Date(endDate);
 
+  if (end < start) {
+    alert("⚠️ End date must be after the start date");
+    return;
+  }
+
+  const output = calculateCompoundInterest({
+    principal: Number(principal) || 0,
+    annualRate: Number(annualRate) || 0,
+    startDate,
+    endDate,
+    compounding,
+  });
     setResult(output);
   };
 
@@ -51,8 +55,9 @@ export default function CompoundInterestCalculatorPage() {
 
       <CalculatorHeader
         title="Compound Interest Calculator"
-        description="Calculate compound interest using exact investment dates instead of manual year entry. This calculator shows how your money grows over time based on compounding frequency, interest rate, and precise duration between start and end dates."
+        description="Use this compound interest calculator to calculate investment growth using exact start and end dates. Compare returns based on compounding frequency, interest rate, and precise duration."
       />
+
 
       {/* INPUT SECTION */}
       <Card className="p-6 mb-6">
@@ -165,6 +170,32 @@ t = Time period in years (calculated from dates)`}
         ]}
       />
 
+        <Card className="p-6 mt-10 text-gray-700">
+  <h2 className="text-xl text-blue-700 font-semibold">
+    What is Compound Interest?
+  </h2>
+
+  <p>
+    Compound interest is a method of calculating interest where interest is added
+    to the principal amount, and future interest is calculated on the increased
+    total. This allows investments to grow faster over time compared to simple
+    interest.
+  </p>
+
+  <p>
+    This compound interest calculator uses exact start and end dates to calculate
+    the precise investment duration. This improves accuracy for both short-term
+    and long-term investments.
+  </p>
+
+  <p>
+    Compound interest is commonly used in fixed deposits, mutual funds, savings
+    accounts, and retirement planning due to its powerful wealth-building
+    potential.
+  </p>
+</Card>
+
+
       <CalculatorFAQ
         items={[
           {
@@ -208,17 +239,7 @@ t = Time period in years (calculated from dates)`}
         </div>
       </section>
 
-      {/* STRUCTURED DATA */}
-      <StructuredData
-        calculatorKey="compoundInterest"
-        pageTitle="Compound Interest Calculator"
-        pageUrl={`${SITE_URL}/financial/compound-interest-calculator`}
-        breadcrumbs={[
-          { name: "Home", url: SITE_URL },
-          { name: "Financial Calculators", url: `${SITE_URL}/financial` },
-          { name: "Compound Interest Calculator", url: `${SITE_URL}/financial/compound-interest-calculator` },
-        ]}
-      />
+      
 
     </section>
   );
