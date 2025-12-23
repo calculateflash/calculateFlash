@@ -221,52 +221,39 @@ export const calculatorSchemaMap: Record<
   },
 
   lumpSumCalculator: {
-    faq: [
-      {
-        question: "What is a lump sum investment?",
-        answer:
-          "A lump sum investment is a one-time investment made at once.",
-      },
-      {
-        question: "Is lump sum better than SIP?",
-        answer:
-          "Lump sum works well when markets are low and capital is available.",
-      },
-    ],
-    howTo: {
-      name: "How to Calculate Lump Sum Returns",
-      steps: [
-        { text: "Enter investment amount" },
-        { text: "Enter expected return rate" },
-        { text: "Select investment duration" },
-        { text: "View future value" },
-      ],
+  faq: [
+    {
+      question: "What is a lump sum calculator?",
+      answer:
+        "A lump sum calculator helps estimate the future value and returns of a one-time investment using compound interest."
     },
-  },
+    {
+      question: "Is lump sum investment better than SIP?",
+      answer:
+        "Lump sum investment can be beneficial when markets are undervalued, while SIP helps average market volatility. The best choice depends on timing and risk tolerance."
+    },
+    {
+      question: "How are lump sum returns calculated?",
+      answer:
+        "Lump sum returns are calculated using the compound interest formula based on investment amount, annual return rate, and duration."
+    },
+    {
+      question: "Is lump sum investment risky?",
+      answer:
+        "Lump sum investments carry market risk, especially in equity funds, but long-term investing can reduce volatility impact."
+    }
+  ],
+  howTo: {
+    name: "How to Calculate Lump Sum Investment Returns",
+    steps: [
+      { text: "Enter the one-time investment amount." },
+      { text: "Enter the expected annual return rate." },
+      { text: "Enter the investment duration in years." },
+      { text: "Click calculate to see future value and interest earned." }
+    ]
+  }
+},
 
-  inflationCalculator: {
-    faq: [
-      {
-        question: "What is inflation?",
-        answer:
-          "Inflation is the rate at which the general level of prices rises over time.",
-      },
-      {
-        question: "How does inflation affect savings?",
-        answer:
-          "Inflation reduces the purchasing power of money over time.",
-      },
-    ],
-    howTo: {
-      name: "How to Calculate Inflation Impact",
-      steps: [
-        { text: "Enter current amount" },
-        { text: "Enter inflation rate" },
-        { text: "Select time duration" },
-        { text: "View reduced purchasing value" },
-      ],
-    },
-  },
 
   loanEligibilityCalculator: {
     faq: [

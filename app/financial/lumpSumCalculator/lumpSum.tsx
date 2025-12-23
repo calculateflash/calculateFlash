@@ -14,9 +14,6 @@ import { calculateLumpSum } from "./lib/lumpsumcalculate";
 
 import { CalculatorMiniCard } from "@/components/CalculatorMiniCard"
 import { relatedCalculatorsMap } from "../lib/financeRelatedCalculators";
-import StructuredData from "@/lib/StructuredData";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 const related = relatedCalculatorsMap.lumpSumCalculator;
 
 export default function LumpSumCalculatorPage() {
@@ -44,8 +41,10 @@ export default function LumpSumCalculatorPage() {
 
       <CalculatorHeader
         title="Lump Sum Calculator"
-        description="Estimate the future value of a one-time investment using compound interest. Understand how principal amount, interest rate, and time period influence your returns. Ideal for mutual funds, retirement planning, and long-term wealth growth."
+        description="Use this lump sum calculator to estimate the future value and returns of a one-time investment using compound interest. Ideal for mutual funds and long-term wealth creation."
       />
+
+
 
       {/* INPUT SECTION */}
       <Card className="p-6 mb-6">
@@ -107,6 +106,29 @@ export default function LumpSumCalculatorPage() {
           "Returns grow exponentially due to compounding."
         ]}
       />
+        <Card className="p-6 mt-10 text-gray-700">
+         <h2 className="text-xl text-blue-700 font-semibold">
+        What is a Lump Sum Investment?
+      </h2>
+
+      <p>
+        A lump sum investment is a one-time investment where the entire amount is
+        invested at once instead of spreading it over time. This type of investment
+        benefits fully from compounding because the entire principal starts earning
+        returns immediately.
+      </p>
+
+      <p>
+        This lump sum calculator helps estimate how your investment grows over time
+        using compound interest. It considers your investment amount, expected annual
+        return, and investment duration to calculate future value and interest earned.
+      </p>
+
+      <p>
+        Lump sum investments are commonly used in mutual funds, fixed deposits,
+        retirement planning, and long-term wealth-building strategies.
+      </p>
+    </Card>
 
       <CalculatorFAQ
         items={[
@@ -148,17 +170,7 @@ export default function LumpSumCalculatorPage() {
                         ))}
                     </div>
                     </section>
-                    <StructuredData
-  calculatorKey="lumpSum"
-  pageTitle="Lump Sum Calculator"
-  pageUrl={`${SITE_URL}/financial/lump-sum-calculator`}
-  breadcrumbs={[
-    { name: "Home", url: SITE_URL },
-    { name: "Financial Calculators", url: `${SITE_URL}/financial` },
-    { name: "Lump Sum Calculator", url: `${SITE_URL}/financial/lump-sum-calculator` },
-  ]}
-/>
-
+    
 
     </section>
   );
