@@ -5,6 +5,9 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 export const metadata: Metadata = {
   title:
     "CalculateFlash – Financial, Health & Utility Calculators Online",
+  icons: {
+    icon: "/icon.png",
+  },
   description:
     "CalculateFlash offers fast, accurate, and easy-to-use calculators for finance, health, and everyday utilities. Use EMI, SIP, BMI, calorie, age, percentage, GST, and many more calculators to make smarter decisions instantly.",
   keywords: [
