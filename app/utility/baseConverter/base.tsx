@@ -129,19 +129,33 @@ Decimal → Hex: number.toString(16)`}
 
       <CalculatorFAQ
         items={[
-          {
-            question: "Does this detect input automatically?",
-            answer: "No. You choose the source type for accuracy."
-          },
-          {
-            question: "Are invalid inputs blocked?",
-            answer: "Yes. The calculator validates based on the source you choose."
-          },
-          {
-            question: "Does it support lowercase hex?",
-            answer: "Yes, both lowercase and uppercase are accepted."
-          }
-        ]}
+  {
+    question: "What is a base converter?",
+    answer:
+      "A base converter is a tool that converts numbers between different number systems such as binary, decimal, and hexadecimal. It is commonly used in computer science, programming, and digital electronics."
+  },
+  {
+    question: "Does this base converter automatically detect the input type?",
+    answer:
+      "No. You must select the source number system manually. This avoids incorrect detection and ensures accurate conversion results."
+  },
+  {
+    question: "Can I convert binary to decimal and hexadecimal at the same time?",
+    answer:
+      "Yes. Once you select the source number system, the calculator automatically converts the value into binary, decimal, and hexadecimal formats."
+  },
+  {
+    question: "Are invalid inputs allowed?",
+    answer:
+      "No. The calculator validates the input based on the selected number system and prevents invalid characters from being converted."
+  },
+  {
+    question: "Does the converter support lowercase and uppercase hexadecimal values?",
+    answer:
+      "Yes. Both lowercase (a–f) and uppercase (A–F) hexadecimal characters are fully supported."
+  }
+]}
+
       />
 <section className="mt-12">
   <h2 className="text-xl font-semibold mb-6">

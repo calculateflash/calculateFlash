@@ -154,32 +154,33 @@ export default function UnitConverterPage() {
 
       <CalculatorFAQ
         items={[
-          {
-            question: "Is this unit converter accurate?",
-            answer:
-              "Yes, it uses internationally accepted conversion standards.",
-          },
-          {
-            question: "Can I convert temperature units?",
-            answer:
-              "Yes, Celsius, Fahrenheit, and Kelvin are supported.",
-          },
-          {
-            question: "Does this work offline?",
-            answer:
-              "Once loaded, it works without internet.",
-          },
-          {
-            question: "Is this calculator free?",
-            answer:
-              "Yes, it is completely free to use.",
-          },
-          {
-            question: "Can more units be added?",
-            answer:
-              "Yes, this converter is designed to be easily extended.",
-          },
-        ]}
+  {
+    question: "How accurate is this unit converter?",
+    answer:
+      "This unit converter uses internationally accepted conversion standards, ensuring accurate and reliable results for all supported unit types."
+  },
+  {
+    question: "Which units can I convert using this tool?",
+    answer:
+      "You can convert commonly used units of length, weight, temperature, and time. The tool is designed for everyday and educational use."
+  },
+  {
+    question: "Can I convert temperature units like Celsius and Fahrenheit?",
+    answer:
+      "Yes. This converter supports temperature conversion between Celsius, Fahrenheit, and Kelvin using standard scientific formulas."
+  },
+  {
+    question: "Does the unit converter work without internet?",
+    answer:
+      "Once the page is loaded, all unit conversions work offline without requiring an internet connection."
+  },
+  {
+    question: "Is this unit converter free to use?",
+    answer:
+      "Yes. This unit converter is completely free and can be used without any limits or sign-up."
+  }
+]}
+
       />
    <section className="mt-12">
                       <h2 className="text-xl font-semibold mb-6">
