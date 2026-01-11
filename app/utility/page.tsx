@@ -27,14 +27,14 @@ export const metadata: Metadata = {
     "online utility tools",
   ],
   alternates: {
-    canonical: `${SITE_URL}/utility`,
+    canonical: '/utility',
   },
   openGraph: {
     title:
       "Utility Calculators – Age, Percentage, GPA, QR Code & More",
     description:
       "Calculate age, date difference, GPA to percentage, generate QR codes, solve equations, calculate salary breakup, GST/VAT, insurance premium, and more using smart utility calculators.",
-    url: `${SITE_URL}/utility`,
+    url: '/utility',
     siteName: "CalculateFlash",
     type: "website",
   },
