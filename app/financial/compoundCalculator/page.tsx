@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "compound interest calculator india"
   ],
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/financial/compound-interest-calculator`,
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/financial/compoundCalculator`,
   },
 };
 
